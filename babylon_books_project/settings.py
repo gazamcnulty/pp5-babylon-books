@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'babylon_books_app',
 ]
 
 MIDDLEWARE = [
@@ -54,12 +55,15 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'babylon_books.urls'
+ROOT_URLCONF = 'babylon_books_project.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'templates', 'allauth'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -73,8 +77,7 @@ TEMPLATES = [
 ]
 
 
-
-WSGI_APPLICATION = 'babylon_books.wsgi.application'
+WSGI_APPLICATION = 'babylon_books_project.wsgi.application'
 
 
 AUTHENTICATION_BACKENDS = (
