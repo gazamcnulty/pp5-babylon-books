@@ -21,7 +21,7 @@
       "**/CVS": true
    },
    "files.autoSave": "off",
-   "workbench.colorTheme": "Ice Contrast",
+   "workbench.colorTheme": "Night Coder Ember Contrast",
    "terminal.integrated.gpuAcceleration": "canvas",
    "editor.defaultFormatter": "HookyQR.beautify"
 }
