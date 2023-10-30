@@ -14,3 +14,7 @@ def login(request):
 
 def books(request):
     return render(request, 'books.html')
+
+
+def about(request):
+    return render(request, 'about.html')
