@@ -16,14 +16,13 @@
   </head>
   <body>
     <header class="container-fluid fixed-top">
-
+      <!--navbar template rendered here--> 
+      {% include 'navbar.html' %}
     </header>
     {% if messages %}
         <div class="message-container"></div>
     {% endif %}
 
-    {% block page_header %}
-    {% endblock %}
 
     {% block content %}
     {% endblock %}

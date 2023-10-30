@@ -4,5 +4,13 @@ from . import views
 # Create your views here.
 
 
-def index(request):
-    return render(request, 'babylon_books_app/index.html')
+def homepage(request):
+    return render(request, 'index.html')
+
+
+def login(request):
+    return render(request, 'login.html')
+
+
+def books(request):
+    return render(request, 'books.html')
