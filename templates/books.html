@@ -11,8 +11,10 @@
                     <p class="text-center m-2">The Count of Monte Cristo</p>
                 </div>
                 <div class="col-3 mx-auto">
-                    <img src="../static/images/crime.png" alt="Crime and Punishment">
-                    <p class="text-center m-2">Crime and Punishment</p>
+                    {% for book in page_obj %}
+                        <p>{{ book.title }}</p>
+                        <p>{{ book.description }}</p>
+                    {% endfor %}
                 </div>
                 <div class="col-3 mx-auto">
                     <img src="../static/images/alice.jpg" alt="Alice in Wonderland">
