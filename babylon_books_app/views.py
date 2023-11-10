@@ -1,5 +1,9 @@
+from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponse
+from django.contrib import messages
 from django.shortcuts import render
-from . import views
+from . import views 
+from .models import Author , Book
 
 # Create your views here.
 
@@ -13,7 +17,11 @@ def login(request):
 
 
 def books(request):
-    return render(request, 'books.html')
+    books = Book.objects.all()
+    context = {
+        'books': books
+    }
+    return render(request, 'books.html', context)
 
 
 def about(request):

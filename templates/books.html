@@ -5,21 +5,14 @@
     <div class="row mt-5">
         <div class="col-12 mt-5">
             <h2 class="text-center mt-5">Browse books, buy books, read books!</h2>
-            <div class="row mt-5">
-                <div class="col-3 mx-auto">
-                    <img src="../static/images/count.png" alt="Count of Monte Cristo" width="150px">
-                    <p class="text-center m-2">The Count of Monte Cristo</p>
-                </div>
-                <div class="col-3 mx-auto">
-                    {% for book in page_obj %}
-                        <p>{{ book.title }}</p>
+            <div class="row mt-5 p-5">
+                {% for book in books %}
+                    <div class="col-3 mx-auto p-2">
+                        <h5>{{ book.title }}</h5>
+                        <p>€{{ book.price }}</p>
                         <p>{{ book.description }}</p>
-                    {% endfor %}
-                </div>
-                <div class="col-3 mx-auto">
-                    <img src="../static/images/alice.jpg" alt="Alice in Wonderland">
-                    <p class="text-center m-2">Not registered yet? Click here to create an account</p>
-                </div>
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>
