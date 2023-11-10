@@ -15,6 +15,9 @@ def homepage(request):
 def login(request):
     return render(request, 'login.html')
 
+def logout(request):
+    return render(request, 'logout.html')
+
 
 def books(request):
     books = Book.objects.all()
