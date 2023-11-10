@@ -30,9 +30,18 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'about' %}">About</a>
           </li>
-          {% if request.user.is_authenticated %}
+          {% if request.user.is_superuser %}
           <li class="nav-item">
             <a class="nav-link" href="">Store Management</a>
+          </li>
+          {% endif %}
+          {% if request.user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="">Profile</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'signup' %}">Sign up</a>
           </li>
           {% endif %}
         </ul>

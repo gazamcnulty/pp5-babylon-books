@@ -18,6 +18,9 @@ def login(request):
 def logout(request):
     return render(request, 'logout.html')
 
+def signup(request):
+    return render(request, 'signup.html')
+
 
 def books(request):
     books = Book.objects.all()
