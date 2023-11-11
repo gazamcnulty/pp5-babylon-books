@@ -4,28 +4,37 @@ html,body
     height: 100%;
     margin: 0px;
     padding: 0px;
-    overflow-x: hidden; 
 }
 
 h2 {
     color: green;
 }
 
---------------body----------------
+/*--------------body----------------*/
 
+body {
+    background-image: url("/static/images/books.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size:cover;
 
+}
 
-
-
---------------navbar------------------
-
-navbar {
-    background-color: rgb(143, 50, 50) !important;
-    
+.container {
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 
---------------footer------------------
+
+/*--------------navbar------------------*/
+
+
+.bg-body-tertiary {
+    background-color: rgb(143, 50, 50) !important;
+}
+
+/*--------------footer------------------*/
 
 footer {
     background-color: green !important;
