@@ -7,15 +7,58 @@ html,body
     overflow-x: hidden; 
 }
 
-body {
-    background-color:darkblue;
+h2 {
+    color: green;
+}
+
+--------------body----------------
+
+
+
+
+
+--------------navbar------------------
+
+navbar {
+    background-color: rgb(143, 50, 50) !important;
+    
 }
 
 
-.navbar {
-    background-color:aqua;
+--------------footer------------------
+
+footer {
+    background-color: green !important;
 }
 
-p {
-    color:darkkhaki;
+.footer_space {
+    background-color: rgb(143, 50, 50) !important;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+
 }
+
+.ul_footer {
+    list-style-type: none;
+    text-decoration: none;
+
+}
+
+.contact {
+    line-height: 1.6;
+}
+
+.footer_link {
+    text-decoration: none;
+    color: black;
+}
+
+.footer_link:hover {
+    background-color: rgb(176, 189, 66) !important;
+    color: white !important;
+}
+
+
+
