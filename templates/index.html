@@ -27,7 +27,9 @@
                 {% for book in books %}
                     <div class="home_book col-3 p-1 text-center mb-5">
                         <h5>{{ book.title }}</h5>
+                        <p>{{ book.author }}</p>
                         <p>€{{ book.price }}</p>
+
                     </div>
                 {% endfor %}
             </div>
