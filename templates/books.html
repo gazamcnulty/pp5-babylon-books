@@ -2,12 +2,13 @@
 {% load static %}
 
 {% block content %}
+<section class="container">
     <div class="row mt-5">
         <div class="col-12 mt-5">
             <h2 class="text-center mt-5">Browse books, buy books, read books!</h2>
-            <div class="row mt-5 p-5">
+            <div class="row text-center mb-5">
                 {% for book in books %}
-                    <div class="col-3 mx-auto p-2">
+                    <div class="book_tile col-8 p-1 m-3">
                         <h5>{{ book.title }}</h5>
                         <p>€{{ book.price }}</p>
                         <p>{{ book.description }}</p>
@@ -16,4 +17,5 @@
             </div>
         </div>
     </div>
+</section>
 {% endblock %}
