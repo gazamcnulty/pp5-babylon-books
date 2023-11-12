@@ -23,9 +23,12 @@ h2 {
     font-weight: bold;
 }
 
+h4 {
+    color: white !important;
+}
+
 h5 {
     color: rgb(255, 174, 0);
-
 }
 
 p {
@@ -87,12 +90,19 @@ body {
 
 }
 
+/*.home_book {
+    margin: 20px !important;
+} */
+
 /*.container {
     background-color: rgba(255, 255, 255, 0.5) !important;
 }*/
 
 /*--------------footer------------------*/
 
+footer {
+    margin-top: 500px;
+}
 
 .footer_space {
     color: white;

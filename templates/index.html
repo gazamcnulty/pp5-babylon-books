@@ -5,8 +5,8 @@
 <section>
     <div class="row gx-0 mt-5">
         <div id="headup" class="col-12 mt-5">
-            <h2 class="text-center mt-5">Welcome to Babylon Books</h2>
-            <div class="row gx-0 mt-5">
+            <h2 class="text-center my-5">Welcome to Babylon Books</h2>
+            <div class="row gx-0 my-5">
                 <div class="col-4 mx-auto">
                     <p class="quote text-center m-2">"A reader lives a thousand lives before he dies...The man who never reads lives only one" <br> George R.R. Martin</p>
                 </div>
@@ -15,10 +15,23 @@
                 </div>
             </div>
             <div class="row gx-0">
-                <div class="col-12 text-center">
+                <div class="col-12 text-center my-5">
                         <a href="{% url 'books' %}" class="mx-auto p-4"><button type="button" class="btn btn-warning btn-lg mx-auto p-2">Browse books now!</button></a>
                 </div>
             </div>
+        </div>
+            <div class="row mx-auto my-5">
+                <div class="col-12">
+                    <h4 class="ms-4 ps-5">Check out some of our new additions</h4>
+                </div>
+                {% for book in books %}
+                    <div class="home_book col-3 p-1 text-center mb-5">
+                        <h5>{{ book.title }}</h5>
+                        <p>€{{ book.price }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+
         </div>
     </div>
 </section>

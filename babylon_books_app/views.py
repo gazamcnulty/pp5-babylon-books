@@ -9,7 +9,11 @@ from .models import Author , Book
 
 
 def homepage(request):
-    return render(request, 'index.html')
+    books = Book.objects.all()
+    context = {
+        'books': books
+    }
+    return render(request, 'index.html', context)
 
 
 def login(request):
