@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section>
+    <div class="row">
+        <div class="col-12">
+            <h2>Search results:</h2>
+            {% if search_response %}
+                {% for book in books %}
+                    <div class="book_tile col-8 p-1 m-3">
+                        <a href="{% url 'book_detail' book.id %}"><h5>{{ book.title }}</h5></a>
+                        <p>{{ book.author }}</p>
+                        <p>€{{ book.price }}</p>
+                        <p>{{ book.description }}</p>
+                    </div>
+                {% endfor %}
+                    {% for author in authors %}
+                        <div class="book_tile col-8 p-1 m-3">
+                            <p>{{ author.name }}</p>
+                            <p>{{ author.info }}</p>
+                        </div>
+                    {% endfor %}
+            {% else %}
+                <p>No results found</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}

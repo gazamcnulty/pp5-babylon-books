@@ -52,5 +52,21 @@ def book_detail(request, book_id):
     return render(request, 'book_detail.html', context)
 
 
+def search_results(request):
+    if request.method == "POST":
+        search_response = request.POST['search_response']
+        books = Book.objects.filter(
+            title__icontains=search_response)
+        authors = Author.objects.filter(
+            name__icontains=search_response)
+        return render(request, 'search_results.html',
+                      {'search_response': search_response,
+                       'books':books, 'authors':authors})
+    else:
+        return render(request, 'search_results.html',
+                      {'search_response': search_response}
+                      )
+
+
 def about(request):
     return render(request, 'about.html')
