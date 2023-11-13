@@ -4,10 +4,12 @@
 <section>
     <div class="row text-center mb-5">
         <div class="col-12">
-            <h2>{{book.title}}</h2>
+            <h2>{{ book.title }}</h2>
             <p>{{ book.author }}</p>
             <p>€{{ book.price }}</p>
             <p>{{ book.description }}</p>
+            <p>About the author{{ book.author}}</p>
+            <p>{{ book.author.info }}</p>
         </div>
     </div>
 </section>

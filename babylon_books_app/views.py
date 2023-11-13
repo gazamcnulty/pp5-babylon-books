@@ -52,6 +52,7 @@ def book_detail(request, book_id):
     return render(request, 'book_detail.html', context)
 
 
+
 def search_results(request):
     if request.method == "POST":
         search_response = request.POST['search_response']
