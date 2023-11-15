@@ -87,11 +87,9 @@ def search_results(request):
         search_response = request.POST['search_response']
         books = Book.objects.filter(
             title__icontains=search_response)
-        authors = Author.objects.filter(
-            name__icontains=search_response)
         return render(request, 'search_results.html',
                       {'search_response': search_response,
-                       'books':books, 'authors':authors})
+                       'books':books})
     else:
         return render(request, 'search_results.html',
                       {'search_response': search_response}

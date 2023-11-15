@@ -19,16 +19,6 @@
                 </div>
             </div>
         </div>
-        <div>
-            <ul class="dropdown">
-                <li><a class="dropdown-item" href="{% url 'books' %}sort=price&direction=asc">By Price</a></li>
-                <li><a class="dropdown-item" href="{% url 'books' %}sort=added&direction=asc">Newly Added</a></li>
-                <li><a class="dropdown-item" href="{% url 'books' %}?genre=Classics">Classics</a></li>
-                <li><a class="dropdown-item" href="{% url 'books' %}?genre=Horror" >Horror</a></li>
-                <li><a class="dropdown-item" href="{% url 'books' %}?genre=Scifi" >Scifi</a></li>
-                <li><a class="dropdown-item" href="{% url 'books' %}?genre=Fantasy" >Fantasy</a></li>
-            </ul>
-        </div>
             <div class="row mx-auto my-5">
                 <h4 class="ms-4 ps-5">Check out some of our new additions</h4>
                 {% for book in books %}
