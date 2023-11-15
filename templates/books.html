@@ -26,9 +26,9 @@
                 {% for book in books %}
                     <div class="book_tile col-8 p-1 m-3">
                         <a href="{% url 'book_detail' book.id %}"><h5>{{ book.title }}</h5></a>
-                        <p>{{ book.author }}</p>
+                        <!--<a href="{% url 'books' %}?author={{ book.author.name }}">--><p>{{ book.author }}</p><!--</a>-->
                         <p>€{{ book.price }}</p>
-                        <p>{{ book.genre }}</p>
+                        <a href="{% url 'books' %}?genre={{ book.genre.name }}"><p>{{ book.genre }}</p></a>
                         <p>{{ book.description }}</p>
                     </div>
                 {% endfor %}
