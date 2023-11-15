@@ -14,10 +14,19 @@ class Author(models.Model):
         return self.name
 
 
+class Genre(models.Model):
+    name = models.CharField(max_length=254)
+
+    def __str__(self):
+        return self.name
+
+
 class Book(models.Model):
     title = models.CharField(max_length=254)
     author = models.ForeignKey(
         Author, on_delete=models.SET_NULL, related_name="authors", null=True)
+    genre = models.ForeignKey(
+        Genre, on_delete=models.SET_NULL, related_name="genre", null=True)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     added = models.DateField()
