@@ -8,7 +8,7 @@ from django.db.models import Q
 from django.core.paginator import Paginator
 from django.views.generic import ListView
 from . import views 
-from .models import Author , Book
+from .models import Author , Book , Genre
 
 # Create your views here.
 
@@ -35,8 +35,17 @@ def signup(request):
 
 def books(request):
     books = Book.objects.all()
+    genres = None
+
+    if request.GET:
+        if 'genre' in request.GET:
+            genres = request.GET['genre'].split()
+            books = books.filter(genre__name__in=genres)
+            genres = Genre.objects.filter(name__in=genres)
+
     context = {
-        'books': books
+        'books': books,
+        'current_genre':genres,
     }
     return render(request, 'books.html', context)
 

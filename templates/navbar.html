@@ -24,9 +24,11 @@
               Books
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="{% url 'books' %}">Newest</a></li>
-              <li><a class="dropdown-item" href="{% url 'books' %}">Most Popular</a></li>
-              <li><a class="dropdown-item" href="{% url 'books' %}">Browse All</a></li>
+              <li><a class="dropdown-item" href="{% url 'books' %}">All</a></li>
+              <li><a class="dropdown-item" href="{% url 'books' %}?genre=Classics">Classics</a></li>
+              <li><a class="dropdown-item" href="{% url 'books' %}?genre=Horror" >Horror</a></li>
+              <li><a class="dropdown-item" href="{% url 'books' %}?genre=Scifi" >Scifi</a></li>
+              <li><a class="dropdown-item" href="{% url 'books' %}?genre=Fantasy" >Fantasy</a></li>
             </ul>
           </li>
           <li class="nav-item">

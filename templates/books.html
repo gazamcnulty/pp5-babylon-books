@@ -12,6 +12,7 @@
                         <a href="{% url 'book_detail' book.id %}"><h5>{{ book.title }}</h5></a>
                         <p>{{ book.author }}</p>
                         <p>€{{ book.price }}</p>
+                        <p>{{ book.genre }}</p>
                         <p>{{ book.description }}</p>
                     </div>
                 {% endfor %}
