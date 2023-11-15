@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.db.models.functions import Lower
 from django.shortcuts import render, redirect
 from django.db.models import Q
 from django.core.paginator import Paginator
@@ -36,16 +37,35 @@ def signup(request):
 def books(request):
     books = Book.objects.all()
     genres = None
+    sort = None
+    direction = None
 
     if request.GET:
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if sortkey == 'title':
+                sortkey = 'lower_title'
+                books = books.annotate(lower_title=Lower('title'))
+
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+            books = books.order_by(sortkey)
+
         if 'genre' in request.GET:
             genres = request.GET['genre'].split()
             books = books.filter(genre__name__in=genres)
             genres = Genre.objects.filter(name__in=genres)
 
+
+    current_sorting = f'{sort}_{direction}'
+
     context = {
         'books': books,
         'current_genre':genres,
+        'current_sorting': current_sorting,
     }
     return render(request, 'books.html', context)
 
