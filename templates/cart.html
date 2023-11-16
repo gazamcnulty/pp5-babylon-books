@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="row mt-5">
+        <div class="col-12 mt-5">
+            <h2 class="text-center mt-5">Items in your bag, confirm your purchase!</h2>
+            <div class="row mt-5">
+                <div class="col mx-auto">
+                    <p class="text-center m-2">Cart</p>
+                    {% if cart_items %}
+                        <div></div>
+                    {% else %}
+                        <div class="text-center">
+                            <p>Your cart is empty. Head back to <a href="{% url 'books' %}"> browse books</a> and add to the cart!</p>
+                        </div>
+                    {% endif %}
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+{% endblock %}
