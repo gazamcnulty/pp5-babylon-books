@@ -20,12 +20,12 @@
                     <div class="book_tile text-center">
                     {% for item in cart_items %}
                         {{ item.product.title }}
-                        €{{ item.product.price }}
+                        <p>{{ item.quantity }} x copies, priced at €{{ item.product.price }} each</p>
                     {% endfor %}
                     </div>
                     <div class="book_tile text-center">
                         {% if grand_total %}
-                           <p>Total payable €{{ grand_total|floatformat:2 }} </p> 
+                           <p><strong>Total payable €{{ grand_total|floatformat:2 }} </strong></p> 
                         {% else %}
                             $0.00
                         {% endif %}
