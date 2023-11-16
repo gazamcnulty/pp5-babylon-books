@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.db.models.functions import Lower
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from django.db.models import Q
 from django.core.paginator import Paginator
 from django.views.generic import ListView
@@ -104,17 +104,50 @@ def cart(request):
     return render(request, 'cart.html')
 
 
-def add_to_cart(request, book_id):
+def add_to_cart(request, item_id):
 
 
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     cart = request.session.get('cart', {})
 
-    if book_id in list(cart.keys()):
-        cart[book_id] += quantity
+    if item_id in list(cart.keys()):
+        cart[item_id] += quantity
     else:
-        cart[book_id] = quantity
+        cart[item_id] = quantity
     
     request.session['cart'] = cart
     return redirect(redirect_url)
+
+
+
+def adjust_cart(request, book_id):
+
+
+    quantity = int(request.POST.get('quantity'))
+    cart = request.session.get('cart', {})
+
+    if quantity > 0:
+        cart[book_id] = quantity
+    else:
+        cart.pop(book_id)
+
+    
+    request.session['cart'] = cart
+    return redirect(reverse('cart'))
+
+
+    
+def remove_cart(request, item_id):
+
+    try:
+        cart = request.session.get('cart', {})
+        cart.pop(item_id)
+
+    
+        request.session['cart'] = cart
+        return HttpResponse(status=500)
+    
+    except Exception as e:
+        return HttpResponse(status=500)
+

@@ -64,6 +64,13 @@ body {
 
 
 
+.btt-link,
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
+
+
 
 /*--------------navbar------------------*/
 

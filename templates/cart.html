@@ -20,7 +20,7 @@
                     <div class="book_tile text-center">
                     {% for item in cart_items %}
                         {{ item.product.title }}
-                        <form mehthod="POST" action="">
+                        <form method="POST" action="{% url 'adjust_cart' item.item_id %}">
                             {% csrf_token%}
                             <div class="">
                                 <div class="input-group">
@@ -32,7 +32,7 @@
                                             </span>
                                         </button>
                                     </div>
-                                    <input class="form-control qty_input" type="number" name="quantity" value="{{ item.quantity }}" min="0" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                                    <input class="form-control qty_input" type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
                                     <div class="input-group-append">
                                         <button class="increment-qty btn btn-black rounded-0"
                                             data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
@@ -66,7 +66,7 @@
 
 {% block postloadjs %}
 {{ block.super }}
-{% include 'products/includes/quantity_input_script.html' %}
+{% include '/includes/quantity_input_script.html' %}
 
 <script type="text/javascript">
     // Update quantity on click
@@ -79,9 +79,8 @@
     $('.remove-item').click(function(e) {
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('remove_')[1];
-        var size = $(this).data('size');
-        var url = `/bag/remove/${itemId}`;
-        var data = {'csrfmiddlewaretoken': csrfToken, 'size': size};
+        var url = `/cart/remove/${itemId}/`;
+        var data = {'csrfmiddlewaretoken': csrfToken};
 
         $.post(url, data)
          .done(function() {
