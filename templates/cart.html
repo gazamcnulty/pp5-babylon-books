@@ -10,20 +10,26 @@
                     <p class="text-center m-2">Cart</p>
                     {% if cart_items %}
                         <div>
-                            {{ cart_items }}
+
                         </div>
                     {% else %}
                         <div class="text-center">
                             <p>Your cart is empty. Head back to <a href="{% url 'books' %}"> browse books</a> and add to the cart!</p>
                         </div>
                     {% endif %}
-                    <p class="my-0">
+                    <div class="book_tile text-center">
+                    {% for item in cart_items %}
+                        {{ item.product.title }}
+                        €{{ item.product.price }}
+                    {% endfor %}
+                    </div>
+                    <div class="book_tile text-center">
                         {% if grand_total %}
-                            ${{ grand_total|floatformat:2 }}
+                           <p>Total payable €{{ grand_total|floatformat:2 }} </p> 
                         {% else %}
                             $0.00
                         {% endif %}
-                    </p>
+                    </div>   
                 </div>
                 
             </div>
