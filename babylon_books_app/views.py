@@ -102,3 +102,19 @@ def about(request):
 
 def cart(request):
     return render(request, 'cart.html')
+
+
+def add_to_cart(request, book_id):
+
+
+    quantity = int(request.POST.get('quantity'))
+    redirect_url = request.POST.get('redirect_url')
+    cart = request.session.get('cart', {})
+
+    if book_id in list(cart.keys()):
+        cart[book_id] += quantity
+    else:
+        cart[book_id] = quantity
+    
+    request.session['cart'] = cart
+    return redirect(redirect_url)
