@@ -10,9 +10,9 @@
                     <p class="text-center m-2">Cart</p>
                     {% if bag_items %}
                         <div>
-                            <div class="book_tile text-center">
+                            <div class="book_tile text-center w-25">
                                 {% for item in bag_items %}
-                                    {{ item.product.title }}
+                                    <h4>{{ item.product.title }}</h4>
                                     <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
                                         {% csrf_token%}
                                         <div class="form-group">
@@ -39,7 +39,7 @@
                                     </form>
                                     <a class="update-link text-info"><small>Update</small></a>
                                     <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
-                                    €{{ item.product.price }}
+                                    <p>€{{ item.product.price }}</p>
                                 {% endfor %}
                             </div>
                         </div>
@@ -51,7 +51,7 @@
                     
                     <div class="book_tile text-center">
                         {% if grand_total %}
-                           <p><strong>Total payable €{{ grand_total|floatformat:2 }} </strong></p> 
+                           <p class=""><strong>Total payable €{{ grand_total|floatformat:2 }} </strong></p> 
                         {% else %}
                             $0.00
                         {% endif %}
