@@ -71,7 +71,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'babylon_books_app.contexts.cart_items',
+                'babylon_books_app.contexts.bag_contents',
             ],
         },
     },

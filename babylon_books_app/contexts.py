@@ -3,20 +3,21 @@ from django.conf import settings
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Author , Book , Genre
 
-def cart_items(request):
+#context processor, available site-wide
+def bag_contents(request):
 
-    cart_items = []
+    bag_items = []
     total = 0
     product_count = 0
-    cart = request.session.get('cart', {})
+    bag = request.session.get('bag', {})
 
-    for item_id, quantity in cart.items():
+    for item_id, item_data in bag.items():
         product = get_object_or_404(Book, id=item_id)
-        total += quantity * product.price
-        product_count += quantity
-        cart_items.append({
+        total += item_data * product.price
+        product_count += item_data
+        bag_items.append({
             'item_id':item_id,
-            'quantity':quantity,
+            'quantity':item_data,
             'product': product,
         })
 
@@ -30,7 +31,7 @@ def cart_items(request):
     grand_total = delivery + total
     
     context = {
-        'cart_items': cart_items,
+        'bag_items': bag_items,
         'total': total,
         'product_count': product_count,
         'delivery': delivery,

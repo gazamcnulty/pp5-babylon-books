@@ -11,9 +11,9 @@ urlpatterns = [
     path('book_detail<int:book_id>/', views.book_detail, name='book_detail'),
     path('search_results/', views.search_results, name='search_results'),
     path('about/', views.about, name='about'),
-    path('cart/', views.cart, name='cart'),
-    path('add_to_cart<book_id>/', views.add_to_cart, name='add_to_cart'),
-    path('adjust_cart<book_id>/', views.adjust_cart, name='adjust_cart'),
-    path('remove_cart<book_id>/', views.remove_cart, name='remove_cart')
+    path('bag/', views.bag, name='bag'),
+    path('add_to_bag<item_id>/', views.add_to_bag, name='add_to_bag'),
+    path('adjust_bag<item_id>/', views.adjust_bag, name='adjust_bag'),
+    path('remove_bag<item_id>/', views.remove_bag, name='remove_bag')
    
 ]

@@ -11,7 +11,7 @@
             <p>About the author{{ book.author}}</p>
             <p>{{ book.author.info }}</p>
         </div>
-        <form class="form" action="{% url 'add_to_cart' book.id %}" method="POST">
+        <form class="form" action="{% url 'add_to_bag' book.id %}" method="POST">
             {% csrf_token %}
             <div class="form-row">
                 <div class="col-12">
@@ -46,7 +46,7 @@
                         </span>
                         <span class="text-uppercase">Keep Shopping</span>
                     </a>
-                    <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Bag">
+                    <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="add to Bag" style="color: white;">
                 </div>
                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
             </div>
@@ -57,5 +57,5 @@
 
 {% block postloadjs %}
 {{ block.super }}
-{% include 'products/includes/quantity_input_script.html' %}
+{% include 'includes/quantity_input_script.html' %}
 {% endblock %}

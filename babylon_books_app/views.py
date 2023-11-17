@@ -100,53 +100,53 @@ def about(request):
     return render(request, 'about.html')
 
 
-def cart(request):
-    return render(request, 'cart.html')
+def bag(request):
+    return render(request, 'bag.html')
 
 
-def add_to_cart(request, item_id):
+def add_to_bag(request, item_id):
 
 
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
-    cart = request.session.get('cart', {})
+    bag = request.session.get('bag', {})
 
-    if item_id in list(cart.keys()):
-        cart[item_id] += quantity
+    if item_id in list(bag.keys()):
+        bag[item_id] += quantity
     else:
-        cart[item_id] = quantity
+        bag[item_id] = quantity
     
-    request.session['cart'] = cart
+    request.session['bag'] = bag
     return redirect(redirect_url)
 
 
 
-def adjust_cart(request, book_id):
+def adjust_bag(request, item_id):
 
 
     quantity = int(request.POST.get('quantity'))
-    cart = request.session.get('cart', {})
+    bag = request.session.get('bag', {})
 
     if quantity > 0:
-        cart[book_id] = quantity
+        bag[item_id] = quantity
     else:
-        cart.pop(book_id)
+        bag.pop(item_id)
 
     
-    request.session['cart'] = cart
-    return redirect(reverse('cart'))
+    request.session['bag'] = bag
+    return redirect(reverse('bag'))
 
 
     
-def remove_cart(request, item_id):
+def remove_bag(request, item_id):
 
     try:
-        cart = request.session.get('cart', {})
-        cart.pop(item_id)
+        bag = request.session.get('bag', {})
+        bag.pop(item_id)
 
     
-        request.session['cart'] = cart
-        return HttpResponse(status=500)
+        request.session['bag'] = bag
+        return HttpResponse(status=200)
     
     except Exception as e:
         return HttpResponse(status=500)
