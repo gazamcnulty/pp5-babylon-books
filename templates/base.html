@@ -23,9 +23,23 @@
     <br>
     <br>
     <main>
-    {% if messages %}
-        <div class="message-container"></div>
-    {% endif %}
+      {% if messages %}
+      <div class="message-container">
+          {% for message in messages %}
+              {% with message.level as level %}
+                  {% if level == 40 %}
+                      {% include 'includes/toasts/toast_error.html' %}
+                  {% elif level == 30 %}
+                      {% include 'includes/toasts/toast_warning.html' %}
+                  {% elif level == 25 %}
+                      {% include 'includes/toasts/toast_success.html' %}
+                  {% else %}
+                      {% include 'includes/toasts/toast_info.html' %}
+                  {% endif %}
+              {% endwith %}
+          {% endfor %}
+      </div>
+  {% endif %}
 
 
     {% block content %}
@@ -79,12 +93,18 @@
         </div>
       </div>
   </footer>
+{% block corejs %}
+    <script src="/static/js/snippets.js"></script>
     <script src="https://kit.fontawesome.com/61cb99950a.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+{% endblock %}
 
-    {% block postloadjs %}
+  {% block postloadjs %}
+    <script type="text/javascript">
+        $('.toast').toast('show');
+    </script>
     {% endblock %}
   </body>
 </html>

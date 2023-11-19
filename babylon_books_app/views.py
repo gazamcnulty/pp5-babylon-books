@@ -73,6 +73,8 @@ def books(request):
 def book_detail(request, book_id):
     book = get_object_or_404(Book, id=book_id)
     author = Author.objects.all()
+    #messages.success(request, f'You have added {book.title} to your bag')
+
 
     context = {
         'book':book,
@@ -106,7 +108,7 @@ def bag(request):
 
 def add_to_bag(request, item_id):
 
-
+    book = Book.objects.get(id=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     bag = request.session.get('bag', {})
@@ -115,6 +117,7 @@ def add_to_bag(request, item_id):
         bag[item_id] += quantity
     else:
         bag[item_id] = quantity
+        messages.success(request, f' {book.title} is in the bag')
     
     request.session['bag'] = bag
     return redirect(redirect_url)
@@ -123,7 +126,7 @@ def add_to_bag(request, item_id):
 
 def adjust_bag(request, item_id):
 
-
+    book = Book.objects.get(id=book_id)
     quantity = int(request.POST.get('quantity'))
     bag = request.session.get('bag', {})
 
@@ -132,7 +135,7 @@ def adjust_bag(request, item_id):
     else:
         bag.pop(item_id)
 
-    
+    context = {'book':book}
     request.session['bag'] = bag
     return redirect(reverse('bag'))
 
@@ -141,6 +144,7 @@ def adjust_bag(request, item_id):
 def remove(request, item_id):
     """Remove the item from the shopping bag"""
 
+    book = Book.objects.get(id=item_id)
     try:
         size = None
         if 'product_size' in request.POST:
@@ -153,10 +157,12 @@ def remove(request, item_id):
                 bag.pop(item_id)
         else:
             bag.pop(item_id)
+            messages.info(request, f'Removed {book.title} from bag')
 
         request.session['bag'] = bag
         return HttpResponse(status=200)
 
     except Exception as e:
+        messages.error(request, f'Error removing {book.title} from bag')
         return HttpResponse(status=500)
 

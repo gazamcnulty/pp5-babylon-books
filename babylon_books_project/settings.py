@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 import os
+if os.path.isfile('env.py'):
+    import env
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -79,6 +81,9 @@ TEMPLATES = [
 
 
 WSGI_APPLICATION = 'babylon_books_project.wsgi.application'
+
+
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 
 AUTHENTICATION_BACKENDS = (

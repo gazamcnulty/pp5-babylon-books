@@ -5,6 +5,16 @@
     <div class="row mt-5">
         <div class="col-12 mt-5">
             <h2 class="text-center mt-5">About us</h2>
+            <button onclick="add_confirm()">Click me</button>
+
+<p id="demo"></p>
+
+<script>
+function addConfirm() {
+  document.getElementById("demo").innerHTML = "{{ book.title }} added to bag!";
+}
+</script>
+
             <div class="row mt-5">
                 <div class="col-3 mx-auto">
                     <p class="text-center m-2">What is Babylon Books?</p>

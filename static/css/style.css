@@ -45,6 +45,29 @@ button {
 
 }
 
+
+
+/*-------------messages / toasts ---------*/
+
+
+.message-container {
+    position: fixed;
+    top: 100px;
+    right: 40px;
+    z-index: 99999999999;
+    color: black !important;
+    background-color:  rgb(255, 174, 0) !important;
+    border-radius: 10px;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
 /*--------------body----------------*/
 
 body {
@@ -63,7 +86,7 @@ body {
 } */
 
 
-
+/* ---------make pointer show on update / close in bag ----------- */
 .btt-link,
 .update-link,
 .remove-item {
