@@ -2,5 +2,48 @@
 {% load static %}
 
 {% block content %}
-    <h2>Checkout purchase succesful!</h2>
+    <div class="row mt-5">
+        <div class="col-12 mt-5">
+            <h2 class="text-center mt-5">Your purchase is complete, thank you!</h2>
+            <p>Order confirmation will be sent to {{ order.email }}</p>
+            <div class="row mt-5">
+                <div class="col mx-auto">
+
+                    <div class="row">
+                        <div class="col text-center">
+                            {% for item in bag_items %}
+                               <a href="{% url 'book_detail' item.product.id %}"><p>{{ item.product.title }} x {{ item.quantity }}</p></a>
+                                <p>€{{ item.product.price }}</p>
+
+                                {% endfor %}
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="row">
+                        <div class="col-8 mx-auto">
+                            <h4>Did you forget anything?</h4>
+                            <a href="{% url 'books' %}"><p>Return to the bookstore to check out more great deals</p></a>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="book_tile text-center">
+                        {% if grand_total %}
+                           <p class=""></p> 
+                        {% else %}
+                        {% endif %}
+                    </div>   
+                </div>
+                
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block postloadjs %}
+    {{ block.super }}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'js/stripe_elements.js' %}"></script>
 {% endblock %}
