@@ -4,18 +4,7 @@ from django.db import models
 from django.db.models import Sum
 from django.conf import settings
 
-from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse
-from django.contrib import messages
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
-from django.db.models.functions import Lower
-from django.shortcuts import render, redirect, reverse
-from django.db.models import Q
-from django.core.paginator import Paginator
-from django.views.generic import ListView
 from babylon_books_app.models import Book
-from . import views 
 
 
 class Order(models.Model):

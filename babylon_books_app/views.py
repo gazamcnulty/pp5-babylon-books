@@ -126,7 +126,7 @@ def add_to_bag(request, item_id):
 
 def adjust_bag(request, item_id):
 
-    book = Book.objects.get(id=book_id)
+    book = Book.objects.get(id=item_id)
     quantity = int(request.POST.get('quantity'))
     bag = request.session.get('bag', {})
 

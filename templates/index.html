@@ -19,6 +19,14 @@
                 </div>
             </div>
         </div>
+        <div class="book_tile text-center">
+            {% if grand_total %}
+               <p class=""><strong>Total payable €{{ grand_total|floatformat:2 }} </strong></p> 
+            {% else %}
+                $0.00
+            {% endif %}
+            <a href="{% url 'checkout' %}"><h4>Proceed to checkout</h4></a>
+        </div>
             <div class="row mx-auto my-5">
                 <h4 class="ms-4 ps-5">Check out some of our new additions</h4>
                 {% for book in books %}
