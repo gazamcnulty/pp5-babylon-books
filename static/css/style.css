@@ -164,6 +164,17 @@ footer {
 }
 
 
+/* -------------- stripe elements -------------- */
+
+
+
+#payment-form .form-control,
+#card-element {
+    color: black !important;
+    background-color: white;
+    border: 1px solid;
+}
+
 
 /*----------media queries--------*/
 
