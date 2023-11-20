@@ -92,7 +92,7 @@ def checkout(request):
         'client_secret': intent.client_secret,
     }
 
-    return render(request, checkout_template, context)
+    return render(request, template, context)
 
 
 def checkout_success(request, order_number):

@@ -9,16 +9,7 @@
             <div class="row mt-5">
                 <div class="col mx-auto">
 
-                    <div class="row">
-                        <div class="col text-center">
-                            {% for item in bag_items %}
-                               <a href="{% url 'book_detail' item.product.id %}"><p>{{ item.product.title }} x {{ item.quantity }}</p></a>
-                                <p>€{{ item.product.price }}</p>
 
-                                {% endfor %}
-                        </div>
-                        <hr>
-                    </div>
                     <div class="row">
                         <div class="col-8 mx-auto">
                             <h4>Did you forget anything?</h4>
@@ -38,12 +29,4 @@
             </div>
         </div>
     </div>
-{% endblock %}
-
-
-{% block postloadjs %}
-    {{ block.super }}
-    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
-    {{ client_secret|json_script:"id_client_secret" }}
-    <script src="{% static 'js/stripe_elements.js' %}"></script>
 {% endblock %}
