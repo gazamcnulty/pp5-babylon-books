@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'babylon_books_app',
+    'checkout',
 ]
 
 MIDDLEWARE = [
