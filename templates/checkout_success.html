@@ -8,25 +8,49 @@
             <p>Order confirmation will be sent to {{ order.email }}</p>
             <div class="row mt-5">
                 <div class="col mx-auto">
-
-
-                    <div class="row">
-                        <div class="col-8 mx-auto">
-                            <h4>Did you forget anything?</h4>
-                            <a href="{% url 'books' %}"><p>Return to the bookstore to check out more great deals</p></a>
-                            
-                        </div>
-                    </div>
-                    
-                    <div class="book_tile text-center">
-                        {% if grand_total %}
-                           <p class=""></p> 
-                        {% else %}
-                        {% endif %}
-                    </div>   
+                    <h5>Order Info</h5>
+                    <p>Order Number : {{ order.order_number }}</p>
+                    <p>Order Date : {{ order.date }}</p>
                 </div>
-                
+                <div class="col mx-auto">
+                    <h5>Order Info</h5>
+                    {% for item in order.lineitems.all %}
+                        <p>{{ item.product.name }}</p>
+                        <p>{{ item.quantity }} @ ${{ item.product.price }} each</p>
+                    {% endfor %}
+                </div>
+                <div class="col mx-auto">
+                    <h5>Delivery Info</h5>
+                    <p>Orderer : {{ order.full_name }}</p>
+                    <p>Telephone number : {{ order.phone_number }}</p>
+                    <p>Delivery address : {{ order.street_address1 }} <br>
+                        {% if order.street_address2 %} {{ order.street_address1 }} {% endif %} <br>
+                        {% if order.county %} {{ order.county }} {% endif %} <br>
+                        {{ order.town_or_city }} <br>
+                        {% if order.postcode %} {{ order.postcode }} {% endif %} <br>
+                        {{ order.country }}
+                        </p>
+                </div>
+                <div class="col mx-auto">
+                    <h5>Billing info</h5>
+                    <p>Delivery Cost : {{ order.delivery_cost }}</p>
+                    <p>Total Cost : {{ order.grand_total }}</p>
+                </div>
             </div>
-        </div>
+
+
+            <div class="row">
+                <div class="col-8 mx-auto">
+                    <h4>Did you forget anything?</h4>
+                    <a href="{% url 'books' %}"><p>Return to the bookstore to check out more great deals</p></a>      
+                </div>
+            </div>
+            <div class="book_tile text-center">
+                 {% if grand_total %}
+                    <p class=""></p> 
+                {% else %}
+                {% endif %}
+            </div>   
+        </div>  
     </div>
 {% endblock %}
