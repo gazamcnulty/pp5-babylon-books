@@ -15,7 +15,7 @@
                 <div class="col mx-auto">
                     <h5>Order Info</h5>
                     {% for item in order.lineitems.all %}
-                        <p>{{ item.product.name }}</p>
+                        <p>{{ item.product.title }}</p>
                         <p>{{ item.quantity }} @ ${{ item.product.price }} each</p>
                     {% endfor %}
                 </div>
