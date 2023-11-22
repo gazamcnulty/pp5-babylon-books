@@ -8,7 +8,17 @@
         <div class="col-12 mt-5">
             <h2 class="text-center mt-5">Your Profile</h2>
             <div class="row mt-5">
+                <h4>Profile Info</h4>
                 <div class="col mx-auto">
+                    <form class="" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <button>Update</button>
+                    </form>
+                </div>
+                <h4>Order History</h4>
+                <div class="col mx-auto">
+                    {{ orders }}
                 </div>
             </div>
 
