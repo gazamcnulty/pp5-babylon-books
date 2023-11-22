@@ -6,5 +6,6 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('', include('babylon_books_app.urls')),
     path('checkout/', include('checkout.urls')),
+    path('profile/', include('profiles.urls')),
 
 ] 

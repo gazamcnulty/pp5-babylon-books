@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'babylon_books_app',
     'checkout',
+    'profiles',
     'crispy_forms',
 ]
 
