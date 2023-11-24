@@ -29,17 +29,23 @@
                 <div class="col-8 mx-auto order_details">
                     <h4>Order History</h4>
                     <p>{{ order.order_number }}</p>
-                    <!--{% if orders %}-->
+                    {% if orders %}
                         {% for order in orders %}
-                            <a href="{% url 'order_history' order.order_number %}"
-                            title="{{ order.order_number }}">
-                                {{ order.order_number|truncatechars:6 }}</a>
-                            <p>{{ order.date }}</p>
+                            <p>Order number: {{ order.order_number }}</p>
+                            <p>Ordered on : {{ order.date }}</p>
+                            <ul class="list-unstyled">
+                                {% for item in order.lineitems.all %}
+                                    <li class="small">
+                                        {{ item.product.title }} x{{ item.quantity }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
                             <p>${{ order.grand_total }}</p>
+                            <hr>
                         {% endfor %}
-                    <!--{% else %}
+                    {% else %}
                         <p>You haven't ordered anything yet. Head back to <a href="{% url 'books' %}"> browse books</a> and place an order!</p>
-                    {% endif %}-->
+                    {% endif %}
                 </div>
             </div>
             <hr>
