@@ -84,7 +84,11 @@ def book_detail(request, book_id):
     return render(request, 'book_detail.html', context)
 
 
+@login_required(login_url='login')
 def add_product(request):
+    if not request.user.is_superuser:
+        messages.error(request, 'Changing store info is restricted to admin / superusers')
+        return redirect(reverse('homepage'))
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
@@ -103,8 +107,11 @@ def add_product(request):
     return render(request, template, context)
 
 
-
+@login_required(login_url='login')
 def add_author(request):
+    if not request.user.is_superuser:
+        messages.error(request, 'Changing store info is restricted to admin / superusers')
+        return redirect(reverse('homepage'))
     if request.method == 'POST':
         form = AuthorForm(request.POST, request.FILES)
         if form.is_valid():
@@ -122,9 +129,12 @@ def add_author(request):
 
     return render(request, template, context)
 
-
+@login_required(login_url='login')
 def edit_product(request, product_id):
     """ Edit a product in the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Changing store info is restricted to admin / superusers')
+        return redirect(reverse('homepage'))
     product = get_object_or_404(Book, pk=product_id)
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES, instance=product)
@@ -147,9 +157,12 @@ def edit_product(request, product_id):
     return render(request, template, context)
 
 
-
+@login_required(login_url='login')
 def delete_product(request, product_id):
     """ Delete a product from the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Changing store info is restricted to admin / superusers')
+        return redirect(reverse('homepage'))
     product = get_object_or_404(Book, pk=product_id)
     product.delete()
     messages.success(request, 'Product deleted!')
