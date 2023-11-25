@@ -26,6 +26,9 @@
                 {% for book in books %}
                     <div class="book_tile col-8 p-1 m-3">
                         <a href="{% url 'book_detail' book.id %}"><h5>{{ book.title }}</h5></a>
+                        {% if request.user.is_superuser %}
+                            <a href="{% url 'edit_product' book.id %}"><p>Edit Store Info</p></a>
+                        {% endif %}
                         <!--<a href="{% url 'books' %}?author={{ book.author.name }}">--><p>{{ book.author }}</p><!--</a>-->
                         <p>€{{ book.price }}</p>
                         <a href="{% url 'books' %}?genre={{ book.genre.name }}"><p>{{ book.genre }}</p></a>
