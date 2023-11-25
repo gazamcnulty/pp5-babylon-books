@@ -27,7 +27,7 @@
             <hr>
             <div class="row">
                 <div class="col-8 mx-auto order_details">
-                    <h4>Order History</h4>
+                    <h2>Order History</h2>
                     <p>{{ order.order_number }}</p>
                     {% if orders %}
                         {% for order in orders %}
@@ -51,17 +51,16 @@
             <hr>
             <div class="row">
                 <div class="col-8 mx-auto">
-                    <h4>{% trans "Sign Out of Profile" %}</h4>
-                    <p>{% trans 'Are you sure you want to sign out?' %}</p>
-                        <form method="post" action="{% url 'account_logout' %}">
-                        {% csrf_token %}
-                        {% if redirect_field_value %}
-                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-                        {% endif %}
-                        <button type="submit">{% trans 'Sign Out' %}</button>
-                        </form>
+                    <a class="button secondaryAction" href="{% url 'account_change_password' %}"><h2>Change password</h2></a>
                 </div>
             </div>
+            <hr>
+            div class="row">
+                <div class="col-8 mx-auto">
+                    <a class="button secondaryAction" href="{% url 'account_logout' %}"><h2>Signout</h2></a>
+                </div>
+            </div>
+        
         </div>
     </div>
 
