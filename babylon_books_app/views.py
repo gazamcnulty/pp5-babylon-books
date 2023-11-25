@@ -9,7 +9,7 @@ from django.db.models import Q
 from django.core.paginator import Paginator
 from django.views.generic import ListView
 from . import views 
-from .forms import ProductForm
+from .forms import ProductForm, AuthorForm
 from .models import Author , Book , Genre
 
 # Create your views here.
@@ -96,6 +96,26 @@ def add_product(request):
     else:
         form = ProductForm()
     template = 'add_product.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+
+
+def add_author(request):
+    if request.method == 'POST':
+        form = AuthorForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added author!')
+            return redirect(reverse('add_author'))
+        else:
+            messages.error(request, 'Failed to add author. Please ensure the form is valid.')
+    else:
+        form = AuthorForm()
+    template = 'add_author.html'
     context = {
         'form': form,
     }

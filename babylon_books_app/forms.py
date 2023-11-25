@@ -16,3 +16,12 @@ class ProductForm(forms.ModelForm):
         self.fields['author'].choices = names
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black rounded-0'
+
+
+
+class AuthorForm(forms.ModelForm):
+
+    class Meta:
+        model = Author
+        fields = ('name','info','books_written', 'image_url',)
+

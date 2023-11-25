@@ -31,7 +31,7 @@
                 <h4 class="ms-4 ps-5">Check out some of our new additions</h4>
                 {% for book in books %}
                     <div class="home_book col-3 p-1 text-center mb-5">
-                        <h5>{{ book.title }}</h5>
+                        <a href="{% url 'book_detail' book.id %}"><h5>{{ book.title }}</h5></a>
                         <p>{{ book.author }}</p>
                         <p>€{{ book.price }}</p>
                     </div>
