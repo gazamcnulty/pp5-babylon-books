@@ -147,6 +147,16 @@ def edit_product(request, product_id):
     return render(request, template, context)
 
 
+
+def delete_product(request, product_id):
+    """ Delete a product from the store """
+    product = get_object_or_404(Book, pk=product_id)
+    product.delete()
+    messages.success(request, 'Product deleted!')
+    return redirect(reverse('books'))
+
+
+
 def search_results(request):
     if request.method == "POST":
         search_response = request.POST['search_response']

@@ -28,6 +28,7 @@
                         <a href="{% url 'book_detail' book.id %}"><h5>{{ book.title }}</h5></a>
                         {% if request.user.is_superuser %}
                             <a href="{% url 'edit_product' book.id %}"><p>Edit Store Info</p></a>
+                            <a href="{% url 'delete_product' book.id %}"><p>Delete Product from Store</p></a>
                         {% endif %}
                         <!--<a href="{% url 'books' %}?author={{ book.author.name }}">--><p>{{ book.author }}</p><!--</a>-->
                         <p>€{{ book.price }}</p>
