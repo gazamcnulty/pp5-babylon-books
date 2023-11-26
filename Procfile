@@ -1,1 +1,1 @@
-web: gunicorn babylon_books_project.wsgi:application
+web: gunicorn babylon_books_project.wsgi
