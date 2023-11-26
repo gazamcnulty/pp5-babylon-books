@@ -13,6 +13,7 @@ class AuthorAdmin(admin.ModelAdmin):
     list_display = ('name',)
     list_filter = ('name',)
     search_fields = ('name',)
+    ordering = ('name',)
 
 
 @admin.register(Genre)
@@ -24,6 +25,7 @@ class GenreAdmin(admin.ModelAdmin):
     list_display = ('name',)
     list_filter = ('name',)
     search_fields = ('name',)
+    ordering = ('name',)
 
 
 @admin.register(Book)
@@ -35,6 +37,6 @@ class BookAdmin(admin.ModelAdmin):
     list_display = ('title', 'added',)
     list_filter = ('added',)
     search_fields = ('title',)
-
+    ordering = ('title',)
 
 

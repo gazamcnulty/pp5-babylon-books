@@ -13,7 +13,7 @@
             <p>{{ book.author.info }}</p>
         </div>
         <div class="col-4">
-            <img src="{{ product.image.url }}" alt="{{ book.title }}">
+            <img src="{{ book.image.url }}" alt="{{ book.title }}" style="color:white;">
         </div>
         <div>
             {% if request.user.is_superuser %}
