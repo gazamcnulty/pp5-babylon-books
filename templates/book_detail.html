@@ -1,15 +1,19 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 <section>
     <div class="row text-center mb-5">
-        <div class="col-12">
+        <div class="col-8">
             <h2>{{ book.title }}</h2>
             <p>{{ book.author }}</p>
             <p>€{{ book.price }}</p>
             <p>{{ book.description }}</p>
             <p>About the author{{ book.author}}</p>
             <p>{{ book.author.info }}</p>
+        </div>
+        <div class="col-4">
+            <img src="{{ product.image.url }}" alt="{{ book.title }}">
         </div>
         <div>
             {% if request.user.is_superuser %}
