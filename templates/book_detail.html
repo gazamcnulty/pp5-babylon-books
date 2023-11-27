@@ -13,7 +13,7 @@
             <p>{{ book.author.info }}</p>
         </div>
         <div class="col-4">
-            <img src="{{ book.image.url }}" alt="{{ book.title }}" style="color:white;">
+            <img src="{{ book.image.url }}" alt="{{ book.title }}" style="color:white;" class="w-50">
         </div>
         <div>
             {% if request.user.is_superuser %}
@@ -64,6 +64,22 @@
                 <br>
             </div>
         </form>
+        <div class="col-8 mx-auto">
+            <h4>Comments</h4>
+            {% for comment in comments %} <p>
+                <span class="comment_user fs-4">{{comment.user}}</span> commented :
+                </p>
+                <p class="fs-4"> "{{comment.text}}"</p>
+                <p>{{ comment.created_on|timesince }} ago</p>
+            {% endfor %}
+        </div>
+        <div class="col-4 mx-auto">
+            <h4 class="my-5">Submit a comment</h4>
+            <form method="POST" action="" class="my-5"> {% csrf_token %} 
+                <textarea id="comment_field" rows="5" cols="50" name="text" placeholder="Have any thoughts on {{ book.title }}? Post a comment!"></textarea>
+                <input type="submit" value="Submit">
+            </form>
+          </div>
     </div>
 </section>
 {% endblock %}

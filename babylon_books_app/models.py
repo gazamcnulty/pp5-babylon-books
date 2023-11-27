@@ -45,3 +45,17 @@ class Book(models.Model):
     def __str__(self):
         return self.title
 
+
+class Comment(models.Model):
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    book = models.ForeignKey(
+        Book, on_delete=models.CASCADE)
+    text = models.TextField(max_length=180, null=True)
+    created_on = models.DateTimeField(auto_now_add=True, null=True)
+
+    class Meta:
+        ordering = ["-created_on"]
+
+    def __str__(self):
+        return self.body
