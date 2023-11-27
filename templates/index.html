@@ -29,7 +29,7 @@
         </div>
             <div class="row mx-auto my-5">
                 <h4 class="ms-4 ps-5">Check out some of our new additions</h4>
-                {% for book in books %}
+                {% for book in books|slice:"0:4" %}
                     <div class="home_book col-3 p-1 text-center mb-5">
                         <a href="{% url 'book_detail' book.id %}"><h5>{{ book.title }}</h5></a>
                         <p>{{ book.author }}</p>

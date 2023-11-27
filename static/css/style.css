@@ -71,7 +71,7 @@ button {
 /*--------------body----------------*/
 
 body {
-    background-image: url("/static/images/books3.jpeg");
+    background-image: url("/static/images/books3.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
@@ -138,6 +138,24 @@ body {
 }*/
 
 
+
+
+/*-------------about----------------*/
+
+
+/*.about_col_1 {
+    background-color: rgb(35, 35, 35);
+}*/
+
+
+
+.about_col_2 {
+    background-color:rgb(190, 178, 161);
+}
+
+.about_p_2 {
+    color:rgb(35, 35, 35);
+}
 
 /*--------------profile---------------*/
 
