@@ -11,28 +11,19 @@ html,body
 
 
 
-h1 {
+h1, h2, h3, h4, h5 {
     
     color: rgb(255, 174, 0);
     font-weight: bold;
 }
 
-
-h2 {
-    color: rgb(255, 174, 0);
-    font-weight: bold;
-}
-
-h4 {
-    color: white !important;
-}
-
-h5 {
-    color: rgb(255, 174, 0);
+#notification {
+    color : white !important;
 }
 
 p {
     color: white;
+    text-shadow: 2px 2px 10px black;
 }
 
 button {
@@ -43,6 +34,10 @@ button {
 .quote {
     color: white;
 
+}
+
+.span_white {
+    color: white;
 }
 
 
@@ -137,6 +132,15 @@ body {
     background-color: rgba(255, 255, 255, 0.5) !important;
 }*/
 
+#book_image {
+    max-height: 400px;
+}
+
+
+.qty_input {
+    display: inline !important;
+}
+
 
 
 
@@ -155,6 +159,7 @@ body {
 
 .about_p_2 {
     color:rgb(35, 35, 35);
+    text-shadow: 0px 0px 0px grey !important;
 }
 
 /*--------------profile---------------*/

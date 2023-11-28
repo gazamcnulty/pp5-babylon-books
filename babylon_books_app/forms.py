@@ -27,5 +27,5 @@ class AuthorForm(forms.ModelForm):
 
     class Meta:
         model = Author
-        fields = ('name','info','books_written', 'image_url',)
+        fields = ('name','info','books_written', 'image',)
 

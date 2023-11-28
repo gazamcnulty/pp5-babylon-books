@@ -7,7 +7,9 @@ from django.urls import reverse
 class Author(models.Model):
     name = models.CharField(max_length=254)
     info = models.TextField(blank=True)
-    image_url = models.URLField(max_length=1024, null=True, blank=True)
+    external_link = models.URLField(blank=True, null=True)
+    image = models.ImageField(
+        upload_to='images/', default='placeholder_image', blank=True)
     books_written = models.ForeignKey(
         'Book', on_delete=models.SET_NULL, related_name="books_written", null=True, blank=True)
 
