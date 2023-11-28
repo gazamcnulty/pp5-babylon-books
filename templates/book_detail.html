@@ -39,6 +39,9 @@
             <div class="col-8">
                 <h4 class="mt-5">About the author: </h4>
                 <p> {{ book.author.info }}</p> 
+                <a href="{{ book.author.external_link }}" target="_blank">
+                    <p>Click here to read more on Wikipedia</p>
+                </a>
             </div>
     
         <div class="col-3 ms-5 text-center">
