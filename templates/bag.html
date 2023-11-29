@@ -7,7 +7,6 @@
             <h2 class="text-center mt-5">Items in your bag, confirm your purchase!</h2>
             <div class="row mt-5">
                 <div class="col mx-auto">
-                    <p class="text-center m-2">Cart</p>
                     {% if bag_items %}
                         <div>
                             <div class="book_tile text-center w-25">
@@ -45,17 +44,17 @@
                         </div>
                     {% else %}
                         <div class="text-center">
-                            <p>Your cart is empty. Head back to <a href="{% url 'books' %}"> browse books</a> and add to the cart!</p>
+                            <p class="fs-4">Your cart is empty. Head back to <a href="{% url 'books' %}"> browse books</a> and add to the cart!</p>
                         </div>
                     {% endif %}
                     
-                    <div class="book_tile text-center">
+                    <div class="bottom_chunk text-center m-5">
                         {% if grand_total %}
-                           <p class=""><strong>Total payable €{{ grand_total|floatformat:2 }} </strong></p> 
+                           <p class="fs-2"><strong>Total payable €{{ grand_total|floatformat:2 }} </strong></p> 
+                           <a href="{% url 'checkout' %}" ><p class="fs-3">Proceed to secure checkout</p></a>
                         {% else %}
-                            $0.00
+                        <p class="fs-2"><strong>Total payable €0.00 </strong></p> 
                         {% endif %}
-                        <a href="{% url 'checkout' %}" ><h4>Secure Checkout</h4></a>
                     </div>   
                 </div>
                 
