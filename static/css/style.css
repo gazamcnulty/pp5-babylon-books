@@ -92,19 +92,37 @@ body {
 
 /*--------------navbar------------------*/
 
+nav {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9), rgb(0, 0, 0, 1));
+    min-height: 150px;
+}
+
+.nav-item {
+    color: rgb(255, 174, 0);
+}
 
 .bg-body-tertiary {
     background-color: rgba(255, 255, 255, 0.3) !important;
 }
 
 .nav-link {
-
-    color: white !important;
+    color: rgb(255, 174, 0);
+    font-size: large;
 }
 
 .nav-link:hover {
-    color: black !important;
+    color: white !important;
 }
+
+.active {
+    color: rgb(255, 174, 0) !important;
+    text-decoration: underline !important;
+}
+
+.search_box {
+    max-width: 350px;
+}
+
 
 /*-----------books.html---------------*/
 
