@@ -2,41 +2,80 @@
 
 {% block content %}
 <section>
-    <div class="row gx-0 mt-5">
+    <div class="row gx-0 mt-5 welcome_div">
         <div id="headup" class="col-12 mt-5">
-            <h2 class="text-center my-5">Welcome to Babylon Books</h2>
+            <h2 class="text-center my-5 fs-1">Welcome to Babylon Books</h2>
             <div class="row gx-0 my-5">
                 <div class="col-4 mx-auto">
-                    <p class="quote text-center m-2">"A reader lives a thousand lives before he dies...The man who never reads lives only one" <br> George R.R. Martin</p>
+                    <p class="quote text-center my-4 fs-4">"A reader lives a thousand lives before he dies...The man who never reads lives only one" <br> George R.R. Martin</p>
                 </div>
                 <div class="col-4 mx-auto">
-                    <p class="quote text-center m-2">“Think before you speak. Read before you think.” <br> Fran Lebowitz</p>
+                    <p class="quote text-center my-4 fs-4">“Think before you speak. Read before you think.” <br> Fran Lebowitz</p>
                 </div>
             </div>
             <div class="row gx-0">
                 <div class="col-12 text-center my-5">
-                        <a href="{% url 'books' %}" class="mx-auto p-4"><button type="button" class="btn btn-warning btn-lg mx-auto p-2">Browse books now!</button></a>
+                        <a href="{% url 'books' %}" class="mx-auto p-4"><button type="button" class="btn btn-lg mx-auto p-2 fs-4">Browse books now!</button></a>
                 </div>
             </div>
         </div>
-        <div class="book_tile text-center">
-            {% if grand_total %}
-               <p class=""><strong>Total payable €{{ grand_total|floatformat:2 }} </strong></p> 
-            {% else %}
-                $0.00
-            {% endif %}
-            <a href="{% url 'checkout' %}"><h4>Proceed to checkout</h4></a>
+    </div>
+    <div class="row mt-5 emtpy_row">
+        <div class="col-12 mt-5">
+
         </div>
-            <div class="row mx-auto my-5">
-                <h4 class="ms-4 ps-5">Check out some of our new additions</h4>
-                {% for book in books|slice:"0:4" %}
-                    <div class="home_book col-3 p-1 text-center mb-5">
-                        <a href="{% url 'book_detail' book.id %}"><h5>{{ book.title }}</h5></a>
-                        <p>{{ book.author }}</p>
-                        <p>€{{ book.price }}</p>
-                    </div>
-                {% endfor %}
+    </div>
+    <div class="row text-center intro_div">
+        <div class="col-10 m-2 mx-auto">
+            <p class="p-4 mt-5 fs-5 intro_p">Babylon Books is a luxury experience, a fastidiously curated book shop that wants to bring your love of reading to the next level. We select the most interesting literature across a vast swathe of culture and history, and provide it to you at an excellent price. You don't have to trek the treachourous deserts of Mesopotamia to find a great story, we've got it for you right here.</p> 
+            <p class="text-center fs-4 m-5"> Don't delay, take a leap and create an account today!</p>
+        </div>
+        <div class="col-12 text-center">
+            <a href="{% url 'account_signup' %}" class=""><button class="btn btn-lg m-5">Create an account</button></a>
+        </div>
+        <div class="row m-2">
+            <p class="fs-3">Registering an account gets you lots of bonuses</p>
+            <div class="col-4 p-2 bonus_ul">
+                <ul>
+                    <li>Saved profile info, no need to input repeatedly for future purchases
+                    </li>
+                    <li>Profile with info and order history details
+                    </li>
+                </ul>
             </div>
+            <div class="col-4 p-2 bonus_ul">
+                <ul>
+                    <li>Submit comments on books in the shop
+                    </li>
+                    <li>Receive monthly news letter via email
+                    </li>
+                </ul>
+            </div>
+            <div class="col-4 p-2 bonus_ul">
+                <ul>
+                    <li>Early access to soon to future podcasts / streaming content
+                    </li>
+                    <li>And more to come in future!
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 mx-auto my-5">
+            <h4 class="ms-4 ps-5">Check out some of our new additions</h4>
+            {% for book in books|slice:"0:4" %}
+                <div class="home_book col-3 p-1 text-center mb-5">
+                    <a href="{% url 'book_detail' book.id %}"><h5>{{ book.title }}</h5></a>
+                    <p>{{ book.author }}</p>
+                    <p>€{{ book.price }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+
         </div>
     </div>
 </section>
