@@ -26,9 +26,25 @@ p {
     text-shadow: 2px 2px 10px black;
 }
 
+.amber_span {
+    color: rgb(255, 174, 0);
+}
+
+a {
+    text-decoration: none !important;
+}
+
+
+
 button {
     color: white !important;
     background-color:  rgb(255, 174, 0) !important;
+}
+
+
+button:hover {
+    color:  rgb(255, 174, 0) !important;
+    background-color: white !important;
 }
 
 .quote {

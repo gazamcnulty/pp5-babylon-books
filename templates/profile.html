@@ -4,65 +4,58 @@
 {% block head_title %}{% trans "Sign Out" %}{% endblock %}
 {% block content %}
 
-    <div class="row mt-5">
-        <div class="col-12 mt-5">
+    <div class="row m-5">
+        <div class="col-12 m-5">
             <h1 class="text-center mt-5">Your Profile</h1>
             <div class="row mt-5">
-                <div class="col-8 mx-auto">
-                    <h2>Profile Info</h2>
+                <div class="col-md-6 col-sm-12">
+                    <h2 class="m-1">Profile Info</h2>
                     <h4>Username : <span class="span_white">{{user.username}}</span></h4>
                     <h4>Email : <span class="span_white">{{user.email}}</span></h4>
                     <h4>Member since : <span class="span_white">{{user.date_joined}}</span></h4>
-                    <h4>Address info :</h4>
+                </div>
+                <div class="col-md-6 col-sm-12 text-center">
+                    <a class="button secondaryAction m-1" href="{% url 'account_change_password' %}"><p class="fs-3">Change password</p></a>
+                    <a class="button secondaryAction m-1" href="{% url 'account_logout' %}"><p class="fs-3">Signout</p></a>
                 </div>
                 <hr>
             </div>
-            <div class="row">
-                    <div class="col-8 mx-auto">
+            <div class="row mt-5">
+                    <div class="col-4">
+                        <h2>Telephone + Address info :</h2>
                         <form class="" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                             {% csrf_token %}
                             {{ form|crispy }}
-                            <button>Update</button>
+                            <button class="btn btn-lg mt-2 text-center">Update</button>
                         </form>
                     </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-8 mx-auto order_details">
-                    <h2>Order History</h2>
-                    <p>{{ order.order_number }}</p>
-                    {% if orders %}
-                        {% for order in orders %}
-                            <p>Order number: {{ order.order_number }}</p>
-                            <p>Ordered on : {{ order.date }}</p>
-                            <ul class="list-unstyled">
-                                {% for item in order.lineitems.all %}
-                                    <li class="small">
-                                        {{ item.product.title }} x{{ item.quantity }}
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                            <p>${{ order.grand_total }}</p>
-                            <hr>
-                        {% endfor %}
-                    {% else %}
-                        <p>You haven't ordered anything yet. Head back to <a href="{% url 'books' %}"> browse books</a> and place an order!</p>
-                    {% endif %}
+                    <div class="col-2">
+
+                    </div>
+                    <div class="col-6 order_details">
+                        <h2>Order History</h2>
+                        <p class="">{{ order.order_number }}</p>
+                        {% if orders %}
+                            {% for order in orders %}
+                                <p><span class="amber_span">Order number:</span> {{ order.order_number }}</p>
+                                <p>Ordered on : {{ order.date }}</p>
+                                <ul class="list-unstyled">
+                                    <p>Books ordered:</p>
+                                    {% for item in order.lineitems.all %}
+                                        <li class="small">
+                                            <p>{{ item.quantity }} x {{ item.product.title }}</p>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                                <p><span class="amber_span">Total price</span> €{{ order.grand_total }}</p>
+                                <hr>
+                            {% endfor %}
+                        {% else %}
+                            <p>You haven't ordered anything yet. Head back to <a href="{% url 'books' %}"> browse books</a> and place an order!</p>
+                        {% endif %}
+                    </div>
                 </div>
-            </div>
             <hr>
-            <div class="row">
-                <div class="col-8 mx-auto">
-                    <a class="button secondaryAction" href="{% url 'account_change_password' %}"><h2>Change password</h2></a>
-                </div>
-            </div>
-            <hr>
-            <div class="row bottom_chunk">
-                <div class="col-8 mx-auto">
-                    <a class="button secondaryAction" href="{% url 'account_logout' %}"><h2>Signout</h2></a>
-                </div>
-            </div>
-        
         </div>
     </div>
 
