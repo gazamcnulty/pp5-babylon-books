@@ -295,6 +295,11 @@ footer {
         width: 100%;
 
     }
+
+    .bottom_chunk {
+        margin-bottom: 500px !important;
+    }
+
 }
 
 
