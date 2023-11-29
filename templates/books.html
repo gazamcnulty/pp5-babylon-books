@@ -5,21 +5,47 @@
 <section class="container">
     <div class="row mt-5">
         <div class="col-12 mt-5">
-            <h2 class="text-center mt-5">Browse books, buy books, read books!</h2>
+            <h2 class="text-center mt-5 fs-2">Browse books, buy books, read books!</h2>
             <div class="row">
-                <div class="col-12 book_tile mx-auto">
-                    <h4 class="text-center">Sort by</h4>
-                    <ul class="list-group list-group-horizontal ms-5 text-decoration-none">
-                        <li><a class="list-group-item" href="{% url 'books' %}?sort=price&direction=asc">By Price</a></li>
-                        <li><a class="list-group-item" href="{% url 'books' %}?sort=title">Alphabetically</a></li>
-                        <li><a class="list-group-item" href="{% url 'books' %}?sort=author">By Author</a></li>
-                        <li><a class="list-group-item" href="{% url 'books' %}?sort=added">Recently added</a></li>
-                        <li><a class="list-group-item" href="{% url 'books' %}?genre=Classics">Classics</a></li>
-                        <li><a class="list-group-item" href="{% url 'books' %}?genre=Horror" >Horror</a></li>
-                        <li><a class="list-group-item" href="{% url 'books' %}?genre=Scifi" >Scifi</a></li>
-                        <li><a class="list-group-item" href="{% url 'books' %}?genre=Fantasy" >Fantasy</a></li>
-                        <li><a class="list-group-item" href="{% url 'books' %}?">All</a></li>
-                    </ul>
+                <div class="col-12 mx-auto text-center">
+                    <p class="d-inline-flex gap-1 my-5">
+                        <button class="btn btn-lg btn-primary fs-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                          Filter books
+                        </button>
+                        </p>
+                    <div class="collapse row cats" id="collapseExample">
+                        <div class="card card-body cats col-3">
+                            <a class="" href="{% url 'books' %}?">All</a>
+                            <a class="" href="{% url 'books' %}?genre=Classics">Classics</a>
+                            <a class="" href="{% url 'books' %}?genre=Horror" >Horror</a>
+                            <a class="" href="{% url 'books' %}?genre=Sci-fi" >Sci-fi</a>
+                            <a class="" href="{% url 'books' %}?genre=Fantasy" >Fantasy</a>
+                            <a class="" href="{% url 'books' %}?genre=Crime" >Crime</a>
+                        </div>
+                        <div class="card card-body cats col-3">
+                            <a class="" href="{% url 'books' %}?genre=Children">Children</a>
+                            <a class="" href="{% url 'books' %}?genre=Young Adult">Young Adult</a>
+                            <a class="" href="{% url 'books' %}?genre=Historical" >Historical</a>
+                            <a class="" href="{% url 'books' %}?genre=Irish" >Irish</a>
+                            <a class="" href="{% url 'books' %}?genre=Biographical">Biographical</a>
+                            <a class="" href="{% url 'books' %}?genre=Graphic Novel" >Graphic Novel</a>
+                        </div>
+                        <div class="card card-body cats col-3">
+                            <a class="" href="{% url 'books' %}?genre=Drama">Drama</a>
+                            <a class="" href="{% url 'books' %}?genre=Sports" >Sports</a>
+                            <a class="" href="{% url 'books' %}?genre=Music" >Music</a>
+                            <a class="" href="{% url 'books' %}?genre=Wellbeing" >Wellbeing</a>
+                            <a class="" href="{% url 'books' %}?genre=Religion" >Religion</a>
+                            <a class="" href="{% url 'books' %}?genre=Slice of Life">Slice of Life</a>
+                        </div>
+                        <div class="card card-body cats col-3">
+                            <a class="" href="{% url 'books' %}?sort=price&direction=asc">By Price</a>
+                            <a class="" href="{% url 'books' %}?sort=title">Alphabetically - Books</a>
+                            <a class="" href="{% url 'books' %}?sort=author">Alphabetically - Author</a>
+                            <a class="" href="{% url 'books' %}?sort=added">Recently added</a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <div class="row text-center mb-5 bottom_chunk">
