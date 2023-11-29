@@ -135,7 +135,7 @@ body {
 
 .index_div {
     min-height: 700px;
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.1),  rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8), rgb(0, 0, 0, 0.9) rgba(0, 0, 0, 1), );
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9), rgb(0, 0, 0, 1));
 }
 
 .intro_h {
@@ -160,7 +160,7 @@ body {
 /*--------------navbar------------------*/
 
 nav {
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9), rgb(0, 0, 0, 1));
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9), rgb(0, 0, 0, 1));
     min-height: 150px;
 }
 

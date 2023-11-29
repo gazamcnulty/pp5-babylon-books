@@ -61,25 +61,41 @@
                 </ul>
             </div>
         </div>
+        <div class="col-12 my-5 text-center">
+            <p class="fs-4 my-5">Still curious about who we are? Don't be shy, click in to the <a href="{% url 'about' %}">About page</a> so we can properly introduce ourselves</p>
+        </div>
     </div>
     <div class="row my-5 index_div">
-            <div class="col-12 my-5 text-center">
-                <p class="fs-3 my-5">Still curious about who we are? Don't be shy, click in to the <a href="{% url 'about' %}">About page</a> so we can properly introduce ourselves</p>
-            </div>
-            <h4 class="text-center fs-2 m-5">Check out our most recent additions</h4>
-            {% for book in books|slice:"0:4" %}
-                <div class="home_book col-3 p-1 text-center mb-5">
-                    <a href="{% url 'book_detail' book.id %}" id="book_link"><h5>{{ book.title }}</h5></a>
-                    <p>{{ book.author }}</p>
-                    <p>€{{ book.price }}</p>
-                </div>
-            {% endfor %}
-
-    </div>
-    <div class="row">
         <div class="col-12">
-
+            <h4 class="text-center m-5 fs-2">Check out or most recently added books</h4>
+            <div class="row">
+                    {% for book in books|slice:"0:3" %}
+                    <div class="col-12">
+                        <div class="row home_book text-center m-5">
+                            <div class="col-3">
+                                <a href="{% url 'book_detail' book.id %}?" id="book_link"><img src="{{ book.image.url }}" alt="{{ book.title }}" style="color:white;" class="w-50" id="book_image"></a>
+                            </div>
+                            <div class="col-3">
+                                <a href="{% url 'book_detail' book.id %}" id="book_link"><h5>{{ book.title }}</h5></a>
+                                <p>Author: {{ book.author }}</p>
+                                <p>Genre: {{ book.genre }}</p>
+                                <p class="fs-5">Price: €{{ book.price }}</p>
+                            </div>
+                            <div class="col-6">
+                                <p>{{ book.description|truncatechars:325 }}....<br><a href="{% url 'book_detail' book.id %}">Click for more info</a></p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+    </div>
+    <div class="row mb-5">
+        <div class="col-12 text-center my-4">
+            <h4 class="text-center fs-2">Click below to browse more books!</h4>
         </div>
+        <div class="col-12 text-center my-5">
+            <a href="{% url 'books' %}" class="mx-auto p-2"><button type="button" class="btn mx-auto p-2 fs-5">Browse books now!</button></a>
+    </div>
     </div>
 </section>
 {% endblock %}
