@@ -9,35 +9,28 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
+          <li class="nav-item mt-4">
             <a {% if request.resolver_match.view_name == 'homepage' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{%url 'homepage' %}">Home</a>
           </li>
             {% if request.user.is_authenticated %}
-            <li class="nav-item">
+            <li class="nav-item  mt-4">
               <a {% if request.resolver_match.view_name == 'profile' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'profile' %}">Profile</a>
             </li>
             {% else %}
-            <li class="nav-item">
+            <li class="nav-item mt-4">
               <a {% if request.resolver_match.view_name == 'account_login' %} class="nav-link active" id="nav_login" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'login' %}">Login</a>
             </li>
             {% endif %}
-          <li class="nav-item dropdown">
-            <a {% if request.resolver_match.view_name == 'books' %} class="nav-link dropdown-toggle active" aria-current="page" {% else %} class="nav-link dropdown-toggle" {% endif %} href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <li class="nav-item mt-4">
+            <a {% if request.resolver_match.view_name == 'books' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'books' %}">Books</a>
               Books
             </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="{% url 'books' %}">All</a></li>
-              <li><a class="dropdown-item" href="{% url 'books' %}?genre=Classics">Classics</a></li>
-              <li><a class="dropdown-item" href="{% url 'books' %}?genre=Horror" >Horror</a></li>
-              <li><a class="dropdown-item" href="{% url 'books' %}?genre=Scifi" >Scifi</a></li>
-              <li><a class="dropdown-item" href="{% url 'books' %}?genre=Fantasy" >Fantasy</a></li>
-            </ul>
           </li>
-          <li class="nav-item">
+          <li class="nav-item mt-4">
             <a {% if request.resolver_match.view_name == 'about' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'about' %}">About</a>
           </li>
           {% if request.user.is_superuser %}
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown mt-4">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Manage Store
             </a>
@@ -47,13 +40,13 @@
             </ul>
           </li>
           {% endif %}
-          <li class="nav-item">
+          <li class="nav-item mt-4">
             <a {% if request.resolver_match.view_name == 'bag' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'bag' %}">Bag</a>
           </li>
         </ul>
-        <form method="POST" action="{%url 'search_results'%}" class="text-end searchbar "> 
+        <form method="POST" action="{%url 'search_results'%}" class="text-end searchbar m-3"> 
           {% csrf_token %} 
-            <input class="form-control me-2 search_box" type="search" placeholder="Search" name="search_response" aria-label="Search">
+            <input class="form-control search_box" type="search" placeholder="Search" name="search_response" aria-label="Search">
         </form>
       </div>
     </div>
