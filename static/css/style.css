@@ -31,6 +31,18 @@ p {
     color: rgb(255, 174, 0);
 }
 
+.amber_back {
+    color: rgb(255, 174, 0);
+}
+
+.red_span {
+    color: red;
+}
+
+label {
+    color: rgb(255, 174, 0) !important;
+}
+
 a {
     text-decoration: none !important;
     color: rgb(255, 174, 0);
@@ -91,7 +103,7 @@ button:hover {
     top: 100px;
     right: 40px;
     z-index: 99999999999;
-    color: black !important;
+    color: white !important;
     background-color:  rgb(255, 174, 0) !important;
     border-radius: 10px;
 }
@@ -223,6 +235,11 @@ nav {
 
 .commentss_div {
     margin-top: 125px !important;
+}
+
+.book_detail_edit {
+    border-width: 2px;
+    border-color: red;
 }
 
 /*#comment_field {

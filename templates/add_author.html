@@ -8,7 +8,7 @@
             <div class="col-12 col-md-6">
                 <hr>
                 <h2 class="logo-font mb-4">Author Management</h2>
-                <h4 class="text-muted">Add an author</h4>
+                <h4 class="amber_span">Add an author</h4>
                 <hr>
             </div>
         </div>
@@ -19,8 +19,8 @@
                     {% csrf_token %}
                     {{ form | crispy }}
                     <div class="text-right">
-                        <a class="btn btn-outline-black rounded-0" href="{% url 'books' %}">Cancel</a>
-                        <button class="btn btn-black rounded-0" type="submit">Add Author</button>
+                        <a class="btn btn-danger" href="{% url 'books' %}">Cancel</a>
+                        <button class="btn btn-lg m-5" type="submit">Add Author</button>
                     </div>
                 </form>
             </div>            

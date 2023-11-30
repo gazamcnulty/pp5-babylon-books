@@ -8,7 +8,7 @@
             <div class="col-12 col-md-6">
                 <hr>
                 <h2 class="logo-font mb-4">Product Management</h2>
-                <h4 class="text-muted">Add a Product</h4>
+                <h4 class="">Add a Product</h4>
                 <hr>
             </div>
         </div>
@@ -19,8 +19,8 @@
                     {% csrf_token %}
                     {{ form | crispy }}
                     <div class="text-right">
-                        <a class="btn btn-outline-black rounded-0" href="{% url 'books' %}">Cancel</a>
-                        <input type="submit" value="Submit Product" />
+                        <a class="btn btn-danger" href="{% url 'books' %}">Cancel</a>
+                        <input class="btn btn-warning m-5 " style="color: white;" type="submit" value="Submit Product" />
                     </div>
                 </form>
             </div>            

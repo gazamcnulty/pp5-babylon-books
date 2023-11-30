@@ -39,9 +39,11 @@
             <div class="col-8">
                 <h4 class="mt-5">About the author: </h4>
                 <p> {{ book.author.info }}</p> 
-                <a href="{{ book.author.external_link }}" target="_blank">
-                    <p>Click here to read more on Wikipedia</p>
-                </a>
+                {% if book.author.external_link %}
+                    <p>Click <a href="{{ book.author.external_link }}" class="amber_span" target="_blank">here</a> to read more on Wikipedia</p>
+                {% else %}
+                <hr>
+                {% endif %}
             </div>
     
         <div class="col-3 ms-5 text-center">
@@ -50,16 +52,19 @@
     </div>
     <div>
         {% if request.user.is_superuser %}
+        <div class="book_detail_edit">
+            <h6 class="red_span">Store management - superuser</h6>
             <a href="{% url 'edit_product' book.id %}"><p>Edit Store Info</p></a>
             <a href="{% url 'delete_product' book.id %}"><p>Delete Product from Store</p></a>
         {% endif %}
+        </div>
     </div>
     <div class="row commentss_div">
         <div class="col-6">
             <h4>Comments</h4>
             {% if comments %}
                 {% for comment in comments %} <p>
-                    <span class="comment_user fs-4">{{comment.user}}</span> commented :
+                    <span class="amber_span fs-5">{{comment.user}}</span> commented :
                     </p>
                     <p class="fs-4"> "{{comment.text}}"</p>
                     <p>{{ comment.created_on|timesince }} ago</p>
