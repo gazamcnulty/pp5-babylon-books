@@ -48,7 +48,30 @@
 
                 </div>
             </div>
-            <div class="row text-center mb-5 bottom_chunk">
+            <div class="row my-5">
+                <div class="col-12">
+                    <div class="row">
+                            {% for book in books %}
+                            <div class="col-12 books_div">
+                                <div class="row  text-center m-5">
+                                    <div class="col-3">
+                                        <a href="{% url 'book_detail' book.id %}?" id="book_link"><img src="{{ book.image.url }}" alt="{{ book.title }}" style="color:white;" class="w-50" id="book_image"></a>
+                                    </div>
+                                    <div class="col-3">
+                                        <a href="{% url 'book_detail' book.id %}" id="book_link"><h5>{{ book.title }}</h5></a>
+                                        <p>Author: {{ book.author }}</p>
+                                        <p>Genre: {{ book.genre }}</p>
+                                        <p class="fs-5">Price: €{{ book.price }}</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p>{{ book.description|truncatechars:325 }}....<br><a href="{% url 'book_detail' book.id %}">Click for more info</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+            </div>
+            <!--<div class="row text-center mb-5 bottom_chunk">
                 {% for book in books %}
                     <div class="book_tile col-8 p-1 m-3">
                         <a href="{% url 'book_detail' book.id %}"><h5>{{ book.title }}</h5></a>
@@ -56,13 +79,13 @@
                             <a href="{% url 'edit_product' book.id %}"><p>Edit Store Info</p></a>
                             <a href="{% url 'delete_product' book.id %}"><p>Delete Product from Store</p></a>
                         {% endif %}
-                        <!--<a href="{% url 'books' %}?author={{ book.author.name }}">--><p>{{ book.author }}</p><!--</a>-->
+                        <p>{{ book.author }}</p>
                         <p>€{{ book.price }}</p>
                         <a href="{% url 'books' %}?genre={{ book.genre.name }}"><p>{{ book.genre }}</p></a>
                         <p>{{ book.description }}</p>
                     </div>
                 {% endfor %}
-            </div>
+            </div>-->
         </div>
     </div>
 </section>

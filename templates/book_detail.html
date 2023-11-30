@@ -3,8 +3,8 @@
 
 {% block content %}
 <section>
-    <div class="row m-5">
-        <div class="col-6 pe-5 text-start">
+    <div class="row m-5 book_detail_div">
+        <div class="col-6 pe-5 my-5 text-start">
             <h1>{{ book.title }}</h1>
             <h4 class="my-5">Author: <span class="span_white">{{ book.author }}</span></h4>
             <h4 class="my-5">Price: <span class="span_white"> €{{ book.price }}</span></h4>
@@ -54,7 +54,7 @@
             <a href="{% url 'delete_product' book.id %}"><p>Delete Product from Store</p></a>
         {% endif %}
     </div>
-    <div class="row m-5">
+    <div class="row commentss_div">
         <div class="col-6">
             <h4>Comments</h4>
             {% if comments %}
@@ -69,7 +69,7 @@
             {% endif %}
         </div>
         <div class="col-2 ">
-            <h4 class="my-5">Submit a comment</h4>
+            <h4 class="">Submit a comment</h4>
             <form method="POST" action="" class="my-5"> {% csrf_token %} 
                 <textarea id="comment_field" rows="5" cols="50" name="text" placeholder="Have any thoughts on {{ book.title }}? Post a comment!"></textarea>
                 <input type="submit" value="Submit">
