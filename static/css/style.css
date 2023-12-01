@@ -11,7 +11,7 @@ html,body
 
 
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5 {
     
     color: rgb(255, 174, 0);
     font-weight: bold;
@@ -312,7 +312,13 @@ nav {
 
 
 
+/*--------------checkout_success--------*/
 
+
+.checkout_border {
+    border-style: solid;
+    border-color:  rgb(255, 174, 0) !important;
+}
 
 
 

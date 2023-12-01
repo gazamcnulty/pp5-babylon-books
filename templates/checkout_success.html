@@ -5,21 +5,26 @@
     <div class="row mt-5">
         <div class="col-12 mt-5">
             <h2 class="text-center mt-5">Your purchase is complete, thank you!</h2>
-            <p>Order confirmation will be sent to {{ order.email }}</p>
+            <div class="row">
+                <div class="col-12">
+
+                </div>
+            </div>
+            <p>Order confirmation will be sent to <span>{{ order.email }}</span></p>
             <div class="row mt-5">
-                <div class="col mx-auto">
+                <div class="col mx-auto checkout_border">
                     <h5>Order Info</h5>
                     <p>Order Number : {{ order.order_number }}</p>
                     <p>Order Date : {{ order.date }}</p>
                 </div>
-                <div class="col mx-auto">
+                <div class="col mx-auto checkout_border">
                     <h5>Order Info</h5>
                     {% for item in order.lineitems.all %}
                         <p>{{ item.product.title }}</p>
                         <p>{{ item.quantity }} @ ${{ item.product.price }} each</p>
                     {% endfor %}
                 </div>
-                <div class="col mx-auto">
+                <div class="col mx-auto checkout_border">
                     <h5>Delivery Info</h5>
                     <p>Orderer : {{ order.full_name }}</p>
                     <p>Telephone number : {{ order.phone_number }}</p>
@@ -31,7 +36,7 @@
                         {{ order.country }}
                         </p>
                 </div>
-                <div class="col mx-auto">
+                <div class="col mx-auto checkout_border">
                     <h5>Billing info</h5>
                     <p>Delivery Cost : {{ order.delivery_cost }}</p>
                     <p>Total Cost : {{ order.grand_total }}</p>
@@ -39,10 +44,10 @@
             </div>
 
 
-            <div class="row">
+            <div class="row mt-5">
                 <div class="col-8 mx-auto">
                     <h4>Did you forget anything?</h4>
-                    <a href="{% url 'books' %}"><p>Return to the bookstore to check out more great deals</p></a>      
+                    <p>Return to the <a href="{% url 'books' %}" class="amber_span"> bookstore </a> to check out more great deals</p>
                 </div>
             </div>
             <div class="book_tile text-center">
