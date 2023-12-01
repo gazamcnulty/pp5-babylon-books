@@ -2,10 +2,11 @@
 
 {% block content %}
 <section>
-    <div class="row">
-        <div class="col-12">
-            <h2>Search results:</h2>
+    <div class="row m-5">
+        <div class="col-12 mt-5 bottom_chunk">
+            <h2 class="mt-5">Search results</h2>
             {% if search_response %}
+            <p class="my-5 p-4 fs-5 text">You searched for: <span class="fw-bold">"{{search_response}}"</span> here's what we found: </p>
                 {% for book in books %}
                     <div class="book_tile col-8 p-1 m-3">
                         <a href="{% url 'book_detail' book.id %}"><h5>{{ book.title }}</h5></a>
@@ -15,14 +16,17 @@
                     </div>
                 {% endfor %}
                     {% for author in authors %}
-                        <div class="book_tile col-8 p-1 m-3">
+                        <div class="index_div bottom_chunk col-8 p-1 m-3">
                             <p>{{ author.name }}</p>
                             <p>{{ author.info }}</p>
                             <p>{{ author.books_written }}</p>
                         </div>
                     {% endfor %}
             {% else %}
+            <div class="bottom_chunk">
                 <p>No results found</p>
+            </div>
+                
             {% endif %}
         </div>
     </div>
