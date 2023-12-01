@@ -55,7 +55,15 @@
                             <div class="col-12 books_div">
                                 <div class="row  text-center m-5">
                                     <div class="col-md-3 col-sm-12">
-                                        <a href="{% url 'book_detail' book.id %}?" id="book_link"><img src="{{ book.image.url }}" alt="{{ book.title }}" style="color:white;" class="w-75" id="book_image"></a>
+                                        {% if "placeholder" in book.image.url %}
+                                         <div>
+                                            <a href="{% url 'book_detail' book.id %}?" id="book_link"><img src="/static/images/book_placeholder.jpg" alt="placeholder_image" style="color:white;" class="w-75" id="book_image"></a>
+                                         </div> 
+                                        {% else %} 
+                                        <div class="">
+                                            <a href="{% url 'book_detail' book.id %}?" id="book_link"><img src="{{ book.image.url }}" alt="{{ book.title }}" style="color:white;" class="w-75" id="book_image"></a>
+                                          </div> 
+                                        {% endif %}
                                     </div>
                                     <div class="col-md-3 col-sm-12">
                                         <a href="{% url 'book_detail' book.id %}" id="book_link"><h5>{{ book.title }}</h5></a>

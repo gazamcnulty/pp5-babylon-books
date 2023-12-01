@@ -27,7 +27,15 @@
             </form>
         </div>
         <div class="col-3 text-end mt-5">
-            <img src="{{ book.image.url }}" alt="{{ book.title }}" style="color:white;" class="w-75" id="book_image">
+            {% if "placeholder" in book.image.url %}
+            <div>
+               <img src="/static/images/book_placeholder.jpg" alt="placeholder_image" style="color:white;" class="w-75" id="book_image">
+            </div> 
+           {% else %} 
+           <div>
+               <img src="{{ book.image.url }}" alt="{{ book.title }}" style="color:white;" class="w-75" id="book_image">
+             </div> 
+           {% endif %}
         </div>
     <div class="row">
             <div class="col-8 text-start">
@@ -47,7 +55,15 @@
             </div>
     
         <div class="col-3 ms-5 text-center">
-            <img src="{{ book.author.image.url }}" alt="{{ book.author }}" style="color:white;" class="w-75 my-5">
+            {% if "placeholder" in book.author.image.url %}
+            <div>
+                <img src="/static/images/author_placeholder.JPG" alt="placeholder_image" style="color:white;" class="w-75" id="author_image">
+            </div>
+           {% else %} 
+           <div>
+            <img src="{{ book.author.image.url }}" alt="{{ book.author.name }}" style="color:white;" class="w-75" id="author_image">
+             </div> 
+           {% endif %}
         </div>
     </div>
     <div>
