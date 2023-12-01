@@ -77,18 +77,5 @@ class Post(models.Model):
         return self.likes.count()
 
 
-class Review(models.Model):
-
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    book = models.ForeignKey(
-        Book, on_delete=models.CASCADE)
-    body = models.TextField(max_length=180, null=True)
-    created_on = models.DateTimeField(auto_now_add=True, null=True)
-
-    class Meta:
-        ordering = ["-created_on"]
-
-    def __str__(self):
-        return self.body
 
 

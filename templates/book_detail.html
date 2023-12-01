@@ -59,28 +59,28 @@
         {% endif %}
         </div>
     </div>
-    <div class="row commentss_div">
-        <div class="col-6">
-            <h4>Comments</h4>
-            {% if reviews %}
-                {% for review in reviews %} <p>
-                    <span class="amber_span fs-5">{{review.user}}</span> said :
-                    </p>
-                    <p class="fs-4"> "{{review.text}}"</p>
-                    <p>{{ review.created_on|timesince }} ago</p>
-                {% endfor %}
-            {% else %}
-                <p class="fs-4">No comments yet. Be the first, post your thoughts!</p>
-            {% endif %}
-        </div>
-        <div class="col-2 ">
-            <h4 class="">Submit a comment</h4>
-            <form method="POST" action="" class="my-5"> {% csrf_token %} 
-                <textarea id="comment_field" rows="5" cols="50" name="text" placeholder="Have any thoughts on {{ book.title }}? Post a comment!"></textarea>
-                <input type="submit" value="Submit">
-            </form>
-        </div>
-    </div>
+    <!--<div class="row comments_div">
+            <div class="col-6">
+                <h4>Comments</h4>
+                {% if reviews %}
+                    {% for review in reviews %} <p>
+                        <span class="amber_span fs-5">{{review.user}}</span> said :
+                        </p>
+                        <p class="fs-4"> "{{review.text }}"</p>
+                        <p>{{ review.created_on|timesince }} ago</p>
+                    {% endfor %}
+                {% else %}
+                    <p class="fs-4">No comments yet. Be the first, post your thoughts!</p>
+                {% endif %}
+            </div>
+            <div class="col-2 ">
+                <h4 class="">Submit a comment</h4>
+                <form method="POST" action="" class="my-5"> {% csrf_token %} 
+                    <textarea id="comment_field" rows="5" cols="50" name="text" placeholder="Have any thoughts on {{ book.title }}? Post a comment!"></textarea>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>-->
 </section>
 {% endblock %}
 

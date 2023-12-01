@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Book, Author, Genre, Post, Review
+from .models import Book, Author, Genre, Post #Review
 
 # Register your models here.
 
@@ -39,15 +39,14 @@ class BookAdmin(admin.ModelAdmin):
     search_fields = ('title',)
     ordering = ('title',)
 
-@admin.register(Review)
-class PostAdmin(admin.ModelAdmin):
-    """
-    Display fields for Review model in Django admin page
-    Decorator ensures superuser access only , not for front end user
-    """
-    list_display = ('user', 'book', 'body', 'created_on')
-    search_fields = ['user', 'book', 'body']
-    list_filter = ('user', 'book', 'created_on')
+#@admin.register(Review)
+#class PostAdmin(admin.ModelAdmin):
+#    """
+#    Display fields for Review model in Django admin page
+#    Decorator ensures superuser access only , not for front end user
+#    """
+#    list_display = ('user', 'book', 'text', 'created_on')
+#    list_filter = ('user', 'text', 'created_on')
 
 
 @admin.register(Post)
