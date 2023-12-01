@@ -37,7 +37,7 @@
         </div>
         <div class="row m-2">
             <p class="fs-3">Registering an account gets you lots of bonuses</p>
-            <div class="col-4 p-2 bonus_ul">
+            <div class="col-md-4 col-sm-12 bonus_ul">
                 <ul>
                     <li>Saved profile info, no need to input repeatedly for future purchases
                     </li>
@@ -45,7 +45,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-4 p-2 bonus_ul">
+            <div class="col-md-4 col-sm-12 bonus_ul">
                 <ul>
                     <li>Submit comments on books in the shop
                     </li>
@@ -53,7 +53,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-4 p-2 bonus_ul">
+            <div class="col-md-4 col-sm-12 bonus_ul">
                 <ul>
                     <li>Early access to soon to future podcasts / streaming content
                     </li>
@@ -73,16 +73,16 @@
                     {% for book in books|slice:"0:3" %}
                     <div class="col-12">
                         <div class="row home_book text-center m-5">
-                            <div class="col-3">
+                            <div class="col-md-3 col-sm-12">
                                 <a href="{% url 'book_detail' book.id %}?" id="book_link"><img src="{{ book.image.url }}" alt="{{ book.title }}" style="color:white;" class="w-50" id="book_image"></a>
                             </div>
-                            <div class="col-3">
+                            <div class="col-md-3 col-sm-12">
                                 <a href="{% url 'book_detail' book.id %}" id="book_link"><h5>{{ book.title }}</h5></a>
                                 <p>Author: {{ book.author }}</p>
                                 <p>Genre: {{ book.genre }}</p>
                                 <p class="fs-5">Price: €{{ book.price }}</p>
                             </div>
-                            <div class="col-6">
+                            <div class="col-md-3 col-sm-12">
                                 <p>{{ book.description|truncatechars:325 }}....<br><a href="{% url 'book_detail' book.id %}">Click for more info</a></p>
                             </div>
                         </div>

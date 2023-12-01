@@ -69,6 +69,8 @@ li {
 
 ul {
     list-style-type:none !important;
+    
+   
 }
 
 
@@ -165,6 +167,8 @@ body {
 
 .bonus_ul {
     color: white;
+    padding: 0 !important;
+    
     margin-bottom: 200px !important;
 }
 
