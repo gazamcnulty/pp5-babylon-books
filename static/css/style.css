@@ -45,7 +45,7 @@ label {
 
 a {
     text-decoration: none !important;
-    color: rgb(255, 174, 0);
+    color: rgb(255, 174, 0) !important;
 }
 
 a:hover {
@@ -319,6 +319,34 @@ nav {
     border-style: solid;
     border-color:  rgb(255, 174, 0) !important;
 }
+
+
+
+
+/*------------profile----------------*/
+
+
+.profile_link {
+    color:  rgb(255, 174, 0) !important;
+}
+
+.profile_link:hover {
+    color: white !important;
+}
+
+
+
+/*------------login, sign up, signout -------------*/
+
+
+.forgot_password_link {
+    color: red !important;
+}
+
+.forgot_password_link:hover {
+    color: white !important;
+}
+
 
 
 
