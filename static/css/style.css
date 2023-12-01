@@ -182,12 +182,13 @@ nav {
 }
 
 .nav-link {
-    color: rgb(255, 255, 255);
+    
+    color: rgb(255, 174, 0) !important;
     font-size: large;
 }
 
 .nav-link:hover {
-   color: rgb(255, 174, 0) !important;
+    color: rgb(255, 255, 255);
 }
 
 .active {
