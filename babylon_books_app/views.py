@@ -10,7 +10,7 @@ from django.core.paginator import Paginator
 from django.views.generic import ListView
 from . import views 
 from .forms import ProductForm, AuthorForm
-from .models import Author , Book , Genre, Comment
+from .models import Author , Book , Genre, Review, Post
 
 # Create your views here.
 
@@ -74,11 +74,11 @@ def books(request):
 def book_detail(request, book_id):
     book = get_object_or_404(Book, id=book_id)
     author = Author.objects.all()
-    comments = book.comment_set.all()
+    reviews = Review.objects.all()
     #messages.success(request, f'You have added {book.title} to your bag')
 
     if request.method == 'POST':
-        comment = Comment.objects.create(
+        review = Review.objects.create(
             user=request.user,
             book=book,
             text=request.POST.get('text')
@@ -89,7 +89,7 @@ def book_detail(request, book_id):
     context = {
         'book':book,
         'author':author,
-        'comments':comments,
+        'reviews':reviews,
     }
     return render(request, 'book_detail.html', context)
 
@@ -262,3 +262,51 @@ def remove(request, item_id):
         messages.error(request, f'Error removing {book.title} from bag')
         return HttpResponse(status=500)
 
+
+def blog(request):
+
+    posts = Post.objects.all()
+
+    paginator = Paginator(posts, 8)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+
+
+    context = {
+        'page_obj': page_obj,
+    }
+    return render(request, 'blog.html', context)
+
+
+def blog_detail(request, post_id):
+
+    post = get_object_or_404(Post, id=post_id)
+    comments = post.comment_set.all()
+    number_of_likes = post.number_of_likes()
+
+    if request.method == 'POST':
+        comment = Comment.objects.create(
+            user=request.user,
+            post=post,
+            text=request.POST.get('text')
+        )
+        return redirect('blog_detail.html', post_id)
+
+
+    context = {
+        'post': post,
+        'number_of_likes': number_of_likes,
+        'comments': comments,
+    }
+    return render(request, 'blog_detail.html', context)
+
+
+
+def post_like(request, post_id):
+
+    post = get_object_or_404(Post, id=post_id)
+    if post.likes.filter(id=request.user.id).exists():
+        post.likes.remove(request.user)
+    else:
+        post.likes.add(request.user)
+    return redirect('blog_detail', post_id)

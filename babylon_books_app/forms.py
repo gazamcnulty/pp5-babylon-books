@@ -7,7 +7,7 @@ class ProductForm(forms.ModelForm):
 
     class Meta:
         model = Book
-        fields = ('title','genre','author', 'price', 'description', 'added', 'image', 'image_url',)
+        fields = ('title','genre','author', 'price', 'description', 'added', 'image',)
 
 
 #    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)

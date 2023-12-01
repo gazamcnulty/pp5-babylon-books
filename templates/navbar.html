@@ -42,6 +42,9 @@
           <li class="nav-item mt-4">
             <a {% if request.resolver_match.view_name == 'bag' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'bag' %}">Bag</a>
           </li>
+          <li class="nav-item mt-4">
+            <a {% if request.resolver_match.view_name == 'blog' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'blog' %}">Blog</a>
+          </li>
         </ul>
         <form method="POST" action="{%url 'search_results'%}" class="text-end searchbar m-3"> 
           {% csrf_token %} 

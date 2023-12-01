@@ -19,5 +19,8 @@ urlpatterns = [
     path('add_author/', views.add_author, name='add_author'),
     path('edit_product<int:product_id>/', views.edit_product, name='edit_product'),
     path('delete_product<int:product_id>/', views.delete_product, name='delete_product'),
+    path('blog/', views.blog, name='blog'),
+    path('post_like<int:post_id>/', views.post_like, name='post_like'),
+    path('blog_detail<int:post_id>', views.blog_detail, name='blog_detail'),
    
 ]

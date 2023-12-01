@@ -62,12 +62,12 @@
     <div class="row commentss_div">
         <div class="col-6">
             <h4>Comments</h4>
-            {% if comments %}
-                {% for comment in comments %} <p>
-                    <span class="amber_span fs-5">{{comment.user}}</span> commented :
+            {% if reviews %}
+                {% for review in reviews %} <p>
+                    <span class="amber_span fs-5">{{review.user}}</span> said :
                     </p>
-                    <p class="fs-4"> "{{comment.text}}"</p>
-                    <p>{{ comment.created_on|timesince }} ago</p>
+                    <p class="fs-4"> "{{review.text}}"</p>
+                    <p>{{ review.created_on|timesince }} ago</p>
                 {% endfor %}
             {% else %}
                 <p class="fs-4">No comments yet. Be the first, post your thoughts!</p>

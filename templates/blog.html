@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="container">
+    <div class="row mt-5">
+        <div class="col-12 mt-5">
+            <h2 class="text-center mt-5 fs-2">Blog Posts!</h2>
+            <div class="row">
+                <div class="col-12 mx-auto text-center">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                            {% for post in page_obj %}
+                            <div class="col-12 books_div">
+                                <div class="row  text-center m-5">
+                                    <div class="col-md-3 col-sm-12">
+                                        <div class="row">
+                                            <div class="col-md-12 col-sm-6">
+                                                <a href="{% url 'blog_detail' post.id %}"> <h3>{{ post.title }}</h3></a>
+                                                <p>Posted by <span class="amber_span">{{ post.user }}</span></p>
+                                                <p>Posted on {{ post.created_on }}</p>
+                                            </div>
+                                            <div class="col-md-12 col-sm-6">
+                                                <img src="{{ post.image.url }}" alt="{{ post.title }}" class="w-75">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-9 col-sm-12">
+                                        <p>Author: {{ post.content }}</p>
+                                    </div>
+                                    <div class="col-3">
+                                        {% if request.user.is_authenticated %}
+                                            <form action="{% url 'post_like' post.id %}" method="POST"> {% csrf_token %} <button class="btn btn-success m-4" type="submit" name="post_id" value="{{ post.id }}">Like / Dislike</button>
+                                            </form> 
+                                        {% endif %}
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+            </div>
+            <div class="">
+
+                <p class="">{{ number_of_likes }} user(s) like this blog post!</p>
+
+        </div>
+    </div>
+</section>
+{% endblock %}

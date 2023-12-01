@@ -36,7 +36,6 @@ class Book(models.Model):
     description = models.TextField(blank=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     added = models.DateField(default=datetime.date.today)
-    image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(
         upload_to='images/', default='placeholder_image', blank=True)
     sku = models.CharField(max_length=254, null=True, blank=True)
@@ -48,12 +47,42 @@ class Book(models.Model):
         return self.title
 
 
-class Comment(models.Model):
+
+class Post(models.Model):
+
+    title = models.CharField(max_length=225, unique=True, null=True)
+    slug = models.SlugField(max_length=200, unique=True, null=True)
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="blog_posts", null=True
+    )
+    updated_on = models.DateTimeField(auto_now=True)
+    content = models.TextField(null=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+    likes = models.ManyToManyField(
+        User, related_name='blogpost_like', blank=True)
+    image = models.ImageField(
+        upload_to='images/', default='placeholder_image', blank=True
+    )
+
+    class Meta:
+        ordering = ["-created_on"]
+
+    def get_absolute_url(self):
+        return reverse('post_detail', args=[self.slug])
+
+    def __str__(self):
+        return self.title
+
+    def number_of_likes(self):
+        return self.likes.count()
+
+
+class Review(models.Model):
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     book = models.ForeignKey(
         Book, on_delete=models.CASCADE)
-    text = models.TextField(max_length=180, null=True)
+    body = models.TextField(max_length=180, null=True)
     created_on = models.DateTimeField(auto_now_add=True, null=True)
 
     class Meta:
@@ -61,3 +90,5 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.body
+
+
