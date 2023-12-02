@@ -121,7 +121,7 @@ button:hover {
 /*--------------body----------------*/
 
 body {
-    background-image: url("/static/images/books3.jpg");
+    background-image: url("https://res.cloudinary.com/dqdx7ttp7/image/upload/v1701532166/static/images/books3.6e5f4e8b3cee.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
