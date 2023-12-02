@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-12 mx-auto text-center">
                     <p class="d-inline-flex gap-1 my-5">
-                        <button class="btn btn-lg btn-primary fs-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        <button class="btn btn-lg fs-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                           Filter books
                         </button>
                         </p>
@@ -66,7 +66,7 @@
                                         {% endif %}
                                     </div>
                                     <div class="col-md-3 col-sm-12">
-                                        <a href="{% url 'book_detail' book.id %}" id="book_link"><h5>{{ book.title }}</h5></a>
+                                        <a href="{% url 'book_detail' book.id %}" id="book_link"><h4 class="book_h">{{ book.title }}</h4></a>
                                         <p>Author: {{ book.author }}</p>
                                         <p>Genre: {{ book.genre }}</p>
                                         <p class="fs-5">Price: €{{ book.price }}</p>

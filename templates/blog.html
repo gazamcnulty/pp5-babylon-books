@@ -20,13 +20,14 @@
                                     <div class="col-md-3 col-sm-12">
                                         <div class="row">
                                             <div class="col-md-12 col-sm-6">
-                                                <a href="{% url 'blog_detail' post.id %}"> <h3>{{ post.title }}</h3></a>
+                                                <a href="{% url 'blog_detail' post.id %}"> <h3 class="blog_h">{{ post.title }}</h3></a>
                                                 <p>Posted by <span class="amber_span">{{ post.user }}</span></p>
                                                 <p>Posted on {{ post.created_on }}</p>
                                             </div>
                                             <div class="col-md-12 col-sm-6">
                                                 <img src="{{ post.image.url }}" alt="{{ post.title }}" class="w-75">
                                             </div>
+                                            <p class="mt-4">{{ number_of_likes }} user(s) like this blog post!</p>
                                         </div>
 
                                     </div>
@@ -47,7 +48,7 @@
             </div>
             <div class="">
 
-                <p class="">{{ number_of_likes }} user(s) like this blog post!</p>
+               
 
         </div>
     </div>

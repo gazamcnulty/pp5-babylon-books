@@ -18,7 +18,7 @@
                     <p>Order Date : {{ order.date }}</p>
                 </div>
                 <div class="col mx-auto checkout_border">
-                    <h5>Order Info</h5>
+                    <h5>Purchased Items</h5>
                     {% for item in order.lineitems.all %}
                         <p>{{ item.product.title }}</p>
                         <p>{{ item.quantity }} @ ${{ item.product.price }} each</p>

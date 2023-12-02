@@ -69,15 +69,15 @@
             </li>
             {% if request.user.is_authenticated %}
             <li class="footer_li p-1">
-              <a {% if request.resolver_match.view_name == 'profile' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'profile' %}">Profile</a>
+              <a {% if request.resolver_match.view_name == 'profile' %} class="active footer_link" aria-current="page" {% else %} class="footer_link" {% endif %} href="{% url 'profile' %}">Profile</a>
             </li>
             {% else %}
             <li class="footer_li p-1">
-              <a {% if request.resolver_match.view_name == 'account_login' %} class="nav-link active" id="nav_login" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'login' %}">Login</a>
+              <a {% if request.resolver_match.view_name == 'account_login' %} class="active footer_link" id="nav_login" aria-current="page" {% else %} class="footer_link" {% endif %} href="{% url 'login' %}">Login</a>
             </li>
             {% endif %}
             <li class="footer_li p-1">
-              <a {% if request.resolver_match.view_name == 'bag' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'bag' %}">Bag</a>
+              <a {% if request.resolver_match.view_name == 'bag' %} class="active footer_link" aria-current="page" {% else %} class="footer_link" {% endif %} href="{% url 'bag' %}">Bag</a>
             </li>
           </ul>
         </div>
