@@ -150,8 +150,18 @@ body {
 
 
 .index_div {
-    min-height: 700px;
+    min-height: 500px;
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9), rgb(0, 0, 0, 1));
+}
+
+.get_to_know_div {
+    min-height: 500px;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2),  rgb(0, 0, 0, 1));
+}
+
+.last_div {
+    min-height: 400px;
+    background-image: linear-gradient(to top,  rgba(0, 0, 0, 0.1),   rgba(0, 0, 0, 0.5),  rgba(0, 0, 0, 0.6),  rgba(0, 0, 0, 0.7),  rgba(0, 0, 0, 0.8),  rgba(0, 0, 0, 0.9),  rgb(0, 0, 0, 1));
 }
 
 .intro_h {

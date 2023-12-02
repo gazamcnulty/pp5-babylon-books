@@ -10,6 +10,11 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <!--mailchimp css link-->
+    <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+      #mc_embed_signup{ false;clear:left; font:14px Helvetica,Arial,sans-serif;}
+     </style>
     
 
   </head>
@@ -50,9 +55,8 @@
     <div class="footer_container">
       <div class="row mb-0">
         <!--1/3 footer section on left, shows website links-->
-
-        <div class="col-sm-4 text-center d-none d-sm-block">
-          <h4 class="text-center pt-3">Find your way</h4>
+        <div class="col-sm-4 mt-3 text-center d-none d-sm-block">
+          <h5>Find your way</h5>
           <ul class="list-unstlyed ul_footer text-center ">
             <li class="footer_li p-1">
               <a {% if request.resolver_match.view_name == 'homepage' %} class=" active footer_link" aria-current="page" {% else %} class=" footer_link" {% endif %} href="{% url 'homepage' %}">Home</a>
@@ -79,30 +83,27 @@
         </div>
         
         <!--2/3 footer section in center, shows contact info-->
-        <div class="col-sm-4 mb-0 d-none d-sm-block text-center">
-          <h4 class="mb-0 p-3">Contact info</h4>
-          <a href="https://www.facebook.com/profile.php?id=61553999558574" target="_blank" class="footer_link fs-4 mb-3">
-            <i class="fa-brands fa-facebook" style="color: white;" aria-label="Facebook link for Babylon Books"></i>Facebook page</a>
-          <p class="contact">Babylon Books, <br> GRATTAN HOUSE <br> 1 WELLINGTON QUAY <br> DUBLIN 2 <br> 0871501359 <br> babylonbooks@example.com <br>
+        <div class="col-sm-4 mb-0 mt-3 d-none d-sm-block text-center">
+          <h5>Contact info</h5>
+          <p class="contact mt-4">Babylon Books, <br> GRATTAN HOUSE <br> 1 WELLINGTON QUAY <br> DUBLIN 2 <br> 0871501359 <br> babylonbooks@example.com <br>
         </div>
         <!--3/3 footer section in on right, shows social media links-->
-        <div class="col-sm-4 mb-0 text-start">
-          <h4 class="mb-0 p-3">Newsletter</h4>
-          <div id="mc_embed_shell" class="col-sm-4 mb-0 text-start w-75">
-            <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
-            <style type="text/css">
-              #mc_embed_signup{ false;clear:left; font:14px Helvetica,Arial,sans-serif;}
-              /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
-                 We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-             </style>
+        <div class="col-sm-4 mb-0 mt-3 text-start">
+          <h5 class="text-center">Stay in touch</h5>
+          <div class="col-md-0 col-sm-12 mx-auto text-center">
+            <a href="https://www.facebook.com/profile.php?id=61553999558574" target="_blank" class="footer_link fs-5 mt-4">
+              <i class="fa-brands fa-facebook" style="color: white;" aria-label="Facebook link for Babylon Books"></i>Facebook page</a>
+          </div>
+          <hr>
+          <div id="mc_embed_shell" class="col-sm-4 mb-0 text-start w-75 mx-auto text-center ">
             <div id="mc_embed_signup">
               <form action="https://herokuapp.us11.list-manage.com/subscribe/post?u=c15262187c531b98c4f744145&amp;id=20bd9d22cf&amp;f_id=00a9afe0f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
                   <div id="mc_embed_signup_scroll">
-                      <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
-                      <div class="mc-field-group"><label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label>
+                      <div class="indicates-required" style="color:white;"><span class="asterisk">*</span> indicates required</div>
+                      <div class="mc-field-group fs-6"><label for="mce-EMAIL">Provide email address <br>to subscribe up to our newsletter! <span class="asterisk">*</span></label>
                           <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value=""><span id="mce-EMAIL-HELPERTEXT" class="helper_text"></span>
                   </div>
-                  <div id="mce-responses" class="clear foot">
+                  <div id="mce-responses" class="clear foot" style="color:white;">
                       <div class="response" id="mce-error-response" style="display: none;"></div>
                       <div class="response" id="mce-success-response" style="display: none;"></div>
                   </div>
@@ -112,7 +113,7 @@
                   </div>
                   <div class="optionalParent">
                       <div class="clear foot">
-                          <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button fs-6" value="Subscribe" style="background-color: rgb(255, 174, 0);">
+                          <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button fs-6 btn-sm text-center" value="Subscribe" style="background-color: rgb(255, 174, 0);">
                           <p style="margin: 0px auto;">
                               <a href="http://eepurl.com/iFjl5M" title="Mailchimp - email marketing made easy and fun"><span style="display: inline-block; background-color: transparent; border-radius: 4px;">
                               <img class="refferal_badge" src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-dark.svg" alt="Intuit Mailchimp" style="width: 220px; height: 40px; display: flex; padding: 2px 0px; justify-content: center; align-items: center;"></span></a>
@@ -123,6 +124,7 @@
               </div>
           </div>
         </div>
+        
       </div>
   </footer>
 {% block corejs %}

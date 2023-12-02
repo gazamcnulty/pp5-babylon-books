@@ -62,10 +62,50 @@
                 </ul>
             </div>
         </div>
-        <div class="col-12 my-5 text-center">
-            <p class="fs-4 my-5">Still curious about who we are? Don't be shy, click in to the <a href="{% url 'about' %}">About page</a> so we can properly introduce ourselves</p>
-        </div>
+
     </div>
+    <div class="row get_to_know_div my-5">
+        <h4 class="fs-2 m-3 text-center intro_h">We want to get to know you</h4>
+        <div class="col-12 my-4 text-center">
+            <p class="fs-4 my-4">Still curious about who we are? Don't be shy, click in to the <a href="{% url 'about' %}">About page</a> so we can properly introduce ourselves</p>
+        </div>
+        <div class="col-12 my-4 text-center">
+            <p class="fs-4 my-4">Or , make your voice heard. Pop over to our  <a href="{% url 'blog' %}">blog page</a> to see what people are saying and say your own piece</p>
+        </div>
+        <div class="col-8 mx-auto my-5 text-center">
+            <p class="fs-4 my-4">Stay in touch. Provide your email address below, subscribe to our newsletter!</p>
+            <div id="mc_embed_shell" class="col-sm-4 mb-0 text-start w-50 mx-auto text-center ">
+                <div id="mc_embed_signup">
+                  <form action="https://herokuapp.us11.list-manage.com/subscribe/post?u=c15262187c531b98c4f744145&amp;id=20bd9d22cf&amp;f_id=00a9afe0f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+                      <div id="mc_embed_signup_scroll">
+                          <div class="indicates-required" style="color:white;"><span class="asterisk">*</span> indicates required</div>
+                          <div class="mc-field-group"><label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label>
+                              <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value=""><span id="mce-EMAIL-HELPERTEXT" class="helper_text"></span>
+                      </div>
+                      <div id="mce-responses" class="clear foot" style="color:white;">
+                          <div class="response" id="mce-error-response" style="display: none;"></div>
+                          <div class="response" id="mce-success-response" style="display: none;"></div>
+                      </div>
+                      <div aria-hidden="true" style="position: absolute; left: -5000px;">
+                          /* real people should not fill this in and expect good things - do not remove this or risk form bot signups */
+                          <input type="text" name="b_c15262187c531b98c4f744145_20bd9d22cf" tabindex="-1" value="">
+                      </div>
+                      <div class="optionalParent">
+                          <div class="clear foot">
+                              <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button fs-6" value="Subscribe" style="background-color: rgb(255, 174, 0);">
+                              <p style="margin: 0px auto;">
+                                  <a href="http://eepurl.com/iFjl5M" title="Mailchimp - email marketing made easy and fun"><span style="display: inline-block; background-color: transparent; border-radius: 4px;">
+                                  <img class="refferal_badge" src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-dark.svg" alt="Intuit Mailchimp" style="width: 220px; height: 40px; display: flex; padding: 2px 0px; justify-content: center; align-items: center;"></span></a>
+                              </p>
+                          </div>
+                      </div>
+                    </form>
+                  </div>
+              </div>
+        </div>
+        <br>
+        <br>
+</div>
     <div class="row my-5 index_div">
         <div class="col-12">
             <h4 class="text-center m-5 fs-2">Check out or most recently added books</h4>
@@ -90,13 +130,14 @@
                 {% endfor %}
             </div>
     </div>
-    <div class="row mb-5">
+    <div class="row mb-5 last_div">
         <div class="col-12 text-center my-4">
-            <h4 class="text-center fs-2">Click below to browse more from our full range of books!</h4>
+            <h4 class="text-center fs-2 my-5">Click below to browse more from our full range of books!</h4>
+            <div class="text-center my-4">
+                <a href="{% url 'books' %}" class="mx-auto p-2"><button type="button" class="btn mx-auto p-2  fs-5">Browse books now!</button></a>
         </div>
-        <div class="col-12 text-center my-5">
-            <a href="{% url 'books' %}" class="mx-auto p-2"><button type="button" class="btn mx-auto p-2 fs-5">Browse books now!</button></a>
-    </div>
+        </div>
+
     </div>
 </section>
 {% endblock %}
