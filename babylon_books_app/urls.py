@@ -26,4 +26,4 @@ urlpatterns = [
    
 ]
 
-handler404 = 'boutique_ado.views.handler404'
+handler404 = 'babylon_books_app.views.handler404'
