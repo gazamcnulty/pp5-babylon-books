@@ -15,6 +15,11 @@ from .models import Author , Book , Genre, Post #Review
 # Create your views here.
 
 
+def handler404(request, exception):
+    """ Error Handler 404 - Page Not Found """
+    return render(request, "errors/404.html", status=404)
+
+
 def homepage(request):
     books = Book.objects.all()
     authors = Author.objects.all()

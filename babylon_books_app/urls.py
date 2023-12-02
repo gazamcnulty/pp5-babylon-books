@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from . import views
+from .views import handler404
 
 urlpatterns = [
     path('', views.homepage, name='homepage'),
@@ -24,3 +25,5 @@ urlpatterns = [
     path('blog_detail<int:post_id>', views.blog_detail, name='blog_detail'),
    
 ]
+
+handler404 = 'boutique_ado.views.handler404'

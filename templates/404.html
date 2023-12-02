@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="container">
+    <br>
+    <br>
+    <br>
+    <hr>
+    <div class="row m-5">
+        <h2>404 error! Oh no! </h2>
+        
+    </div>
+        <div class="col-12 m-5"><p class="fs-3 m-5">Not to worry, as a wise man once said "All that is gold does not glitter, not all those who wander are lost" Navigate back to the <a href="{% url 'homepage' %}"></a> or go straight to the <a href="{% 
+            url 'books' %}"></a> to find your way! </p>
+        </div>
+    <div class="bottom_chunk">
+        <hr>
+    </div>
+
+
+{% endblock %}
