@@ -41,6 +41,11 @@
             <div class="col-8 text-start">
                 <h4 class="mt-5">About the book:</h4>
                 <p>{{ book.description }}</p>
+                {% if book.external_link %}
+                    <p>Click <a rel="nofollow" href="{{ book.external_link }}" class="amber_span" target="_blank">here</a> to read more on Wikipedia</p>
+                {% else %}
+                <hr>
+                {% endif %}
             </div>
     </div>
     <div class="row">
@@ -48,7 +53,7 @@
                 <h4 class="mt-5">About the author: </h4>
                 <p> {{ book.author.info }}</p> 
                 {% if book.author.external_link %}
-                    <p>Click <a href="{{ book.author.external_link }}" class="amber_span" target="_blank">here</a> to read more on Wikipedia</p>
+                    <p>Click <a rel="nofollow" href="{{ book.author.external_link }}" class="amber_span" target="_blank">here</a> to read more on Wikipedia</p>
                 {% else %}
                 <hr>
                 {% endif %}

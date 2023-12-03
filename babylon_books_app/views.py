@@ -315,3 +315,7 @@ def post_like(request, post_id):
     else:
         post.likes.add(request.user)
     return redirect('blog_detail', post_id)
+
+
+def privacy_policy(request):
+    return render(request, 'privacy_policy.html')

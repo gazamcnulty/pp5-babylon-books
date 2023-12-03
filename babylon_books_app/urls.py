@@ -23,6 +23,7 @@ urlpatterns = [
     path('blog/', views.blog, name='blog'),
     path('post_like<int:post_id>/', views.post_like, name='post_like'),
     path('blog_detail<int:post_id>', views.blog_detail, name='blog_detail'),
+    path('privacy_policy/', views.privacy_policy, name='privacy_policy'),
    
 ]
 
