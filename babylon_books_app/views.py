@@ -46,6 +46,10 @@ def books(request):
     sort = None
     direction = None
 
+    paginator = Paginator(books, 5)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+
     if request.GET:
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
@@ -72,6 +76,7 @@ def books(request):
         'books': books,
         'current_genre':genres,
         'current_sorting': current_sorting,
+        'page_obj':page_obj,
     }
     return render(request, 'books.html', context)
 

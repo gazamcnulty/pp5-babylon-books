@@ -51,7 +51,7 @@
             <div class="row my-5">
                 <div class="col-12">
                     <div class="row">
-                            {% for book in books %}
+                            {% for book in page_obj %}
                             <div class="col-12 books_div">
                                 <div class="row  text-center m-5">
                                     <div class="col-md-3 col-sm-12">
@@ -78,22 +78,12 @@
                             </div>
                         {% endfor %}
                     </div>
+                    <div class="pagination m-4">
+                        <span class="step-links text-center my-4" style="color: white;"> {% if page_obj.has_previous %} <a href="?page=1" class="page_link">&laquo; First</a>
+                          <a href="?page={{ page_obj.previous_page_number }}" class="page_link">Previous</a> {% endif %} <span class="current"> Reviews page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}. </span> {% if page_obj.has_next %} <a href="?page={{ page_obj.next_page_number }}" class="page_link">Next</a>
+                          <a href="?page={{ page_obj.paginator.num_pages }}" class="page_link">Last &raquo;</a> {% endif %} </span>
+                      </div>
             </div>
-            <!--<div class="row text-center mb-5 bottom_chunk">
-                {% for book in books %}
-                    <div class="book_tile col-8 p-1 m-3">
-                        <a href="{% url 'book_detail' book.id %}"><h5>{{ book.title }}</h5></a>
-                        {% if request.user.is_superuser %}
-                            <a href="{% url 'edit_product' book.id %}"><p>Edit Store Info</p></a>
-                            <a href="{% url 'delete_product' book.id %}"><p>Delete Product from Store</p></a>
-                        {% endif %}
-                        <p>{{ book.author }}</p>
-                        <p>€{{ book.price }}</p>
-                        <a href="{% url 'books' %}?genre={{ book.genre.name }}"><p>{{ book.genre }}</p></a>
-                        <p>{{ book.description }}</p>
-                    </div>
-                {% endfor %}
-            </div>-->
         </div>
     </div>
 </section>
