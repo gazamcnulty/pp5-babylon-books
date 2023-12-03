@@ -3,13 +3,13 @@
 
 {% block content %}
 <section>
-    <div class="row m-5 book_detail_div">
-        <div class="col-6 pe-5 my-5 text-start">
+    <div class="row book_detail_div">
+        <div class="col-md-6 col-sm-12 mx-auto text-center">
             <h1>{{ book.title }}</h1>
             <h4 class="my-5">Author: <span class="span_white">{{ book.author }}</span></h4>
             <h4 class="my-5">Price: <span class="span_white"> €{{ book.price }}</span></h4>
         </div>
-        <div class="col-2 mt-4 text-start">
+        <div class="col-md-2 col-sm-12 mt-4 mx-auto text-center">
             <br>
             <br>
             <form class="form" action="{% url 'add_to_bag' book.id %}" method="POST">
@@ -26,7 +26,7 @@
                 </div>
             </form>
         </div>
-        <div class="col-3 text-end mt-5">
+        <div class="col-md-4 col-sm-12 mx-auto text-center">
             {% if "placeholder" in book.image.url %}
             <div>
                <img src="/static/images/book_placeholder.jpg" alt="placeholder_image" style="color:white;" class="w-75" id="book_image">
@@ -37,8 +37,8 @@
              </div> 
            {% endif %}
         </div>
-    <div class="row">
-            <div class="col-8 text-start">
+    <div class="row mx-auto text-center">
+            <div class="col-md-6 col-sm-12 mx-auto text-center">
                 <h4 class="mt-5">About the book:</h4>
                 <p>{{ book.description }}</p>
                 {% if book.external_link %}
@@ -48,8 +48,8 @@
                 {% endif %}
             </div>
     </div>
-    <div class="row">
-            <div class="col-8">
+    <div class="row my-5">
+            <div class="col-md-8 col-sm-12 mx-auto text-center">
                 <h4 class="mt-5">About the author: </h4>
                 <p> {{ book.author.info }}</p> 
                 {% if book.author.external_link %}
@@ -59,7 +59,7 @@
                 {% endif %}
             </div>
     
-        <div class="col-3 ms-5 text-center">
+        <div class="col-md-4 col-sm-12 mx-auto text-center">
             {% if "placeholder" in book.author.image.url %}
             <div>
                 <img src="/static/images/author_placeholder.JPG" alt="placeholder_image" style="color:white;" class="w-75" id="author_image">
@@ -74,27 +74,34 @@
     <br>
     <hr>
 <div class="row my-5">
-    <h4>User reviews for {{ book.title }}</h4>
-    <div class="col -6 comment_div">
-        {% for review in reviews %} <p>
-            <span class="comment_user fs-4">{{review.user}}</span> said :
-          </p>
-          <p class="fs-4"> "{{review.review}}"</p>
-          <p>{{ review.created_on|timesince }} ago</p>
-          <!--check if the current user , is the commenter. enable them to delete--> {% if review.user == request.user %} <a href="" class="">
-            <button type="button" class="text-center p-1 btn btn-outline-danger  fs-6 text">Delete</button>
-          </a> {% endif %}
-          <hr> {% endfor %}
-    </div>
-    <div class="col-6 mx-auto text-center">
+    <div class="col-md-6 col-sm-12 mx-auto text-center">
+        <h4 class="my-5">Submit a review</h4>
         {% if request.user.is_authenticated %} 
         <div>
-            <h4 class="my-5">Submit a review</h4>
-            <form method="POST" action="" class="my-5"> {% csrf_token %} <input type="text" name="review" placeholder="submit a quick review!" class="w-75"/>
+            <form method="POST" action="" class="my-5"> {% csrf_token %} <textarea maxlength="249" type="submit" name="review" placeholder="submit a quick review!" cols="35" rows="5"></textarea>
+                <input value="Submit" type="submit">
             </form>
         </div>
+        {% else %}
+        <p>You need to be logged into your account to post a review.<a href="{% url 'login' %}">Login</a>so you can post a review!</p>
         {% endif %}
     </div>
+    <div class="col-md-6 col-sm-12">
+        <h4>User reviews for {{ book.title }}</h4>
+        {% for review in page_obj %} 
+            <div class=" comment_div">
+                <p><span class="comment_user fs-4">{{review.user}}</span> said :</p>
+                <p class="fs-4"> "{{review.review}}"</p>
+                <p>{{ review.created_on|timesince }} ago</p>
+                <!--check if the current user , is the commenter. enable them to delete--> {% if review.user == request.user %} <a href="" class="">
+                    <a href="{% url 'delete_review' review.id %}" class=""><button class="btn">DELETE</button>></a>
+                </a> 
+                {% endif %}
+                <hr> 
+            </div>
+        {% endfor %}
+    </div>
+    
     {% if request.user.is_superuser %}
     <div class=" row my-5">
         <div class="book_update_div col-8 mx-auto my-5">
@@ -115,6 +122,11 @@
         </div>
     </div>
     {% endif %}
+    <div class="pagination">
+        <span class="step-links text-center my-4" style="color: white;"> {% if page_obj.has_previous %} <a href="?page=1" class="page_link">&laquo; First</a>
+          <a href="?page={{ page_obj.previous_page_number }}" class="page_link">Previous</a> {% endif %} <span class="current"> Reviews page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}. </span> {% if page_obj.has_next %} <a href="?page={{ page_obj.next_page_number }}" class="page_link">Next</a>
+          <a href="?page={{ page_obj.paginator.num_pages }}" class="page_link">Last &raquo;</a> {% endif %} </span>
+      </div>
 </div>
 </section>
 {% endblock %}

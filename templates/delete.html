@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="row my-5">
+    <div class="col-12 m-5">
+        <h2 class="my-5">Delete content</h2>
+        <p class="fs-4">Are you sure you want to delete <span class="fw-bold">"{{obj}}"</span>? Deletion is permanent, it cannot be retrieved afterward </p>
+    </div>
+    <div class="col-12">
+        <form method="POST" action="" class="text-center"> {% csrf_token %} <button type="submit" class="btn btn-lg btn-danger">Delete</button>
+        </form>
+        <div class="text-center">
+          <!--link to return user back to previous page-->
+          <a href="{{request.META.HTTP_REFERER}}" class="p-3 m-2">
+            <button type="button" class="p-1 m-3 btn btn-outline-success fs-6 text">Go back</button>
+          </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

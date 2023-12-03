@@ -80,7 +80,10 @@ def book_detail(request, book_id):
     book = get_object_or_404(Book, id=book_id)
     author = Author.objects.all()
     reviews = book.feedback_set.all()
-    #messages.success(request, f'You have added {book.title} to your bag')
+
+    paginator = Paginator(reviews, 5)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
 
     if request.method == 'POST':
         review = Feedback.objects.create(
@@ -95,6 +98,7 @@ def book_detail(request, book_id):
         'book':book,
         'author':author,
         'reviews':reviews,
+        'page_obj':page_obj,
     }
     return render(request, 'book_detail.html', context)
 
@@ -143,6 +147,34 @@ def add_author(request):
     }
 
     return render(request, template, context)
+
+
+
+@login_required(login_url='login')
+def edit_author(request, author_id):
+    if not request.user.is_superuser:
+        messages.error(request, 'Changing store info is restricted to admin / superusers')
+        return redirect(reverse('homepage'))
+    author = get_object_or_404(Author, pk=author_id)
+    if request.method == 'POST':
+        form = AuthorForm(request.POST, request.FILES, instance=author)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated author!')
+            return redirect('books.html')
+        else:
+            messages.error(request, 'Failed to edit author. Please ensure the form is valid.')
+    else:
+        form = AuthorForm(instance=author)
+        messages.info(request, f'You are editing {author.name}')
+        
+    template = 'edit_author.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
 
 @login_required(login_url='login')
 def edit_product(request, product_id):
@@ -319,3 +351,18 @@ def post_like(request, post_id):
 
 def privacy_policy(request):
     return render(request, 'privacy_policy.html')
+
+
+
+@login_required(login_url='login_base')
+def delete_review(request, review_id):
+
+    review = get_object_or_404(Feedback, id=review_id)
+
+    if request.user != review.user:
+        return HttpResponse('You cannot delete posts submitted by other users')
+    if request.method == 'POST':
+        review.delete()
+        return redirect('homepage')
+    context = {'obj': review}
+    return render(request, 'delete.html', context)
