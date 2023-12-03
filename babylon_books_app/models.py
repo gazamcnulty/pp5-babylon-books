@@ -78,4 +78,16 @@ class Post(models.Model):
 
 
 
+class Feedback(models.Model):
 
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    book = models.ForeignKey(
+        Book, on_delete=models.CASCADE)
+    review = models.CharField(max_length=250, null=True)
+    created_on = models.DateTimeField(auto_now_add=True, null=True)
+
+    class Meta:
+        ordering = ["-created_on"]
+
+    def __str__(self):
+        return self.review

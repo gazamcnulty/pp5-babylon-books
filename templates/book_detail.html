@@ -71,37 +71,51 @@
            {% endif %}
         </div>
     </div>
-    <div>
-        {% if request.user.is_superuser %}
-        <div class="book_detail_edit">
-            <h6 class="red_span">Store management - superuser</h6>
-            <a href="{% url 'edit_product' book.id %}"><p>Edit Store Info</p></a>
-            <a href="{% url 'delete_product' book.id %}"><p>Delete Product from Store</p></a>
+    <br>
+    <hr>
+<div class="row my-5">
+    <h4>User reviews for {{ book.title }}</h4>
+    <div class="col -6 comment_div">
+        {% for review in reviews %} <p>
+            <span class="comment_user fs-4">{{review.user}}</span> said :
+          </p>
+          <p class="fs-4"> "{{review.review}}"</p>
+          <p>{{ review.created_on|timesince }} ago</p>
+          <!--check if the current user , is the commenter. enable them to delete--> {% if review.user == request.user %} <a href="" class="">
+            <button type="button" class="text-center p-1 btn btn-outline-danger  fs-6 text">Delete</button>
+          </a> {% endif %}
+          <hr> {% endfor %}
+    </div>
+    <div class="col-6 mx-auto text-center">
+        {% if request.user.is_authenticated %} 
+        <div>
+            <h4 class="my-5">Submit a review</h4>
+            <form method="POST" action="" class="my-5"> {% csrf_token %} <input type="text" name="review" placeholder="submit a quick review!" class="w-75"/>
+            </form>
+        </div>
         {% endif %}
+    </div>
+    {% if request.user.is_superuser %}
+    <div class=" row my-5">
+        <div class="book_update_div col-8 mx-auto my-5">
+            <h4>Super user store-management</h4>
+            <p class="d-inline-flex gap-1 my-5">
+                <button id="update_button" class="btn btn-lg fs-4 mx-auto" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                Edit / Delete</button>
+            </p>
+            <div class="collapse row " id="collapseExample">
+                <div class="card card-body book_card_update col-12 mx-auto">
+                    <div class="book_detail_edit">
+                        <h6 class="red_span">Store management - superuser</h6>
+                        <a href="{% url 'edit_product' book.id %}"><p>Edit Book Item</p></a>
+                        <a href="{% url 'delete_product' book.id %}"><p>Delete Book Permanently (forever!)</p></a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <!--<div class="row comments_div">
-            <div class="col-6">
-                <h4>Comments</h4>
-                {% if reviews %}
-                    {% for review in reviews %} <p>
-                        <span class="amber_span fs-5">{{review.user}}</span> said :
-                        </p>
-                        <p class="fs-4"> "{{review.text }}"</p>
-                        <p>{{ review.created_on|timesince }} ago</p>
-                    {% endfor %}
-                {% else %}
-                    <p class="fs-4">No comments yet. Be the first, post your thoughts!</p>
-                {% endif %}
-            </div>
-            <div class="col-2 ">
-                <h4 class="">Submit a comment</h4>
-                <form method="POST" action="" class="my-5"> {% csrf_token %} 
-                    <textarea id="comment_field" rows="5" cols="50" name="text" placeholder="Have any thoughts on {{ book.title }}? Post a comment!"></textarea>
-                    <input type="submit" value="Submit">
-                </form>
-            </div>
-        </div>-->
+    {% endif %}
+</div>
 </section>
 {% endblock %}
 

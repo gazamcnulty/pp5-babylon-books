@@ -10,7 +10,7 @@ from django.core.paginator import Paginator
 from django.views.generic import ListView
 from . import views 
 from .forms import ProductForm, AuthorForm
-from .models import Author , Book , Genre, Post #Review
+from .models import Author , Book , Genre, Post, Feedback
 
 # Create your views here.
 
@@ -79,22 +79,22 @@ def books(request):
 def book_detail(request, book_id):
     book = get_object_or_404(Book, id=book_id)
     author = Author.objects.all()
-    #reviews = book.review_set.all()
+    reviews = book.feedback_set.all()
     #messages.success(request, f'You have added {book.title} to your bag')
 
-    #if request.method == 'POST':
-    #    review = Review.objects.create(
-    #        user=request.user,
-    #        book=book,
-    #        text=request.POST.get('text')
-    #    )
-    #    return redirect('book_detail', book_id)
+    if request.method == 'POST':
+        review = Feedback.objects.create(
+            user=request.user,
+            book=book,
+            review=request.POST.get('review')
+        )
+        return redirect('book_detail', book_id)
 
 
     context = {
         'book':book,
         'author':author,
-    #    'reviews':reviews,
+        'reviews':reviews,
     }
     return render(request, 'book_detail.html', context)
 

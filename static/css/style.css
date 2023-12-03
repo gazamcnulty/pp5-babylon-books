@@ -273,9 +273,10 @@ nav {
     border-color: red;
 }
 
-/*#comment_field {
-    line-height: 6em;
-}*/
+.comment_div {
+    border-style: solid;
+    border-color: rgb(255, 174, 0) !important;
+}
 
 
 .home_book {
@@ -283,6 +284,18 @@ nav {
     border-color: rgb(255, 174, 0) !important;
 } 
 
+.book_update_div {
+    border-style: solid;
+    border-color: red !important;
+}
+
+.book_card_update {
+    background-color: rgb(73, 73, 73);
+}
+
+#button {
+
+}
 /*.container {
     background-color: rgba(255, 255, 255, 0.5) !important;
 }*/
