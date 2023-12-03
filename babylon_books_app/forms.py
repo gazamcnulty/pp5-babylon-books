@@ -1,6 +1,6 @@
 from django import forms
 #from .widgets import CustomClearableFileInput
-from .models import Book, Author
+from .models import Book, Author, Post
 
 
 class ProductForm(forms.ModelForm):
@@ -28,4 +28,12 @@ class AuthorForm(forms.ModelForm):
     class Meta:
         model = Author
         fields = ('name','info','books_written', 'image',)
+
+
+
+class PostForm(forms.ModelForm):
+
+    class Meta:
+        model = Post
+        fields = ['title', 'content', 'image']
 

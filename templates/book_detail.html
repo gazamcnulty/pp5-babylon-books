@@ -122,7 +122,7 @@
         </div>
     </div>
     {% endif %}
-    <div class="pagination">
+    <div class="pagination m-4">
         <span class="step-links text-center my-4" style="color: white;"> {% if page_obj.has_previous %} <a href="?page=1" class="page_link">&laquo; First</a>
           <a href="?page={{ page_obj.previous_page_number }}" class="page_link">Previous</a> {% endif %} <span class="current"> Reviews page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}. </span> {% if page_obj.has_next %} <a href="?page={{ page_obj.next_page_number }}" class="page_link">Next</a>
           <a href="?page={{ page_obj.paginator.num_pages }}" class="page_link">Last &raquo;</a> {% endif %} </span>

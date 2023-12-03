@@ -27,6 +27,7 @@ urlpatterns = [
     path('privacy_policy/', views.privacy_policy, name='privacy_policy'),
     path('delete_review/<review_id>',
          views.delete_review, name='delete_review'),
+    path('add_blogpost/', views.add_blogpost, name='add_blogpost'),
    
 ]
 

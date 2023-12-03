@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="row my-5">
+    <div class="col-12 m-2">
+        <h2 class=" my-5 fs-1">Submit a blogpost!</h2> 
+        <p class="fs-3">What are you reading? How does it make you feel? Tell us about it!</p>
+        <form method="POST" action="{% url 'add_blogpost' %}" id="" enctype="multipart/form-data" class="text-center my-5"> 
+            {% csrf_token %} 
+            <div>
+              {{ form.as_p }}
+              <div>
+                <button type="submit" class="btn btn-primary btn-lg btn-success my-4">Submit blog post</button>
+              </div>
+
+              <a href="{{request.META.HTTP_REFERER}}" class="">
+                <button type="button" class="p-2 my-4 btn btn-outline-success fs-6 text">Go back</button>
+              </a>
+          </form>
+    </div>
+</div>
+
+{% endblock %}

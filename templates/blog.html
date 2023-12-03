@@ -3,53 +3,59 @@
 
 {% block content %}
 <section class="container">
-    <div class="row mt-5">
-        <div class="col-12 mt-5">
-            <h2 class="text-center mt-5 fs-2">Blog Posts!</h2>
+    <div class="row my-5">
+        <div class="col-12 my-5">
+            <h2 class="text-center my-5 fs-2">Blog Posts!</h2>
             <div class="row">
                 <div class="col-12 mx-auto text-center">
-
+                    <a href="{% url 'add_blogpost' %}">
+                        <button type="button" class="btn  m-2 fs-5 text">Submit a blogpost</button>
+                      </a>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
                     <div class="row">
-                            {% for post in page_obj %}
-                            <div class="col-12 books_div">
-                                <div class="row  text-center m-5">
-                                    <div class="col-md-3 col-sm-12">
-                                        <div class="row">
-                                            <div class="col-md-12 col-sm-6">
-                                                <a href="{% url 'blog_detail' post.id %}"> <h3 class="blog_h">{{ post.title }}</h3></a>
-                                                <p>Posted by <span class="amber_span">{{ post.user }}</span></p>
-                                                <p>Posted on {{ post.created_on }}</p>
-                                            </div>
-                                            <div class="col-md-12 col-sm-6">
-                                                <img src="{{ post.image.url }}" alt="{{ post.title }}" class="w-75">
-                                            </div>
-                                            <p class="mt-4">{{ number_of_likes }} user(s) like this blog post!</p>
+                        {% for post in page_obj %}
+                        <div class="col-12 books_div">
+                            <div class="row  text-center m-5">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-md-8 col-sm-12">
+                                            <a href="{% url 'blog_detail' post.id %}"> <h3 class="blog_h">{{ post.title }}</h3></a>
+                                            <p>Posted by <span class="amber_span">{{ post.user }}</span></p>
+                                            <p>Posted on {{ post.created_on }}</p>
+                                            <br>
+                                            <p class="my-auto mx-auto">{{ post.user }} says : {{ post.content }}</p>
+                                            <hr>
+                                            {% if request.user.is_authenticated %}
+                                                <form action="{% url 'post_like' post.id %}" method="POST"> {% csrf_token %} <button class="btn btn-success m-4" type="submit" name="post_id" value="{{ post.id }}">Like / Dislike</button>
+                                                </form> 
+                                            {% endif %}
                                         </div>
-
-                                    </div>
-                                    <div class="col-md-9 col-sm-12">
-                                        <p>{{ post.user }} says : {{ post.content }}</p>
-                                    </div>
-                                    <div class="col-3">
-                                        {% if request.user.is_authenticated %}
-                                            <form action="{% url 'post_like' post.id %}" method="POST"> {% csrf_token %} <button class="btn btn-success m-4" type="submit" name="post_id" value="{{ post.id }}">Like / Dislike</button>
-                                            </form> 
-                                        {% endif %}
-                                    </div>
+                                        <div class="col-md-4 col-sm-12">
+                                            {% if "placeholder" in post.image.url %}
+                                            <div>
+                                                <img src="/static/images/author_placeholder.JPG" alt="placeholder_image" style="color:white;" class="w-75" id="blog_image">
+                                            </div> 
+                                           {% else %} 
+                                                <img src="{{ post.image.url }}" alt="{{ post.title }}" class="w-75">
+                                            {% endif %}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                         {% endfor %}
-                    </div>
+                    
+                        <div class="pagination m-4">
+                            <span class="step-links text-center my-4" style="color: white;"> {% if page_obj.has_previous %} <a href="?page=1" class="page_link">&laquo; First</a>
+                              <a href="?page={{ page_obj.previous_page_number }}" class="page_link">Previous</a> {% endif %} <span class="current"> Reviews page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}. </span> {% if page_obj.has_next %} <a href="?page={{ page_obj.next_page_number }}" class="page_link">Next</a>
+                              <a href="?page={{ page_obj.paginator.num_pages }}" class="page_link">Last &raquo;</a> {% endif %} </span>
+                          </div>
+                    </div>    
+                </div>
             </div>
-            <div class="">
-
-               
-
         </div>
     </div>
 </section>

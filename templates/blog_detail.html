@@ -19,7 +19,13 @@
                                             <p>Posted on {{ post.created_on }}</p>
                                         </div>
                                         <div class="col-md-12 col-sm-6">
-                                            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="w-75">
+                                            {% if "placeholder" in post.image.url %}
+                                            <div>
+                                                <img src="/static/images/author_placeholder.JPG" alt="placeholder_image" style="color:white;" class="w-75" id="blog_image">
+                                            </div> 
+                                           {% else %} 
+                                                <img src="{{ post.image.url }}" alt="{{ post.title }}" class="w-75">
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>

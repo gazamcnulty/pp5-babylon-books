@@ -9,7 +9,7 @@ from django.db.models import Q
 from django.core.paginator import Paginator
 from django.views.generic import ListView
 from . import views 
-from .forms import ProductForm, AuthorForm
+from .forms import ProductForm, AuthorForm, PostForm
 from .models import Author , Book , Genre, Post, Feedback
 
 # Create your views here.
@@ -150,30 +150,30 @@ def add_author(request):
 
 
 
-@login_required(login_url='login')
-def edit_author(request, author_id):
-    if not request.user.is_superuser:
-        messages.error(request, 'Changing store info is restricted to admin / superusers')
-        return redirect(reverse('homepage'))
-    author = get_object_or_404(Author, pk=author_id)
-    if request.method == 'POST':
-        form = AuthorForm(request.POST, request.FILES, instance=author)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Successfully updated author!')
-            return redirect('books.html')
-        else:
-            messages.error(request, 'Failed to edit author. Please ensure the form is valid.')
-    else:
-        form = AuthorForm(instance=author)
-        messages.info(request, f'You are editing {author.name}')
-        
-    template = 'edit_author.html'
-    context = {
-        'form': form,
-    }
-
-    return render(request, template, context)
+#/*@login_required(login_url='login')
+#def edit_author(request, author_id):
+#    if not request.user.is_superuser:
+#        messages.error(request, 'Changing store info is restricted to admin / superusers')
+#        return redirect(reverse('homepage'))
+#    author = get_object_or_404(Author, pk=author_id)
+#    if request.method == 'POST':
+#        form = AuthorForm(request.POST, request.FILES, instance=author)
+#        if form.is_valid():
+#            form.save()
+#            messages.success(request, 'Successfully updated author!')
+#            return redirect('books.html')
+#        else:
+#            messages.error(request, 'Failed to edit author. Please ensure the form is valid.')
+#    else:
+#        form = AuthorForm(instance=author)
+#        messages.info(request, f'You are editing {author.name}')
+#
+#    template = 'edit_author.html'
+#    context = {
+#        'form': form,
+#    }
+#
+#    return render(request, template, context)
 
 
 @login_required(login_url='login')
@@ -311,6 +311,7 @@ def blog(request):
 
     context = {
         'page_obj': page_obj,
+        'posts':posts,
     }
     return render(request, 'blog.html', context)
 
@@ -336,6 +337,22 @@ def blog_detail(request, post_id):
         #'comments': comments,
     }
     return render(request, 'blog_detail.html', context)
+
+
+@login_required(login_url='login_base')
+def add_blogpost(request):
+
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.user = request.user
+            instance.save()
+            return redirect('blog')
+
+    form = PostForm()
+    context = {'form': form}
+    return render(request, 'add_blogpost.html', context)
 
 
 
