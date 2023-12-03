@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /profile/
+Disallow: /bag/
+Disallow: /checkout/
+Disallow: /checkout_success/
+Disallow: /account/password_change/
+Disallow: /account/signup/
+Disallow: /account/login/
+Disallow: /account/logout/
+Sitemap: https://pp5-babylon-books-760a9235289e.herokuapp.com/sitemap.xml
