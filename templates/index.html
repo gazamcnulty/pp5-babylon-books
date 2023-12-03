@@ -55,7 +55,7 @@
             </div>
             <div class="col-md-4 col-sm-12 bonus_ul">
                 <ul>
-                    <li>Early access to soon to future podcasts / streaming content
+                    <li>Early access to soon to future podcasts / streaming content / <strong>book clubs</strong>
                     </li>
                     <li>And more to come in future!
                     </li>
@@ -70,7 +70,7 @@
             <p class="fs-4 my-4">Still curious about who we are? Don't be shy, click in to the <a href="{% url 'about' %}">About page</a> so we can properly introduce ourselves</p>
         </div>
         <div class="col-12 my-4 text-center">
-            <p class="fs-4 my-4">Or , make your voice heard. Pop over to our  <a href="{% url 'blog' %}">blog page</a> to see what people are saying and say your own piece</p>
+            <p class="fs-4 my-4">Or , make your voice heard. Pop over to our  <a href="{% url 'blog' %}"><strong>book blogs</strong></a> page to see what people are saying and join the conversation</p>
         </div>
         <div class="col-8 mx-auto my-5 text-center">
             <p class="fs-4 my-4">Stay in touch. Provide your email address below, subscribe to our newsletter!</p>
@@ -108,13 +108,13 @@
 </div>
     <div class="row my-5 index_div">
         <div class="col-12">
-            <h4 class="text-center my-5 fs-2 intro_h">Check out or most recently added books</h4>
+            <h4 class="text-center my-5 fs-2 intro_h">Most recently curated books</h4>
             <div class="row">
                     {% for book in books|slice:"0:3" %}
                     <div class="col-12">
                         <div class="row home_book text-center m-5">
                             <div class="col-md-3 col-sm-12">
-                                <a href="{% url 'book_detail' book.id %}?" id="book_link"><img src="{{ book.image.url }}" alt="{{ book.title }}" style="color:white;" class="w-50" id="book_image"></a>
+                                <a href="{% url 'book_detail' book.id %}?" id="book_link"><img src="{{ book.image.url }}" alt="{{ book.title }} cover" style="color:white;" class="w-50" id="book_image"></a>
                             </div>
                             <div class="col-md-3 col-sm-12">
                                 <a href="{% url 'book_detail' book.id %}" id="book_link"><h5>{{ book.title }}</h5></a>
