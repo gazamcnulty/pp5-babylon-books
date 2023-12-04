@@ -621,13 +621,31 @@ PageSpeed Insights in the chrome devtools lighthouse test, it checks each webpag
 
 
 
-- Desktop homepage test produced good results 94 performance 
+- Homepage
 
-![Image](static/images/readme_images/insight_homepage.JPG)
-
-
-
-![Image](static/images/readme_images/stripe_payment_succeeded.JPG)
+![Image](static/images/readme_images/homepage_psi.JPG)
 
 
-insight_homepage
+- Login 
+
+![Image](static/images/readme_images/login_psi.JPG)
+
+- Books
+
+![Image](static/images/readme_images/books_mobile_wireframe.JPG)
+
+- About
+
+![Image](static/images/readme_images/about_psi.JPG)
+
+- Blog
+
+![Image](static/images/readme_images/blog_psi.JPG)
+
+- Profile
+
+![Image](static/images/readme_images/profile_psi.JPG)
+
+- Bag
+
+![Image](static/images/readme_images/bag_psi.JPG)
