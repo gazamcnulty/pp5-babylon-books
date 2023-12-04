@@ -6,7 +6,7 @@
 
 
 
-#SOURCES
+# Sources - Boutique Ado
 
 For the process of completing this project, I followed along with the Boutique Ado tutorials. This was necessary for the E-commerce parts of the project and related apps. It mainly comprises the content of 
 
@@ -22,6 +22,9 @@ I am aware it is standard process to follow along with the tutorials as part of 
 
   there are also links below to the progressive completion of the Boutique Ado repo, when it was not completed and had different content.
 
+
+**Please note**
+- Due to how .md file renders text, some of the code snippets could not be rendered properly in this document. They are pasted here in full but they may not all display correcly, please click into the related links in any section for the relevant Boutique Ado repo part
 
 
 
