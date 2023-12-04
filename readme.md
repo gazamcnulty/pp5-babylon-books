@@ -79,17 +79,17 @@ Then , these MOSCOW labelled user stories can be divided up further into iterati
 Furthermore, a key feature of agile methodology is the inherent flexibility. Although all of the prior features seem essential, its important to remember that agile users are constantly re-assessing the goals, features, user stories, work load as time goes on with the project. This is important because what seems a good idea now, may turn out to be a bad idea later. And, the more work we do on the project, the more experience and info we have to help us determine what should and shouldn’t go into it. With this in mind, i would look at every project iteration while completing the project and see if all of the user stories still made sense as time went on. Sometimes I would change a story to a new goal, or just decide not to complete a user story if it didn’t fit with the overall vision, or if time was an issue. This allows me to focus on the big picture of getting the website completed instead of being bogged down in inflexible tasks.
 
 
-**Example of a user story from Babylon Books**
+- Example of a user story from Babylon Books
 
 ![Image](static/images/readme_images/user_story.JPG)
 
 
-**projects / iterations for Babylon Books**
+- projects / iterations for Babylon Books
 
 ![Image](static/images/readme_images/iterations.JPG)
 
 
-**Project board**
+- Project board
 
 ![Image](static/images/readme_images/project.JPG)
 
@@ -138,6 +138,32 @@ Finally for **marketing** the E-commerce application, I followed the suggested g
 
 
 
+
+## Wireframes
+
+
+* Homepage
+ ![Image](static/images/readme_images/homepage_wireframe.JPG)
+
+ * Books
+ ![Image](static/images/readme_images/books_desktop.JPG)
+ ![Image](static/images/readme_images/books_mobile_wireframe.JPG)
+
+ * Checkout
+ ![Image](static/images/readme_images/checkout_desktop_wireframe.JPG)
+
+ * Profile
+ ![Image](static/images/readme_images/profile_mobile_wireframe.JPG)
+
+  * Login
+ ![Image](static/images/readme_images/login_mobile_wireframe.JPG)
+
+  * About us
+ ![Image](static/images/readme_images/about_us_desktop.JPG)
+
+
+
+
 ## Visual Stucture / Design Features
 
 
@@ -148,8 +174,6 @@ My intent with the design of Babylon Books, both visually and functionally, is t
 ![Image](static/images/readme_images/homepage_phone.JPG)
 
 ![Image](static/images/readme_images/homepage_desktop.JPG)
-
-![Image](static/images/readme_images/homepage_phone.JPG)
 
 The overall colour scheme was a response to the online book shops I found when conducting my research. They were mostly bright / white, brightly lit, vanilla. I wanted to go in the complete opposite direction to indicate this site was different from the others, to give it some character. As such, I gave the website a kind of permanent 'dark mode' , it is mostly dark greys, translucent blacks, with occasional colour coming from a contrasting bright orange. The background image is an overflowing library of books , so the semi transparent black colour gives it a pseudo black and white appearance. This goes a long way towards the vibe of the website, the implied black and white aesthetic lends it a kind of artsy elegance ( whether real or imagined ). At the very least, it communicates to the user that this is not your typical bookshop, it has a certain depth to its design. The bright orange is used on large text items like headers or links so they stand out and the user can clearly see them. Most of the text is white , it is a strong contrast on the black background and can clearly be seen. These design choices, along with the darker aesthetic, make it so the website is more pleasant to browse, it does not strain the eyes. It might seem like a small thing but this slightly increases the chance the user will stay on the site for longer, and , make a purchase.
 
@@ -184,7 +208,7 @@ There is a mailchimp input for the user to sign up for a newsletter
 ![Image](static/images/readme_images/about_phone.JPG)
 
 * profile.html
-![Image](static/images/readme_images/homepage_phone.JPG)
+![Image](static/images/readme_images/profile_phone.JPG)
 
 
 Further Screenshots of various pages on the website
@@ -210,27 +234,256 @@ Further Screenshots of various pages on the website
 ![Image](static/images/readme_images/get_to_know.JPG)
 
 
-## Wireframes
 
 
-* Homepage
- ![Image](static/images/readme_images/homepage_wireframe.JPG)
 
- * Books
- ![Image](static/images/readme_images/books_desktop.JPG)
- ![Image](static/images/readme_images/books_mobile_wireframe.JPG)
 
- * Checkout
- ![Image](static/images/readme_images/checkout_desktop_wireframe.JPG)
 
- * Profile
- ![Image](static/images/readme_images/profile_mobile_wireframe.JPG)
 
-  * Login
- ![Image](static/images/readme_images/login_mobile_wireframe.JPG)
 
-  * About us
- ![Image](static/images/readme_images/about_us_desktop.JPG)
 
-  * Profile
- ![Image](static/images/readme_images/profile_mobile_wireframe.JPG)
+![Image](static/images/readme_images/1.JPG)
+
+
+ASSESMENT : Pass
+- The website is online, clearly linked with djagno admin, databases are hosted through Postgres, Elephant SQL
+
+
+—-------------------------------
+
+
+![Image](static/images/readme_images/2.JPG)
+
+
+
+ASSESMENT : Pass
+- Navbar is live, navlinks to otherpages are clickable and bring user to other page
+
+
+—-----------
+
+![Image](static/images/readme_images/3.JPG)
+
+
+ASSESMENT : Pass
+- Index.html is the landing page, homepage is visible and laid out properly with welcome text
+
+
+
+—-----------------------------
+
+
+
+![Image](static/images/readme_images/4.JPG)
+
+
+ASSESMENT : Pass
+- As superuser I can login to front end and django admin, update / delete database info
+
+
+![Image](static/images/readme_images/5.JPG)
+
+
+ASSESMENT : Pass
+- It is possible to click a button that says login which is clearly displayed in navbar , enables user to sign up and register if not already . Registration works in front end
+
+
+![Image](static/images/readme_images/6.JPG)
+
+
+
+ASSESMENT : Pass
+- It is possible to click a button that says login which is clearly displayed in navbar ,  they can use username and password to login
+
+
+![Image](static/images/readme_images/7.JPG)
+
+
+ASSESMENT : Fail 
+
+This changed during development per agile processes : I decided to remove the login/logout button if the user is logged in and replace it with ‘Profile’ button. The sign out function is available from there , but this userstory would technically be considered a fail since the logout button is not always displayed 
+
+
+![Image](static/images/readme_images/8.JPG)
+
+
+ASSESMENT : Pass
+Product / book posts are clearly displayed and visible to users on site
+
+
+![Image](static/images/readme_images/9.JPG)
+
+
+ASSESMENT: Fail
+
+While it is possible for users to post reviews, they can’t currently edit or delete them. This is a feature I will add in a future iteration
+
+
+
+![Image](static/images/readme_images/10.JPG)
+
+
+ASSESMENT : Fail
+
+Unfortunately I did not end up implementing a wishlist feature. As the website is highly curated, with limited selection of books available a wishlist might not be a huge priority. If the available list of book titles were to increase, it might make more sense in a future iteration
+
+
+![Image](static/images/readme_images/11.JPG)
+
+
+ASSESMENT : Pass
+
+As above, there is no wishlist so this would be considered a fail
+
+
+![Image](static/images/readme_images/12.JPG)
+
+
+ASSESMENT : Pass
+
+Search bar is clearly displayed and visible to users on site , it works and can find book results
+
+
+![Image](static/images/readme_images/13.JPG)
+
+
+ASSESMENT : Pass
+
+About author chunk is on book_detail, with info, photo and link to wikipedia page
+
+
+![Image](static/images/readme_images/14.JPG)
+
+
+ASSESMENT : Fail
+
+This was a result of agile / changing methodologies during project development. Originally, I intended there to be full separate author pages but I ultimately decided the info was best left as a chunk in the book_detail page, with a separate wikipedia link. As it does not meet the criteria , this would be a fail
+
+
+
+![Image](static/images/readme_images/15.JPG)
+
+
+
+ASSESMENT : Pass
+There is a separate about page which provides more info about the site and its founders
+
+
+
+![Image](static/images/readme_images/16.JPG)
+
+
+
+ASSESMENT : Pass
+Bag page works, users can add items to their bag
+
+
+![Image](static/images/readme_images/17.JPG)
+
+
+ASSESMENT : Pass
+In bag page , users can delete items from their bag
+
+
+
+![Image](static/images/readme_images/19.JPG)
+
+
+ASSESMENT : Pass
+There is a separate blogpost page where users can post blogs
+
+
+
+![Image](static/images/readme_images/20.JPG)
+
+
+ASSESMENT : Pass
+Users can change their password from a link on the profile page
+
+
+![Image](static/images/readme_images/21.JPG)
+
+
+ASSESMENT : Pass
+Specific css colors, backgrounds, spacing has been set to the site has a pleasant appearance and layout
+
+
+
+![Image](static/images/readme_images/22.JPG)
+
+
+ASSESMENT : Pass
+Order history is listed on profile page
+
+
+![Image](static/images/readme_images/23.JPG)
+
+
+ASSESMENT : Pass
+Profile page displays personal info, address, previous orders 
+
+
+
+![Image](static/images/readme_images/24.JPG)
+
+
+ASSESMENT : Pass
+There is a welcome banner on homepage, suggesting user start shopping, along with other banners asking them to sign up or view about page, or provide email for subscription
+
+
+![Image](static/images/readme_images/25.JPG)
+
+
+ASSESMENT : Pass
+There is a separate about page , it has images, horizontal layout, contrasting colours and is responsive
+
+
+![Image](static/images/readme_images/26.JPG)
+
+
+ASSESMENT : Pass
+Footer is visible at all times, has links to external sites, site navigation and contact info
+
+
+![Image](static/images/readme_images/27.JPG)
+
+
+
+ASSESMENT : Pass
+Users can click in and view extra info about the book on a separate book_detail page, including author info
+
+
+![Image](static/images/readme_images/28.JPG)
+
+
+ASSESMENT : Pass
+Toast message pops up when a book is added to bag, when user is logged in / out, when password is changed etc
+
+
+![Image](static/images/readme_images/29.JPG)
+
+
+ASSESMENT : Pass
+Stripe payment is successful , goes through on stripe system and shows in order history
+
+
+
+![Image](static/images/readme_images/30.JPG)
+
+
+ASSESMENT : Pass
+Checkout page shows items in cart, confirms with user if they want to update before going ahead with purchase 
+
+
+![Image](static/images/readme_images/31.JPG)
+
+
+ASSESMENT : Pass
+Superusers can see otherwise invisible managestore navbar links to add book , add author. They can also edit / delete books from the book_detail page 
+
+
+
+**Conclusion**
+
+ I have passed the majority of userstory tests. A few are considered fails due to technicality, design choices re-visitied during the agile process. A few I would like to add in future iteration like wishlist and author page.
+
