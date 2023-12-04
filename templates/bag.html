@@ -3,13 +3,13 @@
 
 {% block content %}
     <div class="row mt-5">
-        <div class="col-12 mt-5">
+        <div class="col-12 my-5">
             <h2 class="text-center mt-5">Items in your bag, confirm your purchase!</h2>
-            <div class="row mt-5">
+            <div class="row my-5">
                 <div class="col mx-auto">
                     {% if bag_items %}
                         <div>
-                            <div class="book_tile text-center w-25">
+                            <div class="book_tile text-center w-50">
                                 {% for item in bag_items %}
                                     <h4>{{ item.product.title }}</h4>
                                     <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
