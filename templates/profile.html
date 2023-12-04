@@ -4,10 +4,10 @@
 {% block head_title %}{% trans "Sign Out" %}{% endblock %}
 {% block content %}
 
-    <div class="row m-5">
-        <div class="col-12 m-5">
-            <h1 class="text-center mt-5">Your Profile</h1>
-            <div class="row mt-5">
+    <div class="row my-5">
+        <div class="col-12 m-2">
+            <h1 class="text-center my-5">Your Profile</h1>
+            <div class="row my-5">
                 <div class="col-md-6 col-sm-12">
                     <h2 class="m-1">Profile Info</h2>
                     <h4>Username : <span class="span_white">{{user.username}}</span></h4>
@@ -20,27 +20,24 @@
                 </div>
                 <hr>
             </div>
-            <div class="row mt-5">
-                    <div class="col-4">
-                        <h2>Telephone + Address info :</h2>
-                        <form class="" action="{% url 'profile' %}" method="POST" id="profile-update-form">
-                            {% csrf_token %}
-                            {{ form|crispy }}
+            <div class="row my-2">
+                <div class="col-md-6 col-sm-12">
+                    <h2>Telephone + Address info :</h2>
+                    <form class="" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                        {% csrf_token %}
+                        {{ form|crispy }}
                             <button class="btn btn-lg mt-2 text-center">Update</button>
                         </form>
-                    </div>
-                    <div class="col-2">
-
-                    </div>
-                    <div class="col-6 order_details">
-                        <h2>Order History</h2>
-                        <p class="">{{ order.order_number }}</p>
+                </div>
+                <div class="col-md-6 col-sm-12 order_details mx-auto text-center">
+                    <h2>Order History</h2>
+                    <p class="">{{ order.order_number }}</p>
                         {% if orders %}
                             {% for order in orders %}
                                 <p><span class="amber_span">Order number:</span> {{ order.order_number }}</p>
                                 <p>Ordered on : {{ order.date }}</p>
                                 <ul class="list-unstyled">
-                                    <p>Books ordered:</p>
+                                <p>Books ordered:</p>
                                     {% for item in order.lineitems.all %}
                                         <li class="small">
                                             <p>{{ item.quantity }} x {{ item.product.title }}</p>
@@ -53,8 +50,8 @@
                         {% else %}
                             <p>You haven't ordered anything yet. Head back to <a href="{% url 'books' %}"> browse books</a> and place an order!</p>
                         {% endif %}
-                    </div>
                 </div>
+            </div>
             <hr>
         </div>
     </div>
