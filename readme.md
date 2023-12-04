@@ -238,7 +238,7 @@ Further Screenshots of various pages on the website
 
 
 
-
+## Tests : User Stories / Issues
 
 
 
@@ -249,7 +249,7 @@ ASSESMENT : Pass
 - The website is online, clearly linked with djagno admin, databases are hosted through Postgres, Elephant SQL
 
 
-—-------------------------------
+
 
 
 ![Image](static/images/readme_images/2.JPG)
@@ -260,7 +260,7 @@ ASSESMENT : Pass
 - Navbar is live, navlinks to otherpages are clickable and bring user to other page
 
 
-—-----------
+
 
 ![Image](static/images/readme_images/3.JPG)
 
@@ -268,9 +268,6 @@ ASSESMENT : Pass
 ASSESMENT : Pass
 - Index.html is the landing page, homepage is visible and laid out properly with welcome text
 
-
-
-—-----------------------------
 
 
 
@@ -498,14 +495,53 @@ Superusers can see otherwise invisible managestore navbar links to add book , ad
 Here I sought to check that all  links/pages all over the site are working properly, not just for the user to reach a new page but also for it to look correct in terms of css and responsiveness. I performed the test on chrome and changed screensize with chrome dev tools to check the responsiveness. 
 
 
+
+
+![Image](static/images/readme_images/web_validate.JPG)
+
+
+
 Results: 
+All pages are suitably responsive , work on all screen sizes, all links / urls work properly. However some of the margin on smaller screens in certain pages, caused content to flow over edge of screen, so these were considered a fail.
+
+Most passed, the pages with too much margin have no been fixed so sizing on all pages is appropriate
+
+
+---
+
+
+## Tests - Responsiveness
+Here I used Chrome dev tools to run through a variety of screen sizes, simulating different sized devices to assess how the website looks and works on different viewports
+
+All devices pass
+
+
+iPhone SE - 320 x 854
+iPhone XR - 414 x 896
+iPhone 12 Pro - 390 x 844
+Pixel 5 - 393 x 851
+Samsung Galaxy S8+ - 360 x 740
+Samsung Galaxy S20 Ultra - 412 x 915
+iPad Air - 820 x 1180
+iPad Mini - 768 x 1024
+Surface Pro 7 - 912 x 1368
+Surface Duo - 540 x 720
+Galaxy Fold - 280 x 653
+Samsung Galaxy A51/71 - 412 x 914
+Nest Hub - 1024 x 600
+Nest Hub Max - 1280 x 800
+Pixel 6 - 412 x 892
+4K monitor 2560 x 1897
+Laptop 1440 x 1004
+Tablet 768 x 854
+Mobile 425 x 854
 
 
 
+![Image](static/images/readme_images/screensize.JPG)
 
 
-
-
+![Image](static/images/readme_images/mockup.JPG)
 
 
 
@@ -556,3 +592,42 @@ Stripe shows payment successful, linked with newly registered email biboy28462@n
 **Conclusion**
 
 All auth email verification successfully sends real emails to email address provided. Stripe payments are succesful , shows as working both on Babylon Books website and on stripe payments screen
+
+
+---
+
+
+## Tests - Browsers
+
+I tried running Babylon Books on different browsers to confirm it runs ok . It was checked on Edge, Chrome, Firefox, Safari - all tests passed, all browsers working ok.
+
+
+---
+
+
+## Tests - Devices
+
+
+I tried running Babylon Books on different computers, devices to confirm it runs properly on each system . It was checked on Macbook Pro, Windows 11 on PC , Windows 10 on laptop, iPhone 10, Samsung Galaxy. All tests passed, Babylon Books works ok on all devices.
+
+
+---
+
+
+## Tests -  PageSpeed Insights Lighthouse accessiblity, performance , SEO
+
+PageSpeed Insights in the chrome devtools lighthouse test, it checks each webpage for performance, accessibility, SEO
+
+
+
+
+- Desktop homepage test produced good results 94 performance 
+
+![Image](static/images/readme_images/insight_homepage.JPG)
+
+
+
+![Image](static/images/readme_images/stripe_payment_succeeded.JPG)
+
+
+insight_homepage
