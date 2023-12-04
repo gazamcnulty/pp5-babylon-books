@@ -489,8 +489,27 @@ Superusers can see otherwise invisible managestore navbar links to add book , ad
 
 
 
+---
+
+
+
+
 ## Tests - Links, website validation
 Here I sought to check that all  links/pages all over the site are working properly, not just for the user to reach a new page but also for it to look correct in terms of css and responsiveness. I performed the test on chrome and changed screensize with chrome dev tools to check the responsiveness. 
+
+
+Results: 
+
+
+
+
+
+
+
+
+
+
+---
 
 
 
