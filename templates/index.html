@@ -113,8 +113,8 @@
                     {% for book in books|slice:"0:4" %}
                     <div class="col-12">
                         <div class="row home_book text-center my-5">
-                            <div class="col-md-3 col-sm-12">
-                                <a href="{% url 'book_detail' book.id %}?" id="book_link"><img src="{{ book.image.url }}" alt="{{ book.title }} cover" style="color:white;" class="w-50" id="book_image"></a>
+                            <div class="col-xxl-2 col-xl-3 col-md-4 col-sm-12 mx-auto">
+                                <a href="{% url 'book_detail' book.id %}?" id="book_link"><img src="{{ book.image.url }}" alt="{{ book.title }} cover" style="color:white;" class="w-75 h-100" id="book_image"></a>
                             </div>
                             <div class="col-md-3 col-sm-12">
                                 <a href="{% url 'book_detail' book.id %}" id="book_link"><h4>{{ book.title }}</h4></a>

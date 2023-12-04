@@ -26,14 +26,14 @@
                 </div>
             </form>
         </div>
-        <div class="col-md-4 col-sm-12 mx-auto text-center">
+        <div class="col-xxl-2 col-xl-3 col-md-4 col-sm-12 mx-auto text-center">
             {% if "placeholder" in book.image.url %}
             <div>
-               <img src="/static/images/book_placeholder.jpg" alt="placeholder_image" style="color:white;" class="w-75" id="book_image">
+               <img src="/static/images/book_placeholder.jpg" alt="placeholder_image" style="color:white;" class="w-75 h-100" id="book_image">
             </div> 
            {% else %} 
            <div>
-               <img src="{{ book.image.url }}" alt="{{ book.title }}" style="color:white;" class="w-75" id="book_image">
+               <img src="{{ book.image.url }}" alt="{{ book.title }}" style="color:white;" class="w-75 h-100" id="book_image">
              </div> 
            {% endif %}
         </div>
@@ -59,7 +59,7 @@
                 {% endif %}
             </div>
     
-        <div class="col-md-4 col-sm-12 mx-auto text-center">
+        <div class="col-xxl-2 col-xl-3 col-md-4 col-sm-12 mx-auto mx-auto text-center">
             {% if "placeholder" in book.author.image.url %}
             <div>
                 <img src="/static/images/author_placeholder.JPG" alt="placeholder_image" style="color:white;" class="w-75" id="author_image">
