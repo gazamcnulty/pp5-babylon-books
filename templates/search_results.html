@@ -2,26 +2,19 @@
 
 {% block content %}
 <section>
-    <div class="row m-5">
-        <div class="col-12 mt-5 bottom_chunk">
+    <div class="row my-5">
+        <div class="col-12 my-5 bottom_chunk">
             <h2 class="mt-5">Search results</h2>
             {% if search_response %}
-            <p class="my-5 p-4 fs-5 text">You searched for: <span class="fw-bold">"{{search_response}}"</span> here's what we found: </p>
+            <p class="my-5 p-1 fs-5 text">You searched for: <span class="fw-bold">"{{search_response}}"</span> here's what we found: </p>
                 {% for book in books %}
                     <div class="book_tile col-8 p-1 m-3">
                         <a href="{% url 'book_detail' book.id %}"><h5>{{ book.title }}</h5></a>
                         <p>{{ book.author }}</p>
                         <p>€{{ book.price }}</p>
-                        <p>{{ book.description }}</p>
+                        <p>{{ book.description|truncatechars:100 }}</p>
                     </div>
                 {% endfor %}
-                    {% for author in authors %}
-                        <div class="index_div bottom_chunk col-8 p-1 m-3">
-                            <p>{{ author.name }}</p>
-                            <p>{{ author.info }}</p>
-                            <p>{{ author.books_written }}</p>
-                        </div>
-                    {% endfor %}
             {% else %}
             <div class="bottom_chunk">
                 <p>No results found</p>
