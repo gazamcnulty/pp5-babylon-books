@@ -491,3 +491,49 @@ Superusers can see otherwise invisible managestore navbar links to add book , ad
 
 ## Tests - Links, website validation
 Here I sought to check that all  links/pages all over the site are working properly, not just for the user to reach a new page but also for it to look correct in terms of css and responsiveness. I performed the test on chrome and changed screensize with chrome dev tools to check the responsiveness. 
+
+
+
+
+## Tests - Stripe payment , allauth email verification
+
+To check that stripe payments work along with email confirmations, I will use a temporary email address from tempmail.com , register it on the website and attempt a payment.
+
+Tempmail website provides temporary email biboy28462@nasmis.com
+
+![Image](static/images/readme_images/tempmail.JPG)
+
+Register on Babylon Books with email biboy28462@nasmis.com , username biboy
+
+![Image](static/images/readme_images/signup.JPG)
+
+Babylon Books attempts to send email verification to biboy28462@nasmis.com to confirm account set up
+
+![Image](static/images/readme_images/verify.JPG)
+
+Email received 
+
+![Image](static/images/readme_images/email_verification.JPG)
+
+Email signup completed
+
+![Image](static/images/readme_images/completed.JPG)
+
+Add books to bag while signed in with biboy , proceed to checkout to make purchase
+
+![Image](static/images/readme_images/checkout.JPG)
+
+Order processed from Babylon Books
+
+![Image](static/images/readme_images/order_processed.JPG)
+
+Stripe shows payment successful, linked with newly registered email biboy28462@nasmis.com
+
+
+![Image](static/images/readme_images/stripe_payment_succeeded.JPG)
+
+
+
+**Conclusion**
+
+All auth email verification successfully sends real emails to email address provided. Stripe payments are succesful , shows as working both on Babylon Books website and on stripe payments screen
