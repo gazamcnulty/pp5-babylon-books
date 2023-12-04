@@ -138,35 +138,99 @@ Finally for **marketing** the E-commerce application, I followed the suggested g
 
 
 
-## Stucture / Features
+## Visual Stucture / Design Features
 
-Screenshots of various pages on the website
+
+
+My intent with the design of Babylon Books, both visually and functionally, is to create a simple yet meaningful layout. I want it to be striking, immediately noticeable, and also immediately easy to understand / intuit. Bootstrap typically favours mobile first design, so I took care to ensure the website was pleasant to use and look at both on small screens and large screens.
 
 * Homepage (index.html)
+![Image](static/images/readme_images/homepage_phone.JPG)
+
+![Image](static/images/readme_images/homepage_desktop.JPG)
+
+![Image](static/images/readme_images/homepage_phone.JPG)
+
+The overall colour scheme was a response to the online book shops I found when conducting my research. They were mostly bright / white, brightly lit, vanilla. I wanted to go in the complete opposite direction to indicate this site was different from the others, to give it some character. As such, I gave the website a kind of permanent 'dark mode' , it is mostly dark greys, translucent blacks, with occasional colour coming from a contrasting bright orange. The background image is an overflowing library of books , so the semi transparent black colour gives it a pseudo black and white appearance. This goes a long way towards the vibe of the website, the implied black and white aesthetic lends it a kind of artsy elegance ( whether real or imagined ). At the very least, it communicates to the user that this is not your typical bookshop, it has a certain depth to its design. The bright orange is used on large text items like headers or links so they stand out and the user can clearly see them. Most of the text is white , it is a strong contrast on the black background and can clearly be seen. These design choices, along with the darker aesthetic, make it so the website is more pleasant to browse, it does not strain the eyes. It might seem like a small thing but this slightly increases the chance the user will stay on the site for longer, and , make a purchase.
+
+
+* Landing on the page, the user will see a large horizontal navbar. This is fixed to the top of the page, no matter where the user is or what they are doing . This carries uniform design with the user wherever they go on the site. It also has the site navigation clearly laid out and the current page is highlighted - this improves user experience as the user is less likey to get lost, they can always see where they currently are and can go to another page with one click.
+![Image](static/images/readme_images/navbar.JPG)
+
+* On the main home page is a call to action ; a welcome banner and a bright orange button entices the user to start browsing our books immediately. This gets the user straight to the e-commerce side, since it is a bookshop it is the first place most users will want to go.
+![Image](static/images/readme_images/welcome.JPG)
+
+* The next section is signified by a slightly darker background border, that gradually becomes more transparent further down. This does multiple things : it contrasts against the above section, to indicate a new section visually. It matches the footer and navbar, keeping the design consistent. The gradual change to transparency also indicates visually how far down the user has moved and indicates roughly how close they are to the next section. it is also different from the typical strong uniform colours you might see on another website, further communicating the personality / ethos of the site to the user
+![Image](static/images/readme_images/border.JPG)
+
+In terms of spacing and layout, the elements are fairly simple - mostly full screen horizontal. This is important in some sections to as not to overwhelm the user, specifically the homepage should be simple, pleasant and welcoming. However on other busier pages, the content might be split vertically in half to save space on larger screens, then taking up full space when on mobile screen.
+
+* If the user doesn't immediately go to browsing books , they are invited to read more info on the about page or go to the blogs page.
+There is a mailchimp input for the user to sign up for a newsletter
+![Image](static/images/readme_images/get_to_know.JPG)
+
+
+
+* Below this is a brief taste of some recently added books. not the full list, but hopefully just enough to entice the user to browse more and buy some books. If they scroll down past this, they will see another call to action button inviting them to go the books page
+![Image](static/images/readme_images/recent_books.JPG)
+
+
+* Books page + blog page are similar to the homepage, horizontal layout with books divided by chunks
+![Image](static/images/readme_images/blog_desktop.JPG)
+
+
+* About page uses similar simple horizontal layout but this one does opt for the strong contrasting colour background. I felt it was more appropriate since it is the 'wordiest' section
+![Image](static/images/readme_images/about_desktop.JPG)
+![Image](static/images/readme_images/about_phone.JPG)
+
+* profile.html
+![Image](static/images/readme_images/homepage_phone.JPG)
+
+
+Further Screenshots of various pages on the website
 
 
 * Books.html
+![Image](static/images/readme_images/navbar.JPG)
 
 
 * Book_detail.html
-
-
-* About.html
+![Image](static/images/readme_images/facebook1.JPG)
 
 
 * Checkout.html
+![Image](static/images/readme_images/border.JPG)
 
 
 * Bag.html
-
-
-* Blog.html
-
-
-* add_author.html
+![Image](static/images/readme_images/facebook1.JPG)
 
 
 * add_product.html
+![Image](static/images/readme_images/get_to_know.JPG)
 
 
-* profile.html
+## Wireframes
+
+
+* Homepage
+ ![Image](static/images/readme_images/homepage_wireframe.JPG)
+
+ * Books
+ ![Image](static/images/readme_images/books_desktop.JPG)
+ ![Image](static/images/readme_images/books_mobile_wireframe.JPG)
+
+ * Checkout
+ ![Image](static/images/readme_images/checkout_desktop_wireframe.JPG)
+
+ * Profile
+ ![Image](static/images/readme_images/profile_mobile_wireframe.JPG)
+
+  * Login
+ ![Image](static/images/readme_images/login_mobile_wireframe.JPG)
+
+  * About us
+ ![Image](static/images/readme_images/about_us_desktop.JPG)
+
+  * Profile
+ ![Image](static/images/readme_images/profile_mobile_wireframe.JPG)
