@@ -1,5 +1,4 @@
 from django import forms
-#from .widgets import CustomClearableFileInput
 from .models import Book, Author, Post
 
 
@@ -7,10 +6,8 @@ class ProductForm(forms.ModelForm):
 
     class Meta:
         model = Book
-        fields = ('title','genre','author', 'price', 'description', 'added', 'image',)
-
-
-#    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
+        fields = ('title', 'genre', 'author', 'price',
+                  'description', 'added', 'image', )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -22,17 +19,13 @@ class ProductForm(forms.ModelForm):
             field.widget.attrs['class'] = 'border-black rounded-0'
 
 
-
 class AuthorForm(forms.ModelForm):
-
     class Meta:
         model = Author
-        fields = ('name','info','books_written', 'image',)
-
+        fields = ('name', 'info', 'books_written', 'image',)
 
 
 class PostForm(forms.ModelForm):
-
     class Meta:
         model = Post
         fields = ['title', 'content', 'image']

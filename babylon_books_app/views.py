@@ -8,15 +8,15 @@ from django.shortcuts import render, redirect, reverse
 from django.db.models import Q
 from django.core.paginator import Paginator
 from django.views.generic import ListView
-from . import views 
+from . import views
 from .forms import ProductForm, AuthorForm, PostForm
-from .models import Author , Book , Genre, Post, Feedback
+from .models import Author, Book, Genre, Post, Feedback
 
 # Create your views here.
 
 
 def handler404(request, exception):
-    """ Error Handler 404 - Page Not Found """
+    """Error Handler 404 - Page Not Found"""
     return render(request, "errors/404.html", status=404)
 
 
@@ -24,20 +24,22 @@ def homepage(request):
     books = Book.objects.all()
     authors = Author.objects.all()
     context = {
-        'books': books,
-        'authors': authors,
+        "books": books,
+        "authors": authors,
     }
-    return render(request, 'index.html', context)
+    return render(request, "index.html", context)
 
 
 def login(request):
-    return render(request, 'login.html')
+    return render(request, "login.html")
+
 
 def logout(request):
-    return render(request, 'logout.html')
+    return render(request, "logout.html")
+
 
 def signup(request):
-    return render(request, 'signup.html')
+    return render(request, "signup.html")
 
 
 def books(request):
@@ -51,34 +53,33 @@ def books(request):
     page_obj = paginator.get_page(page_number)
 
     if request.GET:
-        if 'sort' in request.GET:
-            sortkey = request.GET['sort']
+        if "sort" in request.GET:
+            sortkey = request.GET["sort"]
             sort = sortkey
-            if sortkey == 'title':
-                sortkey = 'lower_title'
-                books = books.annotate(lower_title=Lower('title'))
+            if sortkey == "title":
+                sortkey = "lower_title"
+                books = books.annotate(lower_title=Lower("title"))
 
-            if 'direction' in request.GET:
-                direction = request.GET['direction']
-                if direction == 'desc':
-                    sortkey = f'-{sortkey}'
+            if "direction" in request.GET:
+                direction = request.GET["direction"]
+                if direction == "desc":
+                    sortkey = f"-{sortkey}"
             books = books.order_by(sortkey)
 
-        if 'genre' in request.GET:
-            genres = request.GET['genre'].split()
+        if "genre" in request.GET:
+            genres = request.GET["genre"].split()
             books = books.filter(genre__name__in=genres)
             genres = Genre.objects.filter(name__in=genres)
 
-
-    current_sorting = f'{sort}_{direction}'
+    current_sorting = f"{sort}_{direction}"
 
     context = {
-        'books': books,
-        'current_genre':genres,
-        'current_sorting': current_sorting,
-        'page_obj':page_obj,
+        " books": books,
+        " current_genre ": genres,
+        " current_sorting ": current_sorting,
+        "page_obj": page_obj,
     }
-    return render(request, 'books.html', context)
+    return render(request, "books.html", context)
 
 
 def book_detail(request, book_id):
@@ -90,22 +91,19 @@ def book_detail(request, book_id):
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
 
-    if request.method == 'POST':
+    if request.method == "POST":
         review = Feedback.objects.create(
-            user=request.user,
-            book=book,
-            review=request.POST.get('review')
+            user=request.user, book=book, review=request.POST.get("review")
         )
-        return redirect('book_detail', book_id)
-
+        return redirect("book_detail", book_id)
 
     context = {
-        'book':book,
-        'author':author,
-        'reviews':reviews,
-        'page_obj':page_obj,
+        "book": book,
+        "author": author,
+        "reviews": reviews,
+        "page_obj": page_obj,
     }
-    return render(request, 'book_detail.html', context)
+    return render(request, "book_detail.html", context)
 
 
 @login_required(login_url='login')

@@ -39,6 +39,7 @@ class BookAdmin(admin.ModelAdmin):
     search_fields = ('title',)
     ordering = ('title',)
 
+
 @admin.register(Feedback)
 class FeedbackAdmin(admin.ModelAdmin):
 

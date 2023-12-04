@@ -11,7 +11,8 @@ class Author(models.Model):
     image = models.ImageField(
         upload_to='images/', default='placeholder_image', blank=True)
     books_written = models.ForeignKey(
-        'Book', on_delete=models.SET_NULL, related_name="books_written", null=True, blank=True)
+        'Book', on_delete=models.SET_NULL,
+        related_name="books_written", null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -30,9 +31,11 @@ class Genre(models.Model):
 class Book(models.Model):
     title = models.CharField(max_length=254)
     author = models.ForeignKey(
-        Author, on_delete=models.SET_NULL, related_name="authors", null=True, blank=True)
+        Author, on_delete=models.SET_NULL,
+        related_name="authors", null=True, blank=True)
     genre = models.ForeignKey(
-        Genre, on_delete=models.SET_NULL, related_name="genre", null=True, blank=True)
+        Genre, on_delete=models.SET_NULL,
+        related_name="genre", null=True, blank=True)
     description = models.TextField(blank=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     added = models.DateField(default=datetime.date.today)
@@ -45,7 +48,6 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
-
 
 
 class Post(models.Model):
@@ -75,7 +77,6 @@ class Post(models.Model):
 
     def number_of_likes(self):
         return self.likes.count()
-
 
 
 class Feedback(models.Model):

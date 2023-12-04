@@ -18,8 +18,10 @@ urlpatterns = [
     path('remove/<item_id>/', views.remove, name='remove'),
     path('add_product/', views.add_product, name='add_product'),
     path('add_author/', views.add_author, name='add_author'),
-    path('edit_product<int:product_id>/', views.edit_product, name='edit_product'),
-    path('delete_product<int:product_id>/', views.delete_product, name='delete_product'),
+    path('edit_product<int:product_id>/',
+         views.edit_product, name='edit_product'),
+    path('delete_product<int:product_id>/',
+         views.delete_product, name='delete_product'),
     path('blog/', views.blog, name='blog'),
     path('post_like<int:post_id>/', views.post_like, name='post_like'),
     path('blog_detail<int:post_id>', views.blog_detail, name='blog_detail'),
@@ -27,7 +29,7 @@ urlpatterns = [
     path('delete_review/<review_id>',
          views.delete_review, name='delete_review'),
     path('add_blogpost/', views.add_blogpost, name='add_blogpost'),
-   
+
 ]
 
 handler404 = 'babylon_books_app.views.handler404'

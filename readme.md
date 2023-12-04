@@ -686,3 +686,67 @@ There were minor issues to correct beyond this, including emtpy / stray tag, ele
 
 ![Image](static/images/readme_images/css_validator.JPG)
 
+
+## Tests - CI python linter
+
+- Code Institute used for python linter on .py pages in Babylon Books.  It was run through on .py pages to find small python errors , like unnecessary blank space / missing bracket etc.  No serious errors found.
+
+
+
+## Creation and deployment
+
+
+- Creation
+Starting from my github repos page  [Link](https://github.com/gazamcnulty?tab=repositories)  I created this via the standard process from the Code Institute tutorials, from the Code Institute -full-template for GitPod [Link](https://github.com/Code-Institute-Org/gitpod-full-template) GitHub. This was accessed by clicking on 'use this template' , choosing a name , description. After this I clicked create repository. this creates the repo, after which you can just click on the button to open GitPod workspace 
+
+- Deployment 
+The standard process to deploy a created github repo with the code institute gitpod template is by going to settings from the repo. Then 'pages' , 'sources' , 'Master Branch' and you can deploy from here. However for the purpose of this project it is deployed externally on Heroku app.
+more info here [Link](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
+
+To clone the repo you can copy the url from github directly. Use commnd line on windows of terminal on Mac to move it to local directory, then run "git clone" , paste copied url and press enter.
+More info here [Link](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+
+To fork the repo, simply navigate to the top of the github page press fork. choose a new owner, provide git hub username, name the new fork. you then choose whether to copy all default or all branches. click create fork to complete the process
+More info here [Link](https://docs.github.com/en/get-started/quickstart/fork-a-repo)
+
+
+To facilitate an external deployment with heroku this project was set up from the beginning with elephantSQL for database storage/migrations , cloudinary for media storage. When it has been deployed correctly on heroku, you need to turn Debug = 'False' in the settings, then run command python3 manage.py collectstatic to collect static data. Once this is all done, you push to github, then go to heroku, link it with the github repo, set the appropriate config variables and then in the 'deploy' section , hit 'deploy'. This then provides an external link so it can be accessed outside of the local environment, link can be shared for external access.
+
+The code institute documentation provides the full process for external Heroku deployment with cloudinary / elephantSQL are here for reference
+More info on deployment with django / heroku
+[Link](https://docs.google.com/document/d/1P5CWvS5cYalkQOLeQiijpSViDPogtKM7ZGyqK-yehhQ/edit#heading=h.5s9novsydyp1)
+
+
+
+## Technologies used
+
+**Main technologies used in code**
+
+- HTML
+- CSS
+- PYTHON
+- Javascript
+- Django
+- Bootstrap
+
+**External software / websites for project**
+
+- GitHub
+- GitPod
+- Code Institute Git Pod template [Link](https://github.com/Code-Institute-Org/gitpod-full-template )
+- ElephantSQL
+- Cloudinary
+- Heroku
+- Stripe for payments [Link](https://dashboard.stripe.com/test/dashboard )
+- W3C Markup HTML validator
+- W3 CSS validator
+- Techsini for multi screen mockup [Link](https://techsini.com/multi-mockup/index.php )
+- Termsfeed.com to create privacy policy [Link](https://app.termsfeed.com/download/44b56c02-e02a-4887-a833-1ea054d3bf22)
+- Code Institute Python Linter [Link](https://pep8ci.herokuapp.com/ )
+- Sitemaps.com to create xml file [Link](https://www.xml-sitemaps.com/ )
+- Google fonts for fonts  [Link](https://fonts.google.com/ )
+
+
+
+## Known errors / Bugs 
+
