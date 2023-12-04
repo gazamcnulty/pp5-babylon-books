@@ -60,7 +60,7 @@ a:hover {
     color: white !important;
 }
 
-#book_link {
+.book_link {
     color: rgb(255, 174, 0);
 }
 
@@ -84,7 +84,7 @@ ul {
 
 button {
     color: white !important;
-    background-color:  rgba(255, 174, 0, 0.632) !important;
+    background-color:  rgb(232, 232, 232) !important;
 }
 
 

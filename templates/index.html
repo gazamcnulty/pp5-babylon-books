@@ -114,10 +114,10 @@
                     <div class="col-12">
                         <div class="row home_book text-center my-5">
                             <div class="col-xxl-2 col-xl-3 col-md-4 col-sm-12 mx-auto">
-                                <a href="{% url 'book_detail' book.id %}?" id="book_link"><img src="{{ book.image.url }}" alt="{{ book.title }} cover" style="color:white;" class="w-75 h-100" id="book_image"></a>
+                                <a href="{% url 'book_detail' book.id %}?" class="book_link"><img src="{{ book.image.url }}" alt="{{ book.title }} cover" style="color:white;" class="w-75 h-100 book_image"></a>
                             </div>
                             <div class="col-md-3 col-sm-12">
-                                <a href="{% url 'book_detail' book.id %}" id="book_link"><h4>{{ book.title }}</h4></a>
+                                <a href="{% url 'book_detail' book.id %}" class="book_link"><h4>{{ book.title }}</h4></a>
                                 <p>Author: {{ book.author }}</p>
                                 <p>Genre: {{ book.genre }}</p>
                                 <p class="fs-5">Price: €{{ book.price }}</p>
