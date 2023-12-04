@@ -487,3 +487,7 @@ Superusers can see otherwise invisible managestore navbar links to add book , ad
 
  I have passed the majority of userstory tests. A few are considered fails due to technicality, design choices re-visitied during the agile process. A few I would like to add in future iteration like wishlist and author page.
 
+
+
+## Tests - Links, website validation
+Here I sought to check that all  links/pages all over the site are working properly, not just for the user to reach a new page but also for it to look correct in terms of css and responsiveness. I performed the test on chrome and changed screensize with chrome dev tools to check the responsiveness. 
