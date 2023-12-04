@@ -670,3 +670,19 @@ PageSpeed Insights in the chrome devtools lighthouse test, it checks each webpag
 
 W3C Markup Validation Service is used to determine the validity of the html docs. Due to the overlapping languages, python django, embedded javascript, it can result in errors which can be ignored.
 
+I ran the w3c and it found many errors pertaining to django / template language code. These can be ignored as it is a known issue, per the below screenshot.
+
+![Image](static/images/readme_images/w3c_error1.JPG)
+
+There were minor issues to correct beyond this, including emtpy / stray tag, elements without closing element or general typos. These have all been correcrted
+
+
+---
+
+
+## Tests - W3 CSS Validator
+
+- W3C CSS Validator examines the validity / merit of css style code located in static/css/style.css . It found no significant errors with Babylon Books css
+
+![Image](static/images/readme_images/css_validator.JPG)
+
