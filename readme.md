@@ -8,6 +8,12 @@
 **Link to project repository on Github**
 [Link](https://pp5-babylon-books-760a9235289e.herokuapp.com/)
 
+- account can be created via standard front facing form on website. if superuser access is required for assesment purposes, please use following credentials
+User: admin3
+Password: admin3password
+
+- alternatively, create new superuser with manage.py python3 createsuperuser ( you will need con confirm email verified in django )
+
 
 ## About
 
@@ -234,7 +240,14 @@ Further Screenshots of various pages on the website
 ![Image](static/images/readme_images/get_to_know.JPG)
 
 
-
+## Front facing E-commerce
+The site can be run in its entirety from the front end by super user / admin. Djano access can be used for extra access like database manipulation.
+For superusers to update store info
+- They can use 'add author' or 'add book' from the navbar, to add new book new item. ( note , if they want to add new book with new author, please create and save author first. then when creating new book, the author will be 
+an option in the list of authors for the new book)
+- They can edit existing books , in that books book_detail page. This allows them to edit book info, change linked author or delete the book entirely
+- All users have the same access to the stripe payments to purchase a book. Account is not required, but it is recommended. Users can only see thier own profile info
+- Users can delete reviews on books, but only their own
 
 
 
@@ -745,6 +758,8 @@ More info on deployment with django / heroku
 - Code Institute Python Linter [Link](https://pep8ci.herokuapp.com/ )
 - Sitemaps.com to create xml file [Link](https://www.xml-sitemaps.com/ )
 - Google fonts for fonts  [Link](https://fonts.google.com/ )
+- Pexels for images [Pexels](https://www.pexels.com/ )
+- Wikipedia for book info, author info, images [Wikipedia](https://www.wikipedia.org/ )
 
 
 
@@ -770,7 +785,17 @@ As it stands the Babylon Books project is mainly focused on E-commerce, with CRU
 
 
 
-## Sources
+## Sources 
+
+ **Media sources**
+ Photos from pexels and wikipedia. Information on books and authors from wikipedia. 
+
+ [Pexels](https://www.pexels.com/ )
+ [Wikipedia](https://www.wikipedia.org/ )
+
+
+
+ **Code sources**
 
 For the process of completing this project, I followed along with the Boutique Ado tutorials. This was necessary for the E-commerce parts of the project and related apps. It mainly comprises the content of 
 

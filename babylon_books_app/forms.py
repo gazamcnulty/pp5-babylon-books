@@ -22,7 +22,7 @@ class ProductForm(forms.ModelForm):
 class AuthorForm(forms.ModelForm):
     class Meta:
         model = Author
-        fields = ('name', 'info', 'books_written', 'image',)
+        fields = ('name', 'info', 'books_written', 'image', 'external_link')
 
 
 class PostForm(forms.ModelForm):
