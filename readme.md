@@ -625,27 +625,48 @@ PageSpeed Insights in the chrome devtools lighthouse test, it checks each webpag
 
 ![Image](static/images/readme_images/homepage_psi.JPG)
 
+---
 
 - Login 
 
 ![Image](static/images/readme_images/login_psi.JPG)
 
+---
+
 - Books
 
-![Image](static/images/readme_images/books_mobile_wireframe.JPG)
+![Image](static/images/readme_images/books_psi.JPG)
+
+---
 
 - About
 
 ![Image](static/images/readme_images/about_psi.JPG)
 
+---
+
 - Blog
 
 ![Image](static/images/readme_images/blog_psi.JPG)
+
+---
 
 - Profile
 
 ![Image](static/images/readme_images/profile_psi.JPG)
 
+---
+
 - Bag
 
 ![Image](static/images/readme_images/bag_psi.JPG)
+
+
+---
+
+
+
+## Tests -  W3C Markup Validation 
+
+W3C Markup Validation Service is used to determine the validity of the html docs. Due to the overlapping languages, python django, embedded javascript, it can result in errors which can be ignored.
+
