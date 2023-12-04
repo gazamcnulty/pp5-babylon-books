@@ -41,6 +41,7 @@ class Book(models.Model):
     added = models.DateField(default=datetime.date.today)
     image = models.ImageField(
         upload_to='images/', default='placeholder_image', blank=True)
+    external_link = models.URLField(blank=True, null=True)
     sku = models.CharField(max_length=254, null=True, blank=True)
 
     class Meta:

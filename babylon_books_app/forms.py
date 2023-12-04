@@ -7,7 +7,7 @@ class ProductForm(forms.ModelForm):
     class Meta:
         model = Book
         fields = ('title', 'genre', 'author', 'price',
-                  'description', 'added', 'image', )
+                  'description', 'added', 'image', 'external_link')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
