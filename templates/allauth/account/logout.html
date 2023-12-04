@@ -5,14 +5,14 @@
 {% block head_title %}{% trans "Sign Out" %}{% endblock %}
 
 {% block content %}
-<div class="row mb-5">
+<div class="row my-5-5">
   <h2 class="m-5 p-5">{% trans "Log out of Account" %}</h2>
   <div class="col-md-8 col-sm-12">
     <p class="fs-5 m-5">While you are logged out,  you won't be able to post comments or review your profile / order history info.<br>
     You will need to log back in , the next time you go to the website</p>
     <p class="fs-5 m-5">{% trans 'Are you sure you want to log out' %} {{user.username}} ?</p>
   </div>
-  <div class="col-md-4 col-sm-12">
+  <div class=" my-5 col-md-4 col-sm-12">
     <form method="post" action="{% url 'account_logout' %}">
       {% csrf_token %}
       {% if redirect_field_value %}
@@ -21,6 +21,7 @@
       <button id="logout_button" class="btn btn-lg m-5 p-2 text-center" type="submit">{% trans 'Sign Out' %}</button>
       <br>
       <br>
+      <div class="mb-3"></div>
     </form>
   </div>
 </div>
