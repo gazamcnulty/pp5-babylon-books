@@ -750,3 +750,62 @@ More info on deployment with django / heroku
 
 ## Known errors / Bugs 
 
+I am not aware of any significant bugs on the site that would require correction. 
+
+The most significant bug I did encounter, was a situation when the Book product item was deleted from the data base, causing a a 400 error on every page of the site. This happened becuase the session / cache would still believe the deleted item should be in the bag , but since it was deleted and non existent in the database it would cause a loop. This is something that can happen when manipulating databases in a browser environment, the fix is to either delete the session in chrome dev tools or simply full clear cache, cookies, history via chrome clear history option.
+It does not occur in normal practice , only when a superuser is deleting a data item at the same time it is in the session id, so it can be averted by simply doing during scheduled maintenance hours for the site, when users are not accessing it.
+
+## Future improvements
+
+There are a number of features which I am disappointed I did not get to implement in the project.
+
+- Wishlist
+Although its not super appropriate for the type of curated book selection that Babylon Books does, it could still be a cool feature for users to suggest what books they would like to see arrive on the site, it would also be useful data for store owners also.
+
+- Always on display bag
+Althoug the bag page is fully functional , it would be nice to have it display the number of items and total price at all times over a bag icon at the top of the page. I will look at this in future iterations.
+
+- More CRUD for standard users
+As it stands the Babylon Books project is mainly focused on E-commerce, with CRUD features for superusers to add / remove / edit items from the store. There is also limited CRUD functionality for standard users like books reviews and blogposts. However they cannot edit the reviews or the blogposts. They can delete the reviews, but not the blogposts. It would be possible for them to message admin team to request they delete content if needed but this is not an ideal solution. In future iterations I will fully implement this feature for users.
+
+
+
+## Sources
+
+For the process of completing this project, I followed along with the Boutique Ado tutorials. This was necessary for the E-commerce parts of the project and related apps. It mainly comprises the content of 
+
+- checkout app , models, views, templates
+- profiles app, models, views, templates
+- allauth set up
+- snippets.js
+- manage.py
+- includes / toasts
+
+
+I am aware it is standard process to follow along with the tutorials as part of the project and its to be expected that the CI code would be included in the project , but I wanted to as thorough and comprehensive as possible when listing any and all sources.
+[Link](https://github.com/Code-Institute-Solutions/boutique_ado_v1/tree/250e2c2b8e43cccb56b4721cd8a8bd4de6686546 )
+
+I have tried to capture every instance of tutorial being followed along with in my own project and I have listed them all in a separate sources page here [Link](sources.md ) There may be some missing parts, or slight variations due to differing names for variables / models etc - but the vast majority of the new guidance specific to E-commerce / payments was followed closely and utilised in my own project.
+
+I also used parts of my previous project pp4 
+[Link]( https://github.com/gazamcnulty/pp4-plant-based-ireland )
+
+I also followed along with full stack code institute django tutorials [Link]( https://github.com/Code-Institute-Solutions/Django3blog/tree/master/11_messages )  and multiple youtube tutorials on django. 
+[Link]( https://www.youtube.com/watch?v=PtQiiknWUcI&list=PLi9Mnuz2f6jG9dH-No_utZO72gAOrJZbm&index=5&t=8094s&ab_channel=TraversyMedia )
+[Link]( https://github.com/divanov11/StudyBud/ )
+
+Non-allauth login/logout, restricted pages
+[Link](  https://www.youtube.com/watch?v=PtQiiknWUcI&list=PLi9Mnuz2f6jG9dH-No_utZO72gAOrJZbm&index=5&t=8094s&ab_channel=TraversyMedia )
+
+Linking to unique database details on per-post basis
+[Link]( https://stackoverflow.com/questions/70140385/how-do-i-create-link-for-details-in-each-post )
+
+Django docs on pagination
+[Link]( https://docs.djangoproject.com/en/4.2/topics/pagination/ )
+
+
+
+
+## Acknowledgements
+
+Special thanks to my mentor Brian Macharia for advice and providing project examples . W3 web pages and youtube tutorials form channels Traversy Media + Very Academy from while working on this project. Code Institute tutors Rebecca , Oisin, Sean for direct assistance. 
